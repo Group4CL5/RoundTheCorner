@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Menu Details</h1>
+
+<form>
+    <h4>Entree</h4>
+    <table class=" table table-sm table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Item Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Qty</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>item 1</td>
+                <td> blah blah blah </td>
+                <td>1000000</td>
+                <td><input type="number" class="form-control" /></td>
+            </tr>
+            <tr>
+                <td>item 2</td>
+                <td>socks chair button</td>
+                <td>3000</td>
+                <td><input type="number" class="form-control" /></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h4>Drinks</h4>
+    <table class=" table table-sm table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Item Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Qty</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>item 1</td>
+                <td> blah blah blah </td>
+                <td>1000000</td>
+                <td><input type="number" class="form-control" min="0" max="10" /></td>
+            </tr>
+            <tr>
+                <td>item 2</td>
+                <td>socks chair button</td>
+                <td>3000</td>
+                <td><input type="number" class="form-control" min="0" max="10" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <button class="btn btn-primary">Place Order</button>
+</form>
