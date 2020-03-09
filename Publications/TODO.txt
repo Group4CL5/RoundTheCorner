@@ -1,0 +1,16 @@
+
+
+
+[1] Map/ Partial View for Home Page
+[2] Drop the registration(truck) at bottom
+[3] About Us (map it)
+[3] Place Order leads to 3rd Party Website
+[4] Admin Page(because we register the vendors ourselves and
+		we give em the accout/permissions)
+
+[5] Implement GoogleMaps
+
+
+GET RID OF
+[1] Continue as GUest
+[2] Is Truck? (were focusing on trucks)
