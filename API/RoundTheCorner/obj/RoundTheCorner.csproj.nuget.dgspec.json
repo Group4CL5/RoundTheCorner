@@ -1,23 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Francisco\\Documents\\GitHub\\RoundTheCorner\\API\\RoundTheCorner\\RoundTheCorner.csproj": {}
+    "C:\\Users\\fsant\\Documents\\GitHub\\RoundTheCorner\\API\\RoundTheCorner\\RoundTheCorner.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Francisco\\Documents\\GitHub\\RoundTheCorner\\API\\RoundTheCorner\\RoundTheCorner.csproj": {
+    "C:\\Users\\fsant\\Documents\\GitHub\\RoundTheCorner\\API\\RoundTheCorner\\RoundTheCorner.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Francisco\\Documents\\GitHub\\RoundTheCorner\\API\\RoundTheCorner\\RoundTheCorner.csproj",
+        "projectUniqueName": "C:\\Users\\fsant\\Documents\\GitHub\\RoundTheCorner\\API\\RoundTheCorner\\RoundTheCorner.csproj",
         "projectName": "RoundTheCorner",
-        "projectPath": "C:\\Users\\Francisco\\Documents\\GitHub\\RoundTheCorner\\API\\RoundTheCorner\\RoundTheCorner.csproj",
-        "packagesPath": "C:\\Users\\Francisco\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Francisco\\Documents\\GitHub\\RoundTheCorner\\API\\RoundTheCorner\\obj\\",
+        "projectPath": "C:\\Users\\fsant\\Documents\\GitHub\\RoundTheCorner\\API\\RoundTheCorner\\RoundTheCorner.csproj",
+        "packagesPath": "C:\\Users\\fsant\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\fsant\\Documents\\GitHub\\RoundTheCorner\\API\\RoundTheCorner\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Francisco\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\fsant\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -42,9 +43,31 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer.Design": {
+              "target": "Package",
+              "version": "[1.1.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.2, )"
+            },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[3.1.1, )"
+            },
+            "PayPal": {
+              "target": "Package",
+              "version": "[1.9.1, )"
+            },
+            "Xam.Plugin.Geolocator": {
+              "target": "Package",
+              "version": "[4.5.0.6, )"
             }
           },
           "imports": [
@@ -65,7 +88,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -89,5 +89,16 @@ namespace RoundTheCorner.Controllers
                 return View();
             }
         }
+
+        // Diagrams for Project 8
+        public ActionResult AddVendor(vendor Vendor) => View();
+        public ActionResult AddEmployee(int userID, int vendorID) => View();
+        public ActionResult PutEmployee(int userID, int vendorID) => View();
+        public ActionResult GetEmployee(int userID, int vendorID) => View();
+        public ActionResult GetEmployees(int vendorID) => View();
+        public ActionResult PutVendor(vendor vendor) => View();
+        public ActionResult DeactivateVendor(int vendorID) => View();
+        public ActionResult VendorTracker(int vendorID) => View();
+
     }
 }
