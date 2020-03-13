@@ -1,0 +1,10 @@
+C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.PL\bin\Debug\RoundTheCorner.PL.dll.config
+C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.PL\bin\Debug\RoundTheCorner.PL.dll
+C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.PL\bin\Debug\RoundTheCorner.PL.pdb
+C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.PL\bin\Debug\EntityFramework.dll
+C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.PL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.PL\bin\Debug\EntityFramework.xml
+C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.PL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.PL\obj\Debug\RoundTheCorner.PL.csproj.CopyComplete
+C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.PL\obj\Debug\RoundTheCorner.PL.dll
+C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.PL\obj\Debug\RoundTheCorner.PL.pdb

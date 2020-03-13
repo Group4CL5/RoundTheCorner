@@ -1,0 +1,83 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.bg-dark {
+    background-color: rebeccapurple !important;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(102, 51, 153, 1) 35%);
+    color: white;
+}
+
+.bg-dark li a:hover{
+    color:antiquewhite;
+}
+
+.header {
+    margin: 0px;
+    padding: 0px;
+    background-color: rebeccapurple;
+}
+
+.header h1, .header h2, .header h3 {
+    margin: 0px;
+    padding: 0px 0px 0px 10px;
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+header img{
+    float: left;
+    display: block;
+}
+
+.navbar-brand{
+    margin-left: 20px; 
+}
+
+footer {
+    width: 100%;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    padding: 20px 0px 20px 0px;
+}
+
+.dark-footer{
+    background-color: lightgray;
+    color: slategrey;
+}
+
+.dark-footer div a:hover{
+    color: rebeccapurple;
+}
+
+body, html {
+    height: 100%;
+}
+
+.wrapper {
+    min-height: 100%;
+    position: relative;
+}

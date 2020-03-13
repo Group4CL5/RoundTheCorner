@@ -1,0 +1,4 @@
+C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL.Models\bin\Debug\RoundTheCorner.BL.Models.dll
+C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL.Models\bin\Debug\RoundTheCorner.BL.Models.pdb
+C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL.Models\obj\Debug\RoundTheCorner.BL.Models.dll
+C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL.Models\obj\Debug\RoundTheCorner.BL.Models.pdb
