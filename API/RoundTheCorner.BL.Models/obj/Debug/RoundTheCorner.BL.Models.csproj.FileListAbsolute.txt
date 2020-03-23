@@ -2,3 +2,10 @@ C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL.Models\bin\
 C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL.Models\bin\Debug\RoundTheCorner.BL.Models.pdb
 C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL.Models\obj\Debug\RoundTheCorner.BL.Models.dll
 C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL.Models\obj\Debug\RoundTheCorner.BL.Models.pdb
+C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL.Models\bin\Debug\RoundTheCorner.BL.Models.dll.config
+C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL.Models\bin\Debug\EntityFramework.dll
+C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL.Models\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL.Models\bin\Debug\EntityFramework.xml
+C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL.Models\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL.Models\obj\Debug\RoundTheCorner.BL.Models.csprojAssemblyReference.cache
+C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL.Models\obj\Debug\RoundTheCorner.BL.Models.csproj.CopyComplete
