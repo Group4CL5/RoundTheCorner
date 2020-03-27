@@ -25,16 +25,15 @@ namespace RoundTheCorner.PL
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TblCuisine> TblCuisines { get; set; }
         public virtual DbSet<TblMenuItem> TblMenuItems { get; set; }
         public virtual DbSet<TblMenu> TblMenus { get; set; }
         public virtual DbSet<TblMenuSection> TblMenuSections { get; set; }
+        public virtual DbSet<TblOrderItem> TblOrderItems { get; set; }
         public virtual DbSet<TblOrder> TblOrders { get; set; }
         public virtual DbSet<TblReview> TblReviews { get; set; }
         public virtual DbSet<TblUser> TblUsers { get; set; }
-        public virtual DbSet<TblVendor> TblVendors { get; set; }
-        public virtual DbSet<TblOrderItem> TblOrderItems { get; set; }
         public virtual DbSet<TblVendorLocation> TblVendorLocations { get; set; }
+        public virtual DbSet<TblVendor> TblVendors { get; set; }
     }
 }

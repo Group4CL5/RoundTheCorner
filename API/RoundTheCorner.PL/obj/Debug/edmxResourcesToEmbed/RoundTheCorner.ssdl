@@ -1,15 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="RoundTheCornerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="version" Type="int" />
-    <Property Name="definition" Type="varbinary(max)" />
-  </EntityType>
   <EntityType Name="TblCuisine">
     <Key>
       <PropertyRef Name="CuisineID" />
@@ -46,13 +36,10 @@
     <Property Name="MenuID" Type="int" Nullable="false" />
     <Property Name="DisplayOrderNum" Type="int" Nullable="false" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'RoundTheCorner.dbo.TblOrderItems' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="TblOrderItems">
     <Key>
       <PropertyRef Name="orderItemID" />
       <PropertyRef Name="menuItemId" />
-      <PropertyRef Name="price" />
     </Key>
     <Property Name="orderItemID" Type="int" Nullable="false" />
     <Property Name="menuItemId" Type="int" Nullable="false" />
@@ -88,10 +75,9 @@ warning 6002: The table/view 'RoundTheCorner.dbo.TblOrderItems' does not have a 
     <Property Name="DOB" Type="date" />
     <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="phone" Type="nvarchar" MaxLength="15" />
-    <Property Name="password" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="password" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="deactivated" Type="bit" Nullable="false" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'RoundTheCorner.dbo.TblVendorEmployees' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="TblVendorEmployees">
     <Key>
       <PropertyRef Name="userID" />
@@ -100,14 +86,10 @@ warning 6002: The table/view 'RoundTheCorner.dbo.TblVendorEmployees' does not ha
     <Property Name="userID" Type="int" Nullable="false" />
     <Property Name="vendorID" Type="int" Nullable="false" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'RoundTheCorner.dbo.TblVendorLocation' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="TblVendorLocation">
     <Key>
       <PropertyRef Name="VendorID" />
       <PropertyRef Name="datetime" />
-      <PropertyRef Name="locationX" />
-      <PropertyRef Name="locationY" />
     </Key>
     <Property Name="VendorID" Type="int" Nullable="false" />
     <Property Name="datetime" Type="datetime" Nullable="false" />
@@ -308,36 +290,17 @@ warning 6002: The table/view 'RoundTheCorner.dbo.TblVendorLocation' does not hav
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="RoundTheCornerModelStoreContainer">
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TblCuisine" EntityType="Self.TblCuisine" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TblMenuItem" EntityType="Self.TblMenuItem" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TblMenus" EntityType="Self.TblMenus" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TblMenuSection" EntityType="Self.TblMenuSection" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblOrderItems" EntityType="Self.TblOrderItems" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TblOrders" EntityType="Self.TblOrders" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TblReview" EntityType="Self.TblReview" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TblUser" EntityType="Self.TblUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblVendorEmployees" EntityType="Self.TblVendorEmployees" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblVendorLocation" EntityType="Self.TblVendorLocation" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TblVendors" EntityType="Self.TblVendors" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="TblOrderItems" EntityType="Self.TblOrderItems" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [TblOrderItems].[orderItemID] AS [orderItemID], 
-    [TblOrderItems].[menuItemId] AS [menuItemId], 
-    [TblOrderItems].[price] AS [price]
-    FROM [dbo].[TblOrderItems] AS [TblOrderItems]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="TblVendorEmployees" EntityType="Self.TblVendorEmployees" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [TblVendorEmployees].[userID] AS [userID], 
-    [TblVendorEmployees].[vendorID] AS [vendorID]
-    FROM [dbo].[TblVendorEmployees] AS [TblVendorEmployees]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="TblVendorLocation" EntityType="Self.TblVendorLocation" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [TblVendorLocation].[VendorID] AS [VendorID], 
-    [TblVendorLocation].[datetime] AS [datetime], 
-    [TblVendorLocation].[locationX] AS [locationX], 
-    [TblVendorLocation].[locationY] AS [locationY]
-    FROM [dbo].[TblVendorLocation] AS [TblVendorLocation]</DefiningQuery>
-    </EntitySet>
     <AssociationSet Name="FK_Categories_Categories" Association="Self.FK_Categories_Categories">
       <End Role="TblVendors" EntitySet="TblVendors" />
       <End Role="TblCuisine" EntitySet="TblCuisine" />

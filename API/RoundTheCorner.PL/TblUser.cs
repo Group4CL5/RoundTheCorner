@@ -30,6 +30,7 @@ namespace RoundTheCorner.PL
         public string email { get; set; }
         public string phone { get; set; }
         public string password { get; set; }
+        public bool deactivated { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TblOrder> TblOrders { get; set; }

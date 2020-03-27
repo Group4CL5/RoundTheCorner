@@ -4,18 +4,17 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="5e57c492673a4b1f984e7d17b4dafd9b" Name="Diagram1">
-        <EntityTypeShape EntityType="RoundTheCornerModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+      <Diagram DiagramId="ec38d8422ba146e280f6b531c1873107" Name="Diagram1">
         <EntityTypeShape EntityType="RoundTheCornerModel.TblCuisine" Width="1.5" PointX="5.25" PointY="13.125" IsExpanded="true" />
         <EntityTypeShape EntityType="RoundTheCornerModel.TblMenuItem" Width="1.5" PointX="9.75" PointY="17" IsExpanded="true" />
         <EntityTypeShape EntityType="RoundTheCornerModel.TblMenu" Width="1.5" PointX="5.25" PointY="15.625" IsExpanded="true" />
         <EntityTypeShape EntityType="RoundTheCornerModel.TblMenuSection" Width="1.5" PointX="7.5" PointY="19.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="RoundTheCornerModel.TblOrder" Width="1.5" PointX="5.25" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="RoundTheCornerModel.TblOrderItem" Width="1.5" PointX="12" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RoundTheCornerModel.TblOrder" Width="1.5" PointX="5.25" PointY="9.5" IsExpanded="true" />
         <EntityTypeShape EntityType="RoundTheCornerModel.TblReview" Width="1.5" PointX="8.25" PointY="12.5" IsExpanded="true" />
         <EntityTypeShape EntityType="RoundTheCornerModel.TblUser" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="RoundTheCornerModel.TblVendor" Width="1.5" PointX="3" PointY="14.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="RoundTheCornerModel.TblOrderItem" Width="1.5" PointX="12" PointY="13.75" IsExpanded="true" />
         <EntityTypeShape EntityType="RoundTheCornerModel.TblVendorLocation" Width="1.5" PointX="5.25" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RoundTheCornerModel.TblVendor" Width="1.5" PointX="3" PointY="14.875" IsExpanded="true" />
         <AssociationConnector Association="RoundTheCornerModel.FK_Categories_Categories" ManuallyRouted="false" />
         <AssociationConnector Association="RoundTheCornerModel.FK_MenuItem_Menus" ManuallyRouted="false" />
         <AssociationConnector Association="RoundTheCornerModel.FK_MenuItem_Menus1" ManuallyRouted="false" />

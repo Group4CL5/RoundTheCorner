@@ -16,3 +16,20 @@ C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL\obj\Debug\R
 C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL\obj\Debug\RoundTheCorner.BL.pdb
 C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL\bin\Debug\RoundTheCorner.BL.Models.dll.config
 C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL\obj\Debug\RoundTheCorner.BL.csproj.CoreCompileInputs.cache
+C:\Users\Owner\Documents\Visual Studio 2019\Projects\RoundTheCorner\API\RoundTheCorner.BL\bin\Debug\RoundTheCorner.BL.dll.config
+C:\Users\Owner\Documents\Visual Studio 2019\Projects\RoundTheCorner\API\RoundTheCorner.BL\bin\Debug\RoundTheCorner.BL.dll
+C:\Users\Owner\Documents\Visual Studio 2019\Projects\RoundTheCorner\API\RoundTheCorner.BL\bin\Debug\RoundTheCorner.BL.pdb
+C:\Users\Owner\Documents\Visual Studio 2019\Projects\RoundTheCorner\API\RoundTheCorner.BL\bin\Debug\EntityFramework.dll
+C:\Users\Owner\Documents\Visual Studio 2019\Projects\RoundTheCorner\API\RoundTheCorner.BL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Owner\Documents\Visual Studio 2019\Projects\RoundTheCorner\API\RoundTheCorner.BL\bin\Debug\RoundTheCorner.BL.Models.dll
+C:\Users\Owner\Documents\Visual Studio 2019\Projects\RoundTheCorner\API\RoundTheCorner.BL\bin\Debug\RoundTheCorner.PL.dll
+C:\Users\Owner\Documents\Visual Studio 2019\Projects\RoundTheCorner\API\RoundTheCorner.BL\bin\Debug\RoundTheCorner.BL.Models.pdb
+C:\Users\Owner\Documents\Visual Studio 2019\Projects\RoundTheCorner\API\RoundTheCorner.BL\bin\Debug\RoundTheCorner.PL.pdb
+C:\Users\Owner\Documents\Visual Studio 2019\Projects\RoundTheCorner\API\RoundTheCorner.BL\bin\Debug\RoundTheCorner.PL.dll.config
+C:\Users\Owner\Documents\Visual Studio 2019\Projects\RoundTheCorner\API\RoundTheCorner.BL\bin\Debug\EntityFramework.xml
+C:\Users\Owner\Documents\Visual Studio 2019\Projects\RoundTheCorner\API\RoundTheCorner.BL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Owner\Documents\Visual Studio 2019\Projects\RoundTheCorner\API\RoundTheCorner.BL\obj\Debug\RoundTheCorner.BL.csprojAssemblyReference.cache
+C:\Users\Owner\Documents\Visual Studio 2019\Projects\RoundTheCorner\API\RoundTheCorner.BL\obj\Debug\RoundTheCorner.BL.csproj.CoreCompileInputs.cache
+C:\Users\Owner\Documents\Visual Studio 2019\Projects\RoundTheCorner\API\RoundTheCorner.BL\obj\Debug\RoundTheCorner.BL.csproj.CopyComplete
+C:\Users\Owner\Documents\Visual Studio 2019\Projects\RoundTheCorner\API\RoundTheCorner.BL\obj\Debug\RoundTheCorner.BL.dll
+C:\Users\Owner\Documents\Visual Studio 2019\Projects\RoundTheCorner\API\RoundTheCorner.BL\obj\Debug\RoundTheCorner.BL.pdb

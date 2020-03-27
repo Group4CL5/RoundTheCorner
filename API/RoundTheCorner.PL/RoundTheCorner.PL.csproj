@@ -69,9 +69,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RoundTheCorner.edmx</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagram.cs">
-      <DependentUpon>RoundTheCorner.tt</DependentUpon>
-    </Compile>
     <Compile Include="TblCuisine.cs">
       <DependentUpon>RoundTheCorner.tt</DependentUpon>
     </Compile>

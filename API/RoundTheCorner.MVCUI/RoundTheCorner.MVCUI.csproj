@@ -361,7 +361,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RoundTheCorner.BL.Models\RoundTheCorner.BL.Models.csproj">
-      <Project>{8697becf-f9f8-42e6-88f6-b975eae4dffd}</Project>
+      <Project>{505c96a2-e66e-4c69-bdff-6b24a3a7f2fc}</Project>
       <Name>RoundTheCorner.BL.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\RoundTheCorner.BL\RoundTheCorner.BL.csproj">

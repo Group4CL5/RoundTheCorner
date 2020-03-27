@@ -14,5 +14,8 @@ namespace RoundTheCorner.BL.Models
         public DateTime DOB { get; set; }
         public string phone { get; set; }
         public string password { get; set; }
+
+        // 0 for active and 1 for deactivated
+        public bool deactivated { get; set; }
     }
 }

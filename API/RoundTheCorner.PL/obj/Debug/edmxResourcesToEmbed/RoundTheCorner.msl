@@ -1,17 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="RoundTheCornerModelStoreContainer" CdmEntityContainer="RoundTheCornerEntities">
-    <EntitySetMapping Name="sysdiagrams">
-      <EntityTypeMapping TypeName="RoundTheCornerModel.sysdiagram">
-        <MappingFragment StoreEntitySet="sysdiagrams">
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-          <ScalarProperty Name="version" ColumnName="version" />
-          <ScalarProperty Name="definition" ColumnName="definition" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="TblCuisines">
       <EntityTypeMapping TypeName="RoundTheCornerModel.TblCuisine">
         <MappingFragment StoreEntitySet="TblCuisine">
@@ -52,6 +41,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="TblOrderItems">
+      <EntityTypeMapping TypeName="RoundTheCornerModel.TblOrderItem">
+        <MappingFragment StoreEntitySet="TblOrderItems">
+          <ScalarProperty Name="orderItemID" ColumnName="orderItemID" />
+          <ScalarProperty Name="menuItemId" ColumnName="menuItemId" />
+          <ScalarProperty Name="price" ColumnName="price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="TblOrders">
       <EntityTypeMapping TypeName="RoundTheCornerModel.TblOrder">
         <MappingFragment StoreEntitySet="TblOrders">
@@ -84,6 +82,17 @@
           <ScalarProperty Name="email" ColumnName="email" />
           <ScalarProperty Name="phone" ColumnName="phone" />
           <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="deactivated" ColumnName="deactivated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblVendorLocations">
+      <EntityTypeMapping TypeName="RoundTheCornerModel.TblVendorLocation">
+        <MappingFragment StoreEntitySet="TblVendorLocation">
+          <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+          <ScalarProperty Name="datetime" ColumnName="datetime" />
+          <ScalarProperty Name="locationX" ColumnName="locationX" />
+          <ScalarProperty Name="locationY" ColumnName="locationY" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -98,25 +107,6 @@
           <ScalarProperty Name="inspectionDate" ColumnName="inspectionDate" />
           <ScalarProperty Name="bio" ColumnName="bio" />
           <ScalarProperty Name="Website" ColumnName="Website" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="TblOrderItems">
-      <EntityTypeMapping TypeName="RoundTheCornerModel.TblOrderItem">
-        <MappingFragment StoreEntitySet="TblOrderItems">
-          <ScalarProperty Name="orderItemID" ColumnName="orderItemID" />
-          <ScalarProperty Name="menuItemId" ColumnName="menuItemId" />
-          <ScalarProperty Name="price" ColumnName="price" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="TblVendorLocations">
-      <EntityTypeMapping TypeName="RoundTheCornerModel.TblVendorLocation">
-        <MappingFragment StoreEntitySet="TblVendorLocation">
-          <ScalarProperty Name="VendorID" ColumnName="VendorID" />
-          <ScalarProperty Name="datetime" ColumnName="datetime" />
-          <ScalarProperty Name="locationX" ColumnName="locationX" />
-          <ScalarProperty Name="locationY" ColumnName="locationY" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

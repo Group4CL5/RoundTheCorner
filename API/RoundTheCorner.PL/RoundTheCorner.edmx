@@ -4,17 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="RoundTheCornerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
+    <Schema Namespace="RoundTheCornerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="TblCuisine">
           <Key>
             <PropertyRef Name="CuisineID" />
@@ -51,13 +41,10 @@
           <Property Name="MenuID" Type="int" Nullable="false" />
           <Property Name="DisplayOrderNum" Type="int" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'RoundTheCorner.dbo.TblOrderItems' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TblOrderItems">
           <Key>
             <PropertyRef Name="orderItemID" />
             <PropertyRef Name="menuItemId" />
-            <PropertyRef Name="price" />
           </Key>
           <Property Name="orderItemID" Type="int" Nullable="false" />
           <Property Name="menuItemId" Type="int" Nullable="false" />
@@ -93,10 +80,9 @@ warning 6002: The table/view 'RoundTheCorner.dbo.TblOrderItems' does not have a 
           <Property Name="DOB" Type="date" />
           <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="phone" Type="nvarchar" MaxLength="15" />
-          <Property Name="password" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="32" Nullable="false" />
+          <Property Name="deactivated" Type="bit" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'RoundTheCorner.dbo.TblVendorEmployees' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TblVendorEmployees">
           <Key>
             <PropertyRef Name="userID" />
@@ -105,14 +91,10 @@ warning 6002: The table/view 'RoundTheCorner.dbo.TblVendorEmployees' does not ha
           <Property Name="userID" Type="int" Nullable="false" />
           <Property Name="vendorID" Type="int" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'RoundTheCorner.dbo.TblVendorLocation' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TblVendorLocation">
           <Key>
             <PropertyRef Name="VendorID" />
             <PropertyRef Name="datetime" />
-            <PropertyRef Name="locationX" />
-            <PropertyRef Name="locationY" />
           </Key>
           <Property Name="VendorID" Type="int" Nullable="false" />
           <Property Name="datetime" Type="datetime" Nullable="false" />
@@ -313,36 +295,17 @@ warning 6002: The table/view 'RoundTheCorner.dbo.TblVendorLocation' does not hav
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="RoundTheCornerModelStoreContainer">
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblCuisine" EntityType="Self.TblCuisine" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblMenuItem" EntityType="Self.TblMenuItem" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblMenus" EntityType="Self.TblMenus" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblMenuSection" EntityType="Self.TblMenuSection" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblOrderItems" EntityType="Self.TblOrderItems" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblOrders" EntityType="Self.TblOrders" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblReview" EntityType="Self.TblReview" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblUser" EntityType="Self.TblUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblVendorEmployees" EntityType="Self.TblVendorEmployees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblVendorLocation" EntityType="Self.TblVendorLocation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblVendors" EntityType="Self.TblVendors" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TblOrderItems" EntityType="Self.TblOrderItems" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [TblOrderItems].[orderItemID] AS [orderItemID], 
-    [TblOrderItems].[menuItemId] AS [menuItemId], 
-    [TblOrderItems].[price] AS [price]
-    FROM [dbo].[TblOrderItems] AS [TblOrderItems]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="TblVendorEmployees" EntityType="Self.TblVendorEmployees" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [TblVendorEmployees].[userID] AS [userID], 
-    [TblVendorEmployees].[vendorID] AS [vendorID]
-    FROM [dbo].[TblVendorEmployees] AS [TblVendorEmployees]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="TblVendorLocation" EntityType="Self.TblVendorLocation" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [TblVendorLocation].[VendorID] AS [VendorID], 
-    [TblVendorLocation].[datetime] AS [datetime], 
-    [TblVendorLocation].[locationX] AS [locationX], 
-    [TblVendorLocation].[locationY] AS [locationY]
-    FROM [dbo].[TblVendorLocation] AS [TblVendorLocation]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="FK_Categories_Categories" Association="Self.FK_Categories_Categories">
             <End Role="TblVendors" EntitySet="TblVendors" />
             <End Role="TblCuisine" EntitySet="TblCuisine" />
@@ -404,21 +367,10 @@ warning 6002: The table/view 'RoundTheCorner.dbo.TblVendorLocation' does not hav
             <End Role="TblVendors" EntitySet="TblVendors" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="RoundTheCornerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
         <EntityType Name="TblCuisine">
           <Key>
             <PropertyRef Name="CuisineID" />
@@ -464,6 +416,17 @@ warning 6002: The table/view 'RoundTheCorner.dbo.TblVendorLocation' does not hav
           <NavigationProperty Name="TblMenuItems" Relationship="Self.FK_MenuItem_Menus" FromRole="TblMenuSection" ToRole="TblMenuItem" />
           <NavigationProperty Name="TblMenu" Relationship="Self.FK_MenuSection_Menus" FromRole="TblMenuSection" ToRole="TblMenus" />
         </EntityType>
+        <EntityType Name="TblOrderItem">
+          <Key>
+            <PropertyRef Name="orderItemID" />
+            <PropertyRef Name="menuItemId" />
+          </Key>
+          <Property Name="orderItemID" Type="Int32" Nullable="false" />
+          <Property Name="menuItemId" Type="Int32" Nullable="false" />
+          <Property Name="price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <NavigationProperty Name="TblMenuItem" Relationship="Self.FK_OrderItems_MenuItem" FromRole="TblOrderItems" ToRole="TblMenuItem" />
+          <NavigationProperty Name="TblOrder" Relationship="Self.FK_OrderItems_Orders" FromRole="TblOrderItems" ToRole="TblOrders" />
+        </EntityType>
         <EntityType Name="TblOrder">
           <Key>
             <PropertyRef Name="orderID" />
@@ -499,11 +462,23 @@ warning 6002: The table/view 'RoundTheCorner.dbo.TblVendorLocation' does not hav
           <Property Name="DOB" Type="DateTime" Precision="0" />
           <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="phone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
-          <Property Name="password" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="deactivated" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="TblOrders" Relationship="Self.FK_Orders_User" FromRole="TblUser" ToRole="TblOrders" />
           <NavigationProperty Name="TblReviews" Relationship="Self.FK_Review_User" FromRole="TblUser" ToRole="TblReview" />
           <NavigationProperty Name="TblVendors" Relationship="Self.FK_Vendors_User" FromRole="TblUser" ToRole="TblVendors" />
           <NavigationProperty Name="TblVendors1" Relationship="Self.TblVendorEmployees" FromRole="TblUser" ToRole="TblVendors" />
+        </EntityType>
+        <EntityType Name="TblVendorLocation">
+          <Key>
+            <PropertyRef Name="VendorID" />
+            <PropertyRef Name="datetime" />
+          </Key>
+          <Property Name="VendorID" Type="Int32" Nullable="false" />
+          <Property Name="datetime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="locationX" Type="Int32" Nullable="false" />
+          <Property Name="locationY" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TblVendor" Relationship="Self.FK_VendorLocation_Vendors" FromRole="TblVendorLocation" ToRole="TblVendors" />
         </EntityType>
         <EntityType Name="TblVendor">
           <Key>
@@ -524,31 +499,6 @@ warning 6002: The table/view 'RoundTheCorner.dbo.TblVendorLocation' does not hav
           <NavigationProperty Name="TblUser" Relationship="Self.FK_Vendors_User" FromRole="TblVendors" ToRole="TblUser" />
           <NavigationProperty Name="TblVendorLocations" Relationship="Self.FK_VendorLocation_Vendors" FromRole="TblVendors" ToRole="TblVendorLocation" />
           <NavigationProperty Name="TblUsers" Relationship="Self.TblVendorEmployees" FromRole="TblVendors" ToRole="TblUser" />
-        </EntityType>
-        <EntityType Name="TblOrderItem">
-          <Key>
-            <PropertyRef Name="orderItemID" />
-            <PropertyRef Name="menuItemId" />
-            <PropertyRef Name="price" />
-          </Key>
-          <Property Name="orderItemID" Type="Int32" Nullable="false" />
-          <Property Name="menuItemId" Type="Int32" Nullable="false" />
-          <Property Name="price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <NavigationProperty Name="TblMenuItem" Relationship="Self.FK_OrderItems_MenuItem" FromRole="TblOrderItems" ToRole="TblMenuItem" />
-          <NavigationProperty Name="TblOrder" Relationship="Self.FK_OrderItems_Orders" FromRole="TblOrderItems" ToRole="TblOrders" />
-        </EntityType>
-        <EntityType Name="TblVendorLocation">
-          <Key>
-            <PropertyRef Name="VendorID" />
-            <PropertyRef Name="datetime" />
-            <PropertyRef Name="locationX" />
-            <PropertyRef Name="locationY" />
-          </Key>
-          <Property Name="VendorID" Type="Int32" Nullable="false" />
-          <Property Name="datetime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="locationX" Type="Int32" Nullable="false" />
-          <Property Name="locationY" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="TblVendor" Relationship="Self.FK_VendorLocation_Vendors" FromRole="TblVendorLocation" ToRole="TblVendors" />
         </EntityType>
         <Association Name="FK_Categories_Categories">
           <End Role="TblVendors" Type="Self.TblVendor" Multiplicity="1" />
@@ -711,17 +661,16 @@ warning 6002: The table/view 'RoundTheCorner.dbo.TblVendorLocation' does not hav
           <End Role="TblVendors" Type="Self.TblVendor" Multiplicity="*" />
         </Association>
         <EntityContainer Name="RoundTheCornerEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="TblCuisines" EntityType="Self.TblCuisine" />
           <EntitySet Name="TblMenuItems" EntityType="Self.TblMenuItem" />
           <EntitySet Name="TblMenus" EntityType="Self.TblMenu" />
           <EntitySet Name="TblMenuSections" EntityType="Self.TblMenuSection" />
+          <EntitySet Name="TblOrderItems" EntityType="Self.TblOrderItem" />
           <EntitySet Name="TblOrders" EntityType="Self.TblOrder" />
           <EntitySet Name="TblReviews" EntityType="Self.TblReview" />
           <EntitySet Name="TblUsers" EntityType="Self.TblUser" />
-          <EntitySet Name="TblVendors" EntityType="Self.TblVendor" />
-          <EntitySet Name="TblOrderItems" EntityType="Self.TblOrderItem" />
           <EntitySet Name="TblVendorLocations" EntityType="Self.TblVendorLocation" />
+          <EntitySet Name="TblVendors" EntityType="Self.TblVendor" />
           <AssociationSet Name="FK_Categories_Categories" Association="Self.FK_Categories_Categories">
             <End Role="TblVendors" EntitySet="TblVendors" />
             <End Role="TblCuisine" EntitySet="TblCuisines" />
@@ -785,17 +734,6 @@ warning 6002: The table/view 'RoundTheCorner.dbo.TblVendorLocation' does not hav
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="RoundTheCornerModelStoreContainer" CdmEntityContainer="RoundTheCornerEntities">
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="RoundTheCornerModel.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="TblCuisines">
             <EntityTypeMapping TypeName="RoundTheCornerModel.TblCuisine">
               <MappingFragment StoreEntitySet="TblCuisine">
@@ -836,6 +774,15 @@ warning 6002: The table/view 'RoundTheCorner.dbo.TblVendorLocation' does not hav
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="TblOrderItems">
+            <EntityTypeMapping TypeName="RoundTheCornerModel.TblOrderItem">
+              <MappingFragment StoreEntitySet="TblOrderItems">
+                <ScalarProperty Name="orderItemID" ColumnName="orderItemID" />
+                <ScalarProperty Name="menuItemId" ColumnName="menuItemId" />
+                <ScalarProperty Name="price" ColumnName="price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="TblOrders">
             <EntityTypeMapping TypeName="RoundTheCornerModel.TblOrder">
               <MappingFragment StoreEntitySet="TblOrders">
@@ -868,6 +815,17 @@ warning 6002: The table/view 'RoundTheCorner.dbo.TblVendorLocation' does not hav
                 <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="phone" ColumnName="phone" />
                 <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="deactivated" ColumnName="deactivated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblVendorLocations">
+            <EntityTypeMapping TypeName="RoundTheCornerModel.TblVendorLocation">
+              <MappingFragment StoreEntitySet="TblVendorLocation">
+                <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+                <ScalarProperty Name="datetime" ColumnName="datetime" />
+                <ScalarProperty Name="locationX" ColumnName="locationX" />
+                <ScalarProperty Name="locationY" ColumnName="locationY" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -882,25 +840,6 @@ warning 6002: The table/view 'RoundTheCorner.dbo.TblVendorLocation' does not hav
                 <ScalarProperty Name="inspectionDate" ColumnName="inspectionDate" />
                 <ScalarProperty Name="bio" ColumnName="bio" />
                 <ScalarProperty Name="Website" ColumnName="Website" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TblOrderItems">
-            <EntityTypeMapping TypeName="RoundTheCornerModel.TblOrderItem">
-              <MappingFragment StoreEntitySet="TblOrderItems">
-                <ScalarProperty Name="orderItemID" ColumnName="orderItemID" />
-                <ScalarProperty Name="menuItemId" ColumnName="menuItemId" />
-                <ScalarProperty Name="price" ColumnName="price" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TblVendorLocations">
-            <EntityTypeMapping TypeName="RoundTheCornerModel.TblVendorLocation">
-              <MappingFragment StoreEntitySet="TblVendorLocation">
-                <ScalarProperty Name="VendorID" ColumnName="VendorID" />
-                <ScalarProperty Name="datetime" ColumnName="datetime" />
-                <ScalarProperty Name="locationX" ColumnName="locationX" />
-                <ScalarProperty Name="locationY" ColumnName="locationY" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
