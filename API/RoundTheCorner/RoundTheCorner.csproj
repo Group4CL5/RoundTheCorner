@@ -289,24 +289,6 @@
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\RoundTheCorner.BL.Models\RoundTheCorner.BL.Models.csproj">
-      <Project>{8697becf-f9f8-42e6-88f6-b975eae4dffd}</Project>
-      <Name>RoundTheCorner.BL.Models</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\RoundTheCorner.BL\RoundTheCorner.BL.csproj">
-      <Project>{811e4242-2649-4710-80f8-e1459be01f62}</Project>
-      <Name>RoundTheCorner.BL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\RoundTheCorner.PL\RoundTheCorner.PL.csproj">
-      <Project>{4ccd0ca7-8470-4993-a58f-956de930371d}</Project>
-      <Name>RoundTheCorner.PL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\RoundTheCorner.MVCUI.csproj">
-      <Project>{c104c24c-ddc1-449e-a5e5-2c94efea89f8}</Project>
-      <Name>RoundTheCorner.MVCUI</Name>
-    </ProjectReference>
-  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -8,3 +8,5 @@ C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.PL\bin\Debug\E
 C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.PL\obj\Debug\RoundTheCorner.PL.csproj.CopyComplete
 C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.PL\obj\Debug\RoundTheCorner.PL.dll
 C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.PL\obj\Debug\RoundTheCorner.PL.pdb
+C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.PL\obj\Debug\RoundTheCorner.PL.csprojAssemblyReference.cache
+C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.PL\obj\Debug\RoundTheCorner.PL.csproj.CoreCompileInputs.cache

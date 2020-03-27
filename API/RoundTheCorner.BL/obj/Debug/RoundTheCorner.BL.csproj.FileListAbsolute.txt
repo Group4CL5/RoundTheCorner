@@ -14,3 +14,5 @@ C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL\obj\Debug\R
 C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL\obj\Debug\RoundTheCorner.BL.csproj.CopyComplete
 C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL\obj\Debug\RoundTheCorner.BL.dll
 C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL\obj\Debug\RoundTheCorner.BL.pdb
+C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL\bin\Debug\RoundTheCorner.BL.Models.dll.config
+C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL\obj\Debug\RoundTheCorner.BL.csproj.CoreCompileInputs.cache

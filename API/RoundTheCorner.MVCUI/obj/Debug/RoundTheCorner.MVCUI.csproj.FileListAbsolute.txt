@@ -55,22 +55,16 @@ C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.MVCUI\bin\Antl
 C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.MVCUI\bin\EntityFramework.dll
 C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.MVCUI\bin\EntityFramework.SqlServer.dll
 C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.MVCUI\bin\Microsoft.AspNetCore.Http.Abstractions.dll
-C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.MVCUI\bin\Microsoft.AspNetCore.Http.Features.dll
 C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.MVCUI\bin\Microsoft.AspNetCore.Mvc.Abstractions.dll
 C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.MVCUI\bin\Microsoft.AspNetCore.Routing.Abstractions.dll
 C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.MVCUI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.MVCUI\bin\Microsoft.Extensions.Logging.Abstractions.dll
-C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.MVCUI\bin\Microsoft.Extensions.Primitives.dll
-C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.MVCUI\bin\Microsoft.Net.Http.Headers.dll
 C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.MVCUI\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.MVCUI\bin\Newtonsoft.Json.dll
 C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.MVCUI\bin\RoundTheCorner.BL.dll
 C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.MVCUI\bin\RoundTheCorner.BL.Models.dll
 C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.MVCUI\bin\System.Buffers.dll
-C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.MVCUI\bin\System.Memory.dll
 C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.MVCUI\bin\System.Numerics.Vectors.dll
-C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.MVCUI\bin\System.Runtime.CompilerServices.Unsafe.dll
-C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.MVCUI\bin\System.Text.Encodings.Web.dll
 C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.MVCUI\bin\System.Web.Helpers.dll
 C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.MVCUI\bin\System.Web.Mvc.dll
 C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.MVCUI\bin\System.Web.Optimization.dll
@@ -95,7 +89,6 @@ C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.MVCUI\bin\Micr
 C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.MVCUI\bin\Newtonsoft.Json.xml
 C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.MVCUI\bin\System.Buffers.xml
 C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.MVCUI\bin\System.Memory.xml
-C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.MVCUI\bin\System.Numerics.Vectors.xml
 C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.MVCUI\bin\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.MVCUI\bin\System.Text.Encodings.Web.xml
 C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.MVCUI\bin\System.Web.Helpers.xml
@@ -112,3 +105,5 @@ C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.MVCUI\bin\Roun
 C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.MVCUI\obj\Debug\RoundTheCorner.MVCUI.csproj.CopyComplete
 C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.MVCUI\obj\Debug\RoundTheCorner.MVCUI.dll
 C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.MVCUI\obj\Debug\RoundTheCorner.MVCUI.pdb
+C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.MVCUI\bin\RoundTheCorner.BL.Models.dll.config
+C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.MVCUI\obj\Debug\RoundTheCorner.MVCUI.csproj.CoreCompileInputs.cache
