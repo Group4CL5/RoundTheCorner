@@ -75,14 +75,14 @@
     <Property Name="DOB" Type="date" />
     <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="phone" Type="nvarchar" MaxLength="15" />
-    <Property Name="password" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="password" Type="nvarchar" MaxLength="25" Nullable="false" />
     <Property Name="deactivated" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="TblVendorEmployees">
     <Key>
-      <PropertyRef Name="userID" />
-      <PropertyRef Name="vendorID" />
+      <PropertyRef Name="ID" />
     </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="userID" Type="int" Nullable="false" />
     <Property Name="vendorID" Type="int" Nullable="false" />
   </EntityType>
@@ -166,30 +166,6 @@
       </Principal>
       <Dependent Role="TblMenuSection">
         <PropertyRef Name="MenuID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_OrderItems_MenuItem">
-    <End Role="TblMenuItem" Type="Self.TblMenuItem" Multiplicity="1" />
-    <End Role="TblOrderItems" Type="Self.TblOrderItems" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TblMenuItem">
-        <PropertyRef Name="itemID" />
-      </Principal>
-      <Dependent Role="TblOrderItems">
-        <PropertyRef Name="menuItemId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_OrderItems_Orders">
-    <End Role="TblOrders" Type="Self.TblOrders" Multiplicity="1" />
-    <End Role="TblOrderItems" Type="Self.TblOrderItems" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TblOrders">
-        <PropertyRef Name="orderID" />
-      </Principal>
-      <Dependent Role="TblOrderItems">
-        <PropertyRef Name="orderItemID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -320,14 +296,6 @@
     <AssociationSet Name="FK_MenuSection_Menus" Association="Self.FK_MenuSection_Menus">
       <End Role="TblMenus" EntitySet="TblMenus" />
       <End Role="TblMenuSection" EntitySet="TblMenuSection" />
-    </AssociationSet>
-    <AssociationSet Name="FK_OrderItems_MenuItem" Association="Self.FK_OrderItems_MenuItem">
-      <End Role="TblMenuItem" EntitySet="TblMenuItem" />
-      <End Role="TblOrderItems" EntitySet="TblOrderItems" />
-    </AssociationSet>
-    <AssociationSet Name="FK_OrderItems_Orders" Association="Self.FK_OrderItems_Orders">
-      <End Role="TblOrders" EntitySet="TblOrders" />
-      <End Role="TblOrderItems" EntitySet="TblOrderItems" />
     </AssociationSet>
     <AssociationSet Name="FK_Orders_User" Association="Self.FK_Orders_User">
       <End Role="TblUser" EntitySet="TblUser" />

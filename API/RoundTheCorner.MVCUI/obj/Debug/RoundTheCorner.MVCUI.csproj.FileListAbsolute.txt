@@ -105,7 +105,6 @@ C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.MVCUI\bin\Roun
 C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.MVCUI\obj\Debug\RoundTheCorner.MVCUI.csproj.CopyComplete
 C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.MVCUI\obj\Debug\RoundTheCorner.MVCUI.dll
 C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.MVCUI\obj\Debug\RoundTheCorner.MVCUI.pdb
-C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.MVCUI\bin\RoundTheCorner.BL.Models.dll.config
 C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.MVCUI\obj\Debug\RoundTheCorner.MVCUI.csproj.CoreCompileInputs.cache
 C:\Users\Owner\Documents\Visual Studio 2019\Projects\RoundTheCorner\API\RoundTheCorner.MVCUI\bin\RoundTheCorner.MVCUI.dll.config
 C:\Users\Owner\Documents\Visual Studio 2019\Projects\RoundTheCorner\API\RoundTheCorner.MVCUI\bin\RoundTheCorner.MVCUI.dll

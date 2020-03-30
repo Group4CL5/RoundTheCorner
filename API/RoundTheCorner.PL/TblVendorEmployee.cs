@@ -14,7 +14,7 @@ namespace RoundTheCorner.PL
     
     public partial class TblVendorEmployee
     {
-        public int id { get; set; }
+        public int ID { get; set; }
         public int userID { get; set; }
         public int vendorID { get; set; }
     

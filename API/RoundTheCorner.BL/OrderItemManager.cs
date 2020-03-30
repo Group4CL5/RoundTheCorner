@@ -169,5 +169,56 @@ namespace RoundTheCorner.BL
                 throw ex;
             }
         }
+
+        public static List<OrderItemModel> GetOrderItems()
+        {
+            try
+            {
+                using (RoundTheCornerEntities rc = new RoundTheCornerEntities())
+                {
+                    var tblOrderItems = rc.TblOrderItems.ToList();
+
+                    if (tblOrderItems != null)
+                    {
+                        List<OrderItemModel> orderItems = new List<OrderItemModel>();
+
+                        tblOrderItems.ForEach(u => orderItems.Add(new OrderItemModel { orderItemID = u.orderItemID, menuItemID = u.menuItemId, price = u.price }));
+
+                        return orderItems;
+                    }
+
+                    throw new Exception("There currently are no orderItems");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public static List<OrderItemModel> GetOrderItems(int menuID)
+        {
+            try
+            {
+                using (RoundTheCornerEntities rc = new RoundTheCornerEntities())
+                {
+                    var tblOrderItems = rc.TblOrderItems.Where(w => menuID == w.menuItemId).ToList();
+
+                    if (tblOrderItems != null)
+                    {
+                        List<OrderItemModel> orderItems = new List<OrderItemModel>();
+
+                        tblOrderItems.ForEach(u => orderItems.Add(new OrderItemModel { orderItemID = u.orderItemID, menuItemID = u.menuItemId, price = u.price }));
+
+                        return orderItems;
+                    }
+
+                    throw new Exception("There currently are no orderItems");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

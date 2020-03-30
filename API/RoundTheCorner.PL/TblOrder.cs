@@ -14,19 +14,11 @@ namespace RoundTheCorner.PL
     
     public partial class TblOrder
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TblOrder()
-        {
-            this.TblOrderItems = new HashSet<TblOrderItem>();
-        }
-    
         public int orderID { get; set; }
         public int userID { get; set; }
         public int vendorID { get; set; }
         public System.DateTime orderDate { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TblOrderItem> TblOrderItems { get; set; }
         public virtual TblUser TblUser { get; set; }
         public virtual TblVendor TblVendor { get; set; }
     }

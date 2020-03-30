@@ -10,5 +10,6 @@ namespace RoundTheCorner.BL.Models
         public int cuisineID { get; set; }
         public string cuisineName { get; set; }
         public int vendorID { get; set; }
+        public int menuID { get; set; }
     }
 }

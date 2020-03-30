@@ -22,7 +22,6 @@
     <Property Name="MenuSectionID" Type="Int32" Nullable="false" />
     <NavigationProperty Name="TblMenuSection" Relationship="Self.FK_MenuItem_Menus" FromRole="TblMenuItem" ToRole="TblMenuSection" />
     <NavigationProperty Name="TblMenu" Relationship="Self.FK_MenuItem_Menus1" FromRole="TblMenuItem" ToRole="TblMenus" />
-    <NavigationProperty Name="TblOrderItems" Relationship="Self.FK_OrderItems_MenuItem" FromRole="TblMenuItem" ToRole="TblOrderItems" />
   </EntityType>
   <EntityType Name="TblMenu">
     <Key>
@@ -53,8 +52,6 @@
     <Property Name="orderItemID" Type="Int32" Nullable="false" />
     <Property Name="menuItemId" Type="Int32" Nullable="false" />
     <Property Name="price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-    <NavigationProperty Name="TblMenuItem" Relationship="Self.FK_OrderItems_MenuItem" FromRole="TblOrderItems" ToRole="TblMenuItem" />
-    <NavigationProperty Name="TblOrder" Relationship="Self.FK_OrderItems_Orders" FromRole="TblOrderItems" ToRole="TblOrders" />
   </EntityType>
   <EntityType Name="TblOrder">
     <Key>
@@ -64,7 +61,6 @@
     <Property Name="userID" Type="Int32" Nullable="false" />
     <Property Name="vendorID" Type="Int32" Nullable="false" />
     <Property Name="orderDate" Type="DateTime" Nullable="false" Precision="0" />
-    <NavigationProperty Name="TblOrderItems" Relationship="Self.FK_OrderItems_Orders" FromRole="TblOrders" ToRole="TblOrderItems" />
     <NavigationProperty Name="TblUser" Relationship="Self.FK_Orders_User" FromRole="TblOrders" ToRole="TblUser" />
     <NavigationProperty Name="TblVendor" Relationship="Self.FK_Orders_Vendors" FromRole="TblOrders" ToRole="TblVendors" />
   </EntityType>
@@ -91,12 +87,22 @@
     <Property Name="DOB" Type="DateTime" Precision="0" />
     <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="phone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
-    <Property Name="password" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="deactivated" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="TblOrders" Relationship="Self.FK_Orders_User" FromRole="TblUser" ToRole="TblOrders" />
     <NavigationProperty Name="TblReviews" Relationship="Self.FK_Review_User" FromRole="TblUser" ToRole="TblReview" />
+    <NavigationProperty Name="TblVendorEmployees" Relationship="Self.FK_VendorEmployees_User" FromRole="TblUser" ToRole="TblVendorEmployees" />
     <NavigationProperty Name="TblVendors" Relationship="Self.FK_Vendors_User" FromRole="TblUser" ToRole="TblVendors" />
-    <NavigationProperty Name="TblVendors1" Relationship="Self.TblVendorEmployees" FromRole="TblUser" ToRole="TblVendors" />
+  </EntityType>
+  <EntityType Name="TblVendorEmployee">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userID" Type="Int32" Nullable="false" />
+    <Property Name="vendorID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TblUser" Relationship="Self.FK_VendorEmployees_User" FromRole="TblVendorEmployees" ToRole="TblUser" />
+    <NavigationProperty Name="TblVendor" Relationship="Self.FK_VendorEmployees_Vendors" FromRole="TblVendorEmployees" ToRole="TblVendors" />
   </EntityType>
   <EntityType Name="TblVendorLocation">
     <Key>
@@ -126,8 +132,8 @@
     <NavigationProperty Name="TblOrders" Relationship="Self.FK_Orders_Vendors" FromRole="TblVendors" ToRole="TblOrders" />
     <NavigationProperty Name="TblReviews" Relationship="Self.FK_Review_Vendors" FromRole="TblVendors" ToRole="TblReview" />
     <NavigationProperty Name="TblUser" Relationship="Self.FK_Vendors_User" FromRole="TblVendors" ToRole="TblUser" />
+    <NavigationProperty Name="TblVendorEmployees" Relationship="Self.FK_VendorEmployees_Vendors" FromRole="TblVendors" ToRole="TblVendorEmployees" />
     <NavigationProperty Name="TblVendorLocations" Relationship="Self.FK_VendorLocation_Vendors" FromRole="TblVendors" ToRole="TblVendorLocation" />
-    <NavigationProperty Name="TblUsers" Relationship="Self.TblVendorEmployees" FromRole="TblVendors" ToRole="TblUser" />
   </EntityType>
   <Association Name="FK_Categories_Categories">
     <End Role="TblVendors" Type="Self.TblVendor" Multiplicity="1" />
@@ -165,18 +171,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_OrderItems_MenuItem">
-    <End Role="TblMenuItem" Type="Self.TblMenuItem" Multiplicity="1" />
-    <End Role="TblOrderItems" Type="Self.TblOrderItem" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TblMenuItem">
-        <PropertyRef Name="itemID" />
-      </Principal>
-      <Dependent Role="TblOrderItems">
-        <PropertyRef Name="menuItemId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Menus_Vendors">
     <End Role="TblVendors" Type="Self.TblVendor" Multiplicity="1" />
     <End Role="TblMenus" Type="Self.TblMenu" Multiplicity="*" />
@@ -198,18 +192,6 @@
       </Principal>
       <Dependent Role="TblMenuSection">
         <PropertyRef Name="MenuID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_OrderItems_Orders">
-    <End Role="TblOrders" Type="Self.TblOrder" Multiplicity="1" />
-    <End Role="TblOrderItems" Type="Self.TblOrderItem" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TblOrders">
-        <PropertyRef Name="orderID" />
-      </Principal>
-      <Dependent Role="TblOrderItems">
-        <PropertyRef Name="orderItemID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -261,6 +243,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_VendorEmployees_User">
+    <End Role="TblUser" Type="Self.TblUser" Multiplicity="1" />
+    <End Role="TblVendorEmployees" Type="Self.TblVendorEmployee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblUser">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="TblVendorEmployees">
+        <PropertyRef Name="userID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Vendors_User">
     <End Role="TblUser" Type="Self.TblUser" Multiplicity="1" />
     <End Role="TblVendors" Type="Self.TblVendor" Multiplicity="*" />
@@ -270,6 +264,18 @@
       </Principal>
       <Dependent Role="TblVendors">
         <PropertyRef Name="OwnerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VendorEmployees_Vendors">
+    <End Role="TblVendors" Type="Self.TblVendor" Multiplicity="1" />
+    <End Role="TblVendorEmployees" Type="Self.TblVendorEmployee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblVendors">
+        <PropertyRef Name="vendorID" />
+      </Principal>
+      <Dependent Role="TblVendorEmployees">
+        <PropertyRef Name="vendorID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -285,10 +291,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="TblVendorEmployees">
-    <End Role="TblUser" Type="Self.TblUser" Multiplicity="*" />
-    <End Role="TblVendors" Type="Self.TblVendor" Multiplicity="*" />
-  </Association>
   <EntityContainer Name="RoundTheCornerEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="TblCuisines" EntityType="Self.TblCuisine" />
     <EntitySet Name="TblMenuItems" EntityType="Self.TblMenuItem" />
@@ -298,6 +300,7 @@
     <EntitySet Name="TblOrders" EntityType="Self.TblOrder" />
     <EntitySet Name="TblReviews" EntityType="Self.TblReview" />
     <EntitySet Name="TblUsers" EntityType="Self.TblUser" />
+    <EntitySet Name="TblVendorEmployees" EntityType="Self.TblVendorEmployee" />
     <EntitySet Name="TblVendorLocations" EntityType="Self.TblVendorLocation" />
     <EntitySet Name="TblVendors" EntityType="Self.TblVendor" />
     <AssociationSet Name="FK_Categories_Categories" Association="Self.FK_Categories_Categories">
@@ -312,10 +315,6 @@
       <End Role="TblMenus" EntitySet="TblMenus" />
       <End Role="TblMenuItem" EntitySet="TblMenuItems" />
     </AssociationSet>
-    <AssociationSet Name="FK_OrderItems_MenuItem" Association="Self.FK_OrderItems_MenuItem">
-      <End Role="TblMenuItem" EntitySet="TblMenuItems" />
-      <End Role="TblOrderItems" EntitySet="TblOrderItems" />
-    </AssociationSet>
     <AssociationSet Name="FK_Menus_Vendors" Association="Self.FK_Menus_Vendors">
       <End Role="TblVendors" EntitySet="TblVendors" />
       <End Role="TblMenus" EntitySet="TblMenus" />
@@ -323,10 +322,6 @@
     <AssociationSet Name="FK_MenuSection_Menus" Association="Self.FK_MenuSection_Menus">
       <End Role="TblMenus" EntitySet="TblMenus" />
       <End Role="TblMenuSection" EntitySet="TblMenuSections" />
-    </AssociationSet>
-    <AssociationSet Name="FK_OrderItems_Orders" Association="Self.FK_OrderItems_Orders">
-      <End Role="TblOrders" EntitySet="TblOrders" />
-      <End Role="TblOrderItems" EntitySet="TblOrderItems" />
     </AssociationSet>
     <AssociationSet Name="FK_Orders_User" Association="Self.FK_Orders_User">
       <End Role="TblUser" EntitySet="TblUsers" />
@@ -344,17 +339,21 @@
       <End Role="TblVendors" EntitySet="TblVendors" />
       <End Role="TblReview" EntitySet="TblReviews" />
     </AssociationSet>
+    <AssociationSet Name="FK_VendorEmployees_User" Association="Self.FK_VendorEmployees_User">
+      <End Role="TblUser" EntitySet="TblUsers" />
+      <End Role="TblVendorEmployees" EntitySet="TblVendorEmployees" />
+    </AssociationSet>
     <AssociationSet Name="FK_Vendors_User" Association="Self.FK_Vendors_User">
       <End Role="TblUser" EntitySet="TblUsers" />
       <End Role="TblVendors" EntitySet="TblVendors" />
     </AssociationSet>
+    <AssociationSet Name="FK_VendorEmployees_Vendors" Association="Self.FK_VendorEmployees_Vendors">
+      <End Role="TblVendors" EntitySet="TblVendors" />
+      <End Role="TblVendorEmployees" EntitySet="TblVendorEmployees" />
+    </AssociationSet>
     <AssociationSet Name="FK_VendorLocation_Vendors" Association="Self.FK_VendorLocation_Vendors">
       <End Role="TblVendors" EntitySet="TblVendors" />
       <End Role="TblVendorLocation" EntitySet="TblVendorLocations" />
-    </AssociationSet>
-    <AssociationSet Name="TblVendorEmployees" Association="Self.TblVendorEmployees">
-      <End Role="TblUser" EntitySet="TblUsers" />
-      <End Role="TblVendors" EntitySet="TblVendors" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

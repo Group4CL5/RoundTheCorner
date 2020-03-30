@@ -14,12 +14,6 @@ namespace RoundTheCorner.PL
     
     public partial class TblMenuItem
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TblMenuItem()
-        {
-            this.TblOrderItems = new HashSet<TblOrderItem>();
-        }
-    
         public int itemID { get; set; }
         public int menuID { get; set; }
         public string itemName { get; set; }
@@ -30,7 +24,5 @@ namespace RoundTheCorner.PL
     
         public virtual TblMenuSection TblMenuSection { get; set; }
         public virtual TblMenu TblMenu { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TblOrderItem> TblOrderItems { get; set; }
     }
 }

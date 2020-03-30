@@ -86,6 +86,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="TblVendorEmployees">
+      <EntityTypeMapping TypeName="RoundTheCornerModel.TblVendorEmployee">
+        <MappingFragment StoreEntitySet="TblVendorEmployees">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="vendorID" ColumnName="vendorID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="TblVendorLocations">
       <EntityTypeMapping TypeName="RoundTheCornerModel.TblVendorLocation">
         <MappingFragment StoreEntitySet="TblVendorLocation">
@@ -110,13 +119,5 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="TblVendorEmployees" TypeName="RoundTheCornerModel.TblVendorEmployees" StoreEntitySet="TblVendorEmployees">
-      <EndProperty Name="TblUser">
-        <ScalarProperty Name="userID" ColumnName="userID" />
-      </EndProperty>
-      <EndProperty Name="TblVendors">
-        <ScalarProperty Name="vendorID" ColumnName="vendorID" />
-      </EndProperty>
-    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping>

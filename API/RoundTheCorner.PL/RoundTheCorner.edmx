@@ -80,14 +80,14 @@
           <Property Name="DOB" Type="date" />
           <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="phone" Type="nvarchar" MaxLength="15" />
-          <Property Name="password" Type="nvarchar" MaxLength="32" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="25" Nullable="false" />
           <Property Name="deactivated" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="TblVendorEmployees">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="userID" Type="int" Nullable="false" />
           <Property Name="vendorID" Type="int" Nullable="false" />
         </EntityType>
@@ -171,30 +171,6 @@
             </Principal>
             <Dependent Role="TblMenuSection">
               <PropertyRef Name="MenuID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_OrderItems_MenuItem">
-          <End Role="TblMenuItem" Type="Self.TblMenuItem" Multiplicity="1" />
-          <End Role="TblOrderItems" Type="Self.TblOrderItems" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblMenuItem">
-              <PropertyRef Name="itemID" />
-            </Principal>
-            <Dependent Role="TblOrderItems">
-              <PropertyRef Name="menuItemId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_OrderItems_Orders">
-          <End Role="TblOrders" Type="Self.TblOrders" Multiplicity="1" />
-          <End Role="TblOrderItems" Type="Self.TblOrderItems" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblOrders">
-              <PropertyRef Name="orderID" />
-            </Principal>
-            <Dependent Role="TblOrderItems">
-              <PropertyRef Name="orderItemID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -326,14 +302,6 @@
             <End Role="TblMenus" EntitySet="TblMenus" />
             <End Role="TblMenuSection" EntitySet="TblMenuSection" />
           </AssociationSet>
-          <AssociationSet Name="FK_OrderItems_MenuItem" Association="Self.FK_OrderItems_MenuItem">
-            <End Role="TblMenuItem" EntitySet="TblMenuItem" />
-            <End Role="TblOrderItems" EntitySet="TblOrderItems" />
-          </AssociationSet>
-          <AssociationSet Name="FK_OrderItems_Orders" Association="Self.FK_OrderItems_Orders">
-            <End Role="TblOrders" EntitySet="TblOrders" />
-            <End Role="TblOrderItems" EntitySet="TblOrderItems" />
-          </AssociationSet>
           <AssociationSet Name="FK_Orders_User" Association="Self.FK_Orders_User">
             <End Role="TblUser" EntitySet="TblUser" />
             <End Role="TblOrders" EntitySet="TblOrders" />
@@ -394,7 +362,6 @@
           <Property Name="MenuSectionID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="TblMenuSection" Relationship="Self.FK_MenuItem_Menus" FromRole="TblMenuItem" ToRole="TblMenuSection" />
           <NavigationProperty Name="TblMenu" Relationship="Self.FK_MenuItem_Menus1" FromRole="TblMenuItem" ToRole="TblMenus" />
-          <NavigationProperty Name="TblOrderItems" Relationship="Self.FK_OrderItems_MenuItem" FromRole="TblMenuItem" ToRole="TblOrderItems" />
         </EntityType>
         <EntityType Name="TblMenu">
           <Key>
@@ -425,8 +392,6 @@
           <Property Name="orderItemID" Type="Int32" Nullable="false" />
           <Property Name="menuItemId" Type="Int32" Nullable="false" />
           <Property Name="price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <NavigationProperty Name="TblMenuItem" Relationship="Self.FK_OrderItems_MenuItem" FromRole="TblOrderItems" ToRole="TblMenuItem" />
-          <NavigationProperty Name="TblOrder" Relationship="Self.FK_OrderItems_Orders" FromRole="TblOrderItems" ToRole="TblOrders" />
         </EntityType>
         <EntityType Name="TblOrder">
           <Key>
@@ -436,7 +401,6 @@
           <Property Name="userID" Type="Int32" Nullable="false" />
           <Property Name="vendorID" Type="Int32" Nullable="false" />
           <Property Name="orderDate" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="TblOrderItems" Relationship="Self.FK_OrderItems_Orders" FromRole="TblOrders" ToRole="TblOrderItems" />
           <NavigationProperty Name="TblUser" Relationship="Self.FK_Orders_User" FromRole="TblOrders" ToRole="TblUser" />
           <NavigationProperty Name="TblVendor" Relationship="Self.FK_Orders_Vendors" FromRole="TblOrders" ToRole="TblVendors" />
         </EntityType>
@@ -463,7 +427,7 @@
           <Property Name="DOB" Type="DateTime" Precision="0" />
           <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="phone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
-          <Property Name="password" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="deactivated" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="TblOrders" Relationship="Self.FK_Orders_User" FromRole="TblUser" ToRole="TblOrders" />
           <NavigationProperty Name="TblReviews" Relationship="Self.FK_Review_User" FromRole="TblUser" ToRole="TblReview" />
@@ -472,9 +436,9 @@
         </EntityType>
         <EntityType Name="TblVendorEmployee">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="userID" Type="Int32" Nullable="false" />
           <Property Name="vendorID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="TblUser" Relationship="Self.FK_VendorEmployees_User" FromRole="TblVendorEmployees" ToRole="TblUser" />
@@ -547,18 +511,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_OrderItems_MenuItem">
-          <End Role="TblMenuItem" Type="Self.TblMenuItem" Multiplicity="1" />
-          <End Role="TblOrderItems" Type="Self.TblOrderItem" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblMenuItem">
-              <PropertyRef Name="itemID" />
-            </Principal>
-            <Dependent Role="TblOrderItems">
-              <PropertyRef Name="menuItemId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Menus_Vendors">
           <End Role="TblVendors" Type="Self.TblVendor" Multiplicity="1" />
           <End Role="TblMenus" Type="Self.TblMenu" Multiplicity="*" />
@@ -580,18 +532,6 @@
             </Principal>
             <Dependent Role="TblMenuSection">
               <PropertyRef Name="MenuID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_OrderItems_Orders">
-          <End Role="TblOrders" Type="Self.TblOrder" Multiplicity="1" />
-          <End Role="TblOrderItems" Type="Self.TblOrderItem" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblOrders">
-              <PropertyRef Name="orderID" />
-            </Principal>
-            <Dependent Role="TblOrderItems">
-              <PropertyRef Name="orderItemID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -715,10 +655,6 @@
             <End Role="TblMenus" EntitySet="TblMenus" />
             <End Role="TblMenuItem" EntitySet="TblMenuItems" />
           </AssociationSet>
-          <AssociationSet Name="FK_OrderItems_MenuItem" Association="Self.FK_OrderItems_MenuItem">
-            <End Role="TblMenuItem" EntitySet="TblMenuItems" />
-            <End Role="TblOrderItems" EntitySet="TblOrderItems" />
-          </AssociationSet>
           <AssociationSet Name="FK_Menus_Vendors" Association="Self.FK_Menus_Vendors">
             <End Role="TblVendors" EntitySet="TblVendors" />
             <End Role="TblMenus" EntitySet="TblMenus" />
@@ -726,10 +662,6 @@
           <AssociationSet Name="FK_MenuSection_Menus" Association="Self.FK_MenuSection_Menus">
             <End Role="TblMenus" EntitySet="TblMenus" />
             <End Role="TblMenuSection" EntitySet="TblMenuSections" />
-          </AssociationSet>
-          <AssociationSet Name="FK_OrderItems_Orders" Association="Self.FK_OrderItems_Orders">
-            <End Role="TblOrders" EntitySet="TblOrders" />
-            <End Role="TblOrderItems" EntitySet="TblOrderItems" />
           </AssociationSet>
           <AssociationSet Name="FK_Orders_User" Association="Self.FK_Orders_User">
             <End Role="TblUser" EntitySet="TblUsers" />
@@ -858,7 +790,7 @@
           <EntitySetMapping Name="TblVendorEmployees">
             <EntityTypeMapping TypeName="RoundTheCornerModel.TblVendorEmployee">
               <MappingFragment StoreEntitySet="TblVendorEmployees">
-                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="userID" ColumnName="userID" />
                 <ScalarProperty Name="vendorID" ColumnName="vendorID" />
               </MappingFragment>

@@ -17,8 +17,5 @@ namespace RoundTheCorner.PL
         public int orderItemID { get; set; }
         public int menuItemId { get; set; }
         public decimal price { get; set; }
-    
-        public virtual TblMenuItem TblMenuItem { get; set; }
-        public virtual TblOrder TblOrder { get; set; }
     }
 }
