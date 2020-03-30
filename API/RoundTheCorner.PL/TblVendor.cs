@@ -21,8 +21,8 @@ namespace RoundTheCorner.PL
             this.TblMenus = new HashSet<TblMenu>();
             this.TblOrders = new HashSet<TblOrder>();
             this.TblReviews = new HashSet<TblReview>();
+            this.TblVendorEmployees = new HashSet<TblVendorEmployee>();
             this.TblVendorLocations = new HashSet<TblVendorLocation>();
-            this.TblUsers = new HashSet<TblUser>();
         }
     
         public int vendorID { get; set; }
@@ -44,8 +44,8 @@ namespace RoundTheCorner.PL
         public virtual ICollection<TblReview> TblReviews { get; set; }
         public virtual TblUser TblUser { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TblVendorLocation> TblVendorLocations { get; set; }
+        public virtual ICollection<TblVendorEmployee> TblVendorEmployees { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TblUser> TblUsers { get; set; }
+        public virtual ICollection<TblVendorLocation> TblVendorLocations { get; set; }
     }
 }

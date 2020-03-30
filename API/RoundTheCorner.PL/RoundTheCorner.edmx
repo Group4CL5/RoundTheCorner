@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="RoundTheCornerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="RoundTheCornerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="TblCuisine">
           <Key>
             <PropertyRef Name="CuisineID" />
@@ -85,9 +85,9 @@
         </EntityType>
         <EntityType Name="TblVendorEmployees">
           <Key>
-            <PropertyRef Name="userID" />
-            <PropertyRef Name="vendorID" />
+            <PropertyRef Name="id" />
           </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="userID" Type="int" Nullable="false" />
           <Property Name="vendorID" Type="int" Nullable="false" />
         </EntityType>
@@ -367,7 +367,8 @@
             <End Role="TblVendors" EntitySet="TblVendors" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="RoundTheCornerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -466,8 +467,18 @@
           <Property Name="deactivated" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="TblOrders" Relationship="Self.FK_Orders_User" FromRole="TblUser" ToRole="TblOrders" />
           <NavigationProperty Name="TblReviews" Relationship="Self.FK_Review_User" FromRole="TblUser" ToRole="TblReview" />
+          <NavigationProperty Name="TblVendorEmployees" Relationship="Self.FK_VendorEmployees_User" FromRole="TblUser" ToRole="TblVendorEmployees" />
           <NavigationProperty Name="TblVendors" Relationship="Self.FK_Vendors_User" FromRole="TblUser" ToRole="TblVendors" />
-          <NavigationProperty Name="TblVendors1" Relationship="Self.TblVendorEmployees" FromRole="TblUser" ToRole="TblVendors" />
+        </EntityType>
+        <EntityType Name="TblVendorEmployee">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userID" Type="Int32" Nullable="false" />
+          <Property Name="vendorID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TblUser" Relationship="Self.FK_VendorEmployees_User" FromRole="TblVendorEmployees" ToRole="TblUser" />
+          <NavigationProperty Name="TblVendor" Relationship="Self.FK_VendorEmployees_Vendors" FromRole="TblVendorEmployees" ToRole="TblVendors" />
         </EntityType>
         <EntityType Name="TblVendorLocation">
           <Key>
@@ -497,8 +508,8 @@
           <NavigationProperty Name="TblOrders" Relationship="Self.FK_Orders_Vendors" FromRole="TblVendors" ToRole="TblOrders" />
           <NavigationProperty Name="TblReviews" Relationship="Self.FK_Review_Vendors" FromRole="TblVendors" ToRole="TblReview" />
           <NavigationProperty Name="TblUser" Relationship="Self.FK_Vendors_User" FromRole="TblVendors" ToRole="TblUser" />
+          <NavigationProperty Name="TblVendorEmployees" Relationship="Self.FK_VendorEmployees_Vendors" FromRole="TblVendors" ToRole="TblVendorEmployees" />
           <NavigationProperty Name="TblVendorLocations" Relationship="Self.FK_VendorLocation_Vendors" FromRole="TblVendors" ToRole="TblVendorLocation" />
-          <NavigationProperty Name="TblUsers" Relationship="Self.TblVendorEmployees" FromRole="TblVendors" ToRole="TblUser" />
         </EntityType>
         <Association Name="FK_Categories_Categories">
           <End Role="TblVendors" Type="Self.TblVendor" Multiplicity="1" />
@@ -632,6 +643,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_VendorEmployees_User">
+          <End Role="TblUser" Type="Self.TblUser" Multiplicity="1" />
+          <End Role="TblVendorEmployees" Type="Self.TblVendorEmployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblUser">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="TblVendorEmployees">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Vendors_User">
           <End Role="TblUser" Type="Self.TblUser" Multiplicity="1" />
           <End Role="TblVendors" Type="Self.TblVendor" Multiplicity="*" />
@@ -641,6 +664,18 @@
             </Principal>
             <Dependent Role="TblVendors">
               <PropertyRef Name="OwnerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VendorEmployees_Vendors">
+          <End Role="TblVendors" Type="Self.TblVendor" Multiplicity="1" />
+          <End Role="TblVendorEmployees" Type="Self.TblVendorEmployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblVendors">
+              <PropertyRef Name="vendorID" />
+            </Principal>
+            <Dependent Role="TblVendorEmployees">
+              <PropertyRef Name="vendorID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -656,10 +691,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="TblVendorEmployees">
-          <End Role="TblUser" Type="Self.TblUser" Multiplicity="*" />
-          <End Role="TblVendors" Type="Self.TblVendor" Multiplicity="*" />
-        </Association>
         <EntityContainer Name="RoundTheCornerEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="TblCuisines" EntityType="Self.TblCuisine" />
           <EntitySet Name="TblMenuItems" EntityType="Self.TblMenuItem" />
@@ -669,6 +700,7 @@
           <EntitySet Name="TblOrders" EntityType="Self.TblOrder" />
           <EntitySet Name="TblReviews" EntityType="Self.TblReview" />
           <EntitySet Name="TblUsers" EntityType="Self.TblUser" />
+          <EntitySet Name="TblVendorEmployees" EntityType="Self.TblVendorEmployee" />
           <EntitySet Name="TblVendorLocations" EntityType="Self.TblVendorLocation" />
           <EntitySet Name="TblVendors" EntityType="Self.TblVendor" />
           <AssociationSet Name="FK_Categories_Categories" Association="Self.FK_Categories_Categories">
@@ -715,17 +747,21 @@
             <End Role="TblVendors" EntitySet="TblVendors" />
             <End Role="TblReview" EntitySet="TblReviews" />
           </AssociationSet>
+          <AssociationSet Name="FK_VendorEmployees_User" Association="Self.FK_VendorEmployees_User">
+            <End Role="TblUser" EntitySet="TblUsers" />
+            <End Role="TblVendorEmployees" EntitySet="TblVendorEmployees" />
+          </AssociationSet>
           <AssociationSet Name="FK_Vendors_User" Association="Self.FK_Vendors_User">
             <End Role="TblUser" EntitySet="TblUsers" />
             <End Role="TblVendors" EntitySet="TblVendors" />
           </AssociationSet>
+          <AssociationSet Name="FK_VendorEmployees_Vendors" Association="Self.FK_VendorEmployees_Vendors">
+            <End Role="TblVendors" EntitySet="TblVendors" />
+            <End Role="TblVendorEmployees" EntitySet="TblVendorEmployees" />
+          </AssociationSet>
           <AssociationSet Name="FK_VendorLocation_Vendors" Association="Self.FK_VendorLocation_Vendors">
             <End Role="TblVendors" EntitySet="TblVendors" />
             <End Role="TblVendorLocation" EntitySet="TblVendorLocations" />
-          </AssociationSet>
-          <AssociationSet Name="TblVendorEmployees" Association="Self.TblVendorEmployees">
-            <End Role="TblUser" EntitySet="TblUsers" />
-            <End Role="TblVendors" EntitySet="TblVendors" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -819,6 +855,15 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="TblVendorEmployees">
+            <EntityTypeMapping TypeName="RoundTheCornerModel.TblVendorEmployee">
+              <MappingFragment StoreEntitySet="TblVendorEmployees">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="vendorID" ColumnName="vendorID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="TblVendorLocations">
             <EntityTypeMapping TypeName="RoundTheCornerModel.TblVendorLocation">
               <MappingFragment StoreEntitySet="TblVendorLocation">
@@ -843,14 +888,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="TblVendorEmployees" TypeName="RoundTheCornerModel.TblVendorEmployees" StoreEntitySet="TblVendorEmployees">
-            <EndProperty Name="TblUser">
-              <ScalarProperty Name="userID" ColumnName="userID" />
-            </EndProperty>
-            <EndProperty Name="TblVendors">
-              <ScalarProperty Name="vendorID" ColumnName="vendorID" />
-            </EndProperty>
-          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

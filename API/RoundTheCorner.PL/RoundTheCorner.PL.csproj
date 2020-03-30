@@ -96,6 +96,9 @@
     <Compile Include="TblVendor.cs">
       <DependentUpon>RoundTheCorner.tt</DependentUpon>
     </Compile>
+    <Compile Include="TblVendorEmployee.cs">
+      <DependentUpon>RoundTheCorner.tt</DependentUpon>
+    </Compile>
     <Compile Include="TblVendorLocation.cs">
       <DependentUpon>RoundTheCorner.tt</DependentUpon>
     </Compile>
