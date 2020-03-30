@@ -10,6 +10,6 @@ namespace RoundTheCorner.BL.Models
     {
         public int orderItemID { get; set; }
         public int menuItemID { get; set; }
-        public double price { get; set; }
+        public decimal price { get; set; }
     }
 }
