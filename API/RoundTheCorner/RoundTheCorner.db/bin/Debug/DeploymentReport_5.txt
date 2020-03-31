@@ -1,0 +1,20 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Drop
+       [dbo].[FK_MenuItem_Menus] (Foreign Key)
+       [dbo].[FK_MenuItem_Menus1] (Foreign Key)
+       [dbo].[FK_Menus_Vendors] (Foreign Key)
+       [dbo].[FK_MenuSection_Menus] (Foreign Key)
+     Create
+       [dbo].[TblUser] (Table)
+
+** Supporting actions

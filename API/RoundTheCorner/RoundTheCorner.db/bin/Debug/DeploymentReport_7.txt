@@ -1,0 +1,31 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       [dbo].[TblOrderItems]
+       [dbo].[TblCuisine]
+       [dbo].[TblMenuItem]
+       [dbo].[TblMenus]
+       [dbo].[TblMenuSection]
+       [dbo].[TblOrders]
+       [dbo].[TblReview]
+       [dbo].[TblUser]
+       [dbo].[TblVendors]
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Table rebuild
+       [dbo].[TblOrderItems] (Table)
+       [dbo].[TblCuisine] (Table)
+       [dbo].[TblMenuItem] (Table)
+       [dbo].[TblMenus] (Table)
+       [dbo].[TblMenuSection] (Table)
+       [dbo].[TblOrders] (Table)
+       [dbo].[TblReview] (Table)
+       [dbo].[TblUser] (Table)
+       [dbo].[TblVendors] (Table)
+
+** Supporting actions

@@ -1,0 +1,5 @@
+C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\bin\Debug\RoundTheCorner.db.dacpac
+C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\bin\Debug\RoundTheCorner.db.dll
+C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\bin\Debug\RoundTheCorner.db.pdb
+C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\obj\Debug\RoundTheCorner.db.dll
+C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\obj\Debug\RoundTheCorner.db.pdb
