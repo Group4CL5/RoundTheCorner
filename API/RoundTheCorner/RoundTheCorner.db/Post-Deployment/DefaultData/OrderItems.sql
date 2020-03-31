@@ -1,6 +1,6 @@
 ﻿BEGIN
-Insert into TblOrderItems
-(orderItemID,price,menuItemId)
+Insert into TblOrderItem
+(menuItemId, price)
 values
-(1, 3.00, 1)
+(1, 3)
 END

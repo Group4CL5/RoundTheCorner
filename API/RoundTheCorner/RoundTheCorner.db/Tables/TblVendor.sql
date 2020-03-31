@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[TblVendors] (
+﻿CREATE TABLE [dbo].[TblVendor] (
     [vendorID]       INT           IDENTITY (1, 1) NOT NULL,
     [OwnerID]        INT           NOT NULL,
     [CompanyName]    NVARCHAR (25) NOT NULL,

@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[TblVendorEmployees] (
+﻿CREATE TABLE [dbo].[TblVendorEmployee] (
     [id]       INT IDENTITY (1, 1) NOT NULL,
     [userID]   INT NOT NULL,
     [vendorID] INT NOT NULL, 

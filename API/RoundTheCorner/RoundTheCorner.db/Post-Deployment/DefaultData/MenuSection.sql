@@ -1,6 +1,6 @@
 ﻿BEGIN
 Insert into TblMenuSection
-(MenuSectionID,MenuID,DisplayOrderNum)
+(MenuID,DisplayOrderNum)
 values
-(1, 1, 1)
+(1, 1)
 END

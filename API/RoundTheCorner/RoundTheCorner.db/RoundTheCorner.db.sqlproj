@@ -63,14 +63,14 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\TblUser.sql" />
-    <Build Include="Tables\TblVendorEmployees.sql" />
+    <Build Include="Tables\TblVendorEmployee.sql" />
     <Build Include="Tables\TblVendorLocation.sql" />
-    <Build Include="Tables\TblVendors.sql" />
+    <Build Include="Tables\TblVendor.sql" />
     <Build Include="Tables\TblReview.sql" />
-    <Build Include="Tables\TblOrders.sql" />
-    <Build Include="Tables\TblOrderItems.sql" />
+    <Build Include="Tables\TblOrder.sql" />
+    <Build Include="Tables\TblOrderItem.sql" />
     <Build Include="Tables\TblMenuSection.sql" />
-    <Build Include="Tables\TblMenus.sql" />
+    <Build Include="Tables\TblMenu.sql" />
     <Build Include="Tables\TblMenuItem.sql" />
     <Build Include="Tables\TblCuisine.sql" />
   </ItemGroup>
