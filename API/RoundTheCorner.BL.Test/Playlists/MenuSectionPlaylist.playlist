@@ -1,0 +1,6 @@
+<Playlist Version="1.0">
+  <Add Test="RoundTheCorner.BL.Tests.utMenuSection.Seed" />
+  <Add Test="RoundTheCorner.BL.Tests.utMenuSection.GetMenuSections" />
+  <Add Test="RoundTheCorner.BL.Tests.utMenuSection.Update" />
+  <Add Test="RoundTheCorner.BL.Tests.utMenuSection.Delete" />
+</Playlist>

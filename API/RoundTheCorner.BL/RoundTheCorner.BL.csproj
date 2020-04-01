@@ -51,6 +51,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MenuManager.cs" />
+    <Compile Include="MenuSectionManager.cs" />
     <Compile Include="OrderItemManager.cs" />
     <Compile Include="OrdersManager.cs" />
     <Compile Include="ReviewManager.cs" />
