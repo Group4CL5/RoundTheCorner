@@ -19,7 +19,7 @@ namespace RoundTheCorner.BL.Tests
         public void GetOrderItems()
         {
             List<OrderItemModel> orderItems = OrderItemManager.GetOrderItems();
-            int expected = 1;
+            int expected = 2;
 
             Assert.AreEqual(orderItems.Count, expected);
         }
@@ -30,14 +30,14 @@ namespace RoundTheCorner.BL.Tests
             OrderItemModel orderItem = new OrderItemModel
             {
                 menuItemID = 1,
-                orderItemID = 1 ,
+                orderItemID = 2 ,
                 price = 25.56m
 
             };
 
             OrderItemManager.Update(orderItem);
 
-            OrderItemModel newOrderItem = OrderItemManager.GetOrderItem(1);
+            OrderItemModel newOrderItem = OrderItemManager.GetOrderItem(2);
 
             Assert.AreEqual(orderItem.price, newOrderItem.price);
         }
@@ -46,7 +46,7 @@ namespace RoundTheCorner.BL.Tests
         [TestMethod]
         public void Delete()
         {
-            bool result = OrderItemManager.Delete(1);
+            bool result = OrderItemManager.Delete(2);
             Assert.IsTrue(result);
         }
     }

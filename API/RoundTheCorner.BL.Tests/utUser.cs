@@ -19,7 +19,7 @@ namespace RoundTheCorner.BL.Tests
         public void GetUsers()
         {
             List<UserModel> users = UserManager.GetUsers();
-            int expected = 1;
+            int expected = 2;
 
             Assert.AreEqual(users.Count, expected);
         }
@@ -29,7 +29,7 @@ namespace RoundTheCorner.BL.Tests
         {
             UserModel user = new UserModel
             {
-                userID = 4,
+                userID = 2,
                 email = "test@test.com",
                 firstName = "Wadabinga",
                 lastName = "testAccount",
@@ -38,7 +38,7 @@ namespace RoundTheCorner.BL.Tests
 
             UserManager.Update(user);
 
-            UserModel newUser = UserManager.GetUser(4);
+            UserModel newUser = UserManager.GetUser(2);
 
             Assert.AreEqual(user.firstName, newUser.firstName);
         }
@@ -60,9 +60,9 @@ namespace RoundTheCorner.BL.Tests
         [TestMethod]
         public void Deactivate()
         {
-            UserManager.Deactivate(4);
+            UserManager.Deactivate(2);
 
-            UserModel user = UserManager.GetUser(4);
+            UserModel user = UserManager.GetUser(2);
 
             Assert.IsTrue(user.deactivated);
         }
@@ -70,7 +70,7 @@ namespace RoundTheCorner.BL.Tests
         [TestMethod]
         public void Delete()
         {
-            bool result = UserManager.Delete(4);
+            bool result = UserManager.Delete(2);
             Assert.IsTrue(result);
         }
     }

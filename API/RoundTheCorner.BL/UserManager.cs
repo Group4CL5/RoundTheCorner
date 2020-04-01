@@ -85,8 +85,7 @@ namespace RoundTheCorner.BL
                 {
                     PL.TblUser newRow = new TblUser()
                     {
-                        //userID = rc.TblUsers.Any()? rc.TblUsers.Max(u => u.userID) +1: 1,
-                        userID = 1,
+                        userID = rc.TblUsers.Any()? rc.TblUsers.Max(u => u.userID) +1: 1,
                         email = user.email,
                         firstName = user.firstName,
                         lastName = user.lastName,
