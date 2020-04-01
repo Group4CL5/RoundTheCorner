@@ -12,6 +12,15 @@
           <Property Name="CuisineID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CuisineName" Type="nvarchar" MaxLength="25" Nullable="false" />
           <Property Name="VendorID" Type="int" Nullable="false" />
+          <Property Name="MenuID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblMenu">
+          <Key>
+            <PropertyRef Name="menuID" />
+          </Key>
+          <Property Name="menuID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vendorID" Type="int" Nullable="false" />
+          <Property Name="isActive" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="TblMenuItem">
           <Key>
@@ -25,14 +34,6 @@
           <Property Name="description" Type="text" />
           <Property Name="MenuSectionID" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="TblMenus">
-          <Key>
-            <PropertyRef Name="menuID" />
-          </Key>
-          <Property Name="menuID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="vendorID" Type="int" Nullable="false" />
-          <Property Name="isActive" Type="bit" Nullable="false" />
-        </EntityType>
         <EntityType Name="TblMenuSection">
           <Key>
             <PropertyRef Name="MenuSectionID" />
@@ -41,16 +42,7 @@
           <Property Name="MenuID" Type="int" Nullable="false" />
           <Property Name="DisplayOrderNum" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="TblOrderItems">
-          <Key>
-            <PropertyRef Name="orderItemID" />
-            <PropertyRef Name="menuItemId" />
-          </Key>
-          <Property Name="orderItemID" Type="int" Nullable="false" />
-          <Property Name="menuItemId" Type="int" Nullable="false" />
-          <Property Name="price" Type="money" Nullable="false" />
-        </EntityType>
-        <EntityType Name="TblOrders">
+        <EntityType Name="TblOrder">
           <Key>
             <PropertyRef Name="orderID" />
           </Key>
@@ -58,6 +50,14 @@
           <Property Name="userID" Type="int" Nullable="false" />
           <Property Name="vendorID" Type="int" Nullable="false" />
           <Property Name="orderDate" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblOrderItem">
+          <Key>
+            <PropertyRef Name="orderItemID" />
+          </Key>
+          <Property Name="orderItemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="menuItemId" Type="int" Nullable="false" />
+          <Property Name="price" Type="money" Nullable="false" />
         </EntityType>
         <EntityType Name="TblReview">
           <Key>
@@ -80,14 +80,27 @@
           <Property Name="DOB" Type="date" />
           <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="phone" Type="nvarchar" MaxLength="15" />
-          <Property Name="password" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="32" Nullable="false" />
           <Property Name="deactivated" Type="bit" Nullable="false" />
         </EntityType>
-        <EntityType Name="TblVendorEmployees">
+        <EntityType Name="TblVendor">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="vendorID" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vendorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OwnerID" Type="int" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="CompanyEmail" Type="nvarchar" MaxLength="25" />
+          <Property Name="LicenseNumber" Type="int" Nullable="false" />
+          <Property Name="inspectionDate" Type="date" Nullable="false" />
+          <Property Name="bio" Type="ntext" />
+          <Property Name="Website" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TblVendorEmployee">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="userID" Type="int" Nullable="false" />
           <Property Name="vendorID" Type="int" Nullable="false" />
         </EntityType>
@@ -101,239 +114,18 @@
           <Property Name="locationX" Type="int" Nullable="false" />
           <Property Name="locationY" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="TblVendors">
-          <Key>
-            <PropertyRef Name="vendorID" />
-          </Key>
-          <Property Name="vendorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="OwnerID" Type="int" Nullable="false" />
-          <Property Name="CompanyName" Type="nvarchar" MaxLength="25" Nullable="false" />
-          <Property Name="CompanyEmail" Type="nvarchar" MaxLength="25" />
-          <Property Name="LicenseNumber" Type="int" Nullable="false" />
-          <Property Name="inspectionDate" Type="date" Nullable="false" />
-          <Property Name="bio" Type="ntext" />
-          <Property Name="Website" Type="nvarchar" MaxLength="50" />
-        </EntityType>
-        <Association Name="FK_Categories_Categories">
-          <End Role="TblVendors" Type="Self.TblVendors" Multiplicity="1" />
-          <End Role="TblCuisine" Type="Self.TblCuisine" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblVendors">
-              <PropertyRef Name="vendorID" />
-            </Principal>
-            <Dependent Role="TblCuisine">
-              <PropertyRef Name="VendorID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_MenuItem_Menus">
-          <End Role="TblMenuSection" Type="Self.TblMenuSection" Multiplicity="1" />
-          <End Role="TblMenuItem" Type="Self.TblMenuItem" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblMenuSection">
-              <PropertyRef Name="MenuSectionID" />
-            </Principal>
-            <Dependent Role="TblMenuItem">
-              <PropertyRef Name="MenuSectionID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_MenuItem_Menus1">
-          <End Role="TblMenus" Type="Self.TblMenus" Multiplicity="1" />
-          <End Role="TblMenuItem" Type="Self.TblMenuItem" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblMenus">
-              <PropertyRef Name="menuID" />
-            </Principal>
-            <Dependent Role="TblMenuItem">
-              <PropertyRef Name="menuID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Menus_Vendors">
-          <End Role="TblVendors" Type="Self.TblVendors" Multiplicity="1" />
-          <End Role="TblMenus" Type="Self.TblMenus" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblVendors">
-              <PropertyRef Name="vendorID" />
-            </Principal>
-            <Dependent Role="TblMenus">
-              <PropertyRef Name="vendorID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_MenuSection_Menus">
-          <End Role="TblMenus" Type="Self.TblMenus" Multiplicity="1" />
-          <End Role="TblMenuSection" Type="Self.TblMenuSection" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblMenus">
-              <PropertyRef Name="menuID" />
-            </Principal>
-            <Dependent Role="TblMenuSection">
-              <PropertyRef Name="MenuID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Orders_User">
-          <End Role="TblUser" Type="Self.TblUser" Multiplicity="1" />
-          <End Role="TblOrders" Type="Self.TblOrders" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblUser">
-              <PropertyRef Name="userID" />
-            </Principal>
-            <Dependent Role="TblOrders">
-              <PropertyRef Name="userID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Orders_Vendors">
-          <End Role="TblVendors" Type="Self.TblVendors" Multiplicity="1" />
-          <End Role="TblOrders" Type="Self.TblOrders" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblVendors">
-              <PropertyRef Name="vendorID" />
-            </Principal>
-            <Dependent Role="TblOrders">
-              <PropertyRef Name="vendorID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Review_User">
-          <End Role="TblUser" Type="Self.TblUser" Multiplicity="1" />
-          <End Role="TblReview" Type="Self.TblReview" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblUser">
-              <PropertyRef Name="userID" />
-            </Principal>
-            <Dependent Role="TblReview">
-              <PropertyRef Name="UserID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Review_Vendors">
-          <End Role="TblVendors" Type="Self.TblVendors" Multiplicity="1" />
-          <End Role="TblReview" Type="Self.TblReview" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblVendors">
-              <PropertyRef Name="vendorID" />
-            </Principal>
-            <Dependent Role="TblReview">
-              <PropertyRef Name="VendorID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_VendorEmployees_User">
-          <End Role="TblUser" Type="Self.TblUser" Multiplicity="1" />
-          <End Role="TblVendorEmployees" Type="Self.TblVendorEmployees" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblUser">
-              <PropertyRef Name="userID" />
-            </Principal>
-            <Dependent Role="TblVendorEmployees">
-              <PropertyRef Name="userID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_VendorEmployees_Vendors">
-          <End Role="TblVendors" Type="Self.TblVendors" Multiplicity="1" />
-          <End Role="TblVendorEmployees" Type="Self.TblVendorEmployees" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblVendors">
-              <PropertyRef Name="vendorID" />
-            </Principal>
-            <Dependent Role="TblVendorEmployees">
-              <PropertyRef Name="vendorID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_VendorLocation_Vendors">
-          <End Role="TblVendors" Type="Self.TblVendors" Multiplicity="1" />
-          <End Role="TblVendorLocation" Type="Self.TblVendorLocation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblVendors">
-              <PropertyRef Name="vendorID" />
-            </Principal>
-            <Dependent Role="TblVendorLocation">
-              <PropertyRef Name="VendorID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Vendors_User">
-          <End Role="TblUser" Type="Self.TblUser" Multiplicity="1" />
-          <End Role="TblVendors" Type="Self.TblVendors" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblUser">
-              <PropertyRef Name="userID" />
-            </Principal>
-            <Dependent Role="TblVendors">
-              <PropertyRef Name="OwnerID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="RoundTheCornerModelStoreContainer">
           <EntitySet Name="TblCuisine" EntityType="Self.TblCuisine" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblMenu" EntityType="Self.TblMenu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblMenuItem" EntityType="Self.TblMenuItem" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TblMenus" EntityType="Self.TblMenus" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblMenuSection" EntityType="Self.TblMenuSection" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TblOrderItems" EntityType="Self.TblOrderItems" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TblOrders" EntityType="Self.TblOrders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblOrder" EntityType="Self.TblOrder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblOrderItem" EntityType="Self.TblOrderItem" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblReview" EntityType="Self.TblReview" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblUser" EntityType="Self.TblUser" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TblVendorEmployees" EntityType="Self.TblVendorEmployees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblVendor" EntityType="Self.TblVendor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblVendorEmployee" EntityType="Self.TblVendorEmployee" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblVendorLocation" EntityType="Self.TblVendorLocation" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TblVendors" EntityType="Self.TblVendors" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Categories_Categories" Association="Self.FK_Categories_Categories">
-            <End Role="TblVendors" EntitySet="TblVendors" />
-            <End Role="TblCuisine" EntitySet="TblCuisine" />
-          </AssociationSet>
-          <AssociationSet Name="FK_MenuItem_Menus" Association="Self.FK_MenuItem_Menus">
-            <End Role="TblMenuSection" EntitySet="TblMenuSection" />
-            <End Role="TblMenuItem" EntitySet="TblMenuItem" />
-          </AssociationSet>
-          <AssociationSet Name="FK_MenuItem_Menus1" Association="Self.FK_MenuItem_Menus1">
-            <End Role="TblMenus" EntitySet="TblMenus" />
-            <End Role="TblMenuItem" EntitySet="TblMenuItem" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Menus_Vendors" Association="Self.FK_Menus_Vendors">
-            <End Role="TblVendors" EntitySet="TblVendors" />
-            <End Role="TblMenus" EntitySet="TblMenus" />
-          </AssociationSet>
-          <AssociationSet Name="FK_MenuSection_Menus" Association="Self.FK_MenuSection_Menus">
-            <End Role="TblMenus" EntitySet="TblMenus" />
-            <End Role="TblMenuSection" EntitySet="TblMenuSection" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Orders_User" Association="Self.FK_Orders_User">
-            <End Role="TblUser" EntitySet="TblUser" />
-            <End Role="TblOrders" EntitySet="TblOrders" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Orders_Vendors" Association="Self.FK_Orders_Vendors">
-            <End Role="TblVendors" EntitySet="TblVendors" />
-            <End Role="TblOrders" EntitySet="TblOrders" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Review_User" Association="Self.FK_Review_User">
-            <End Role="TblUser" EntitySet="TblUser" />
-            <End Role="TblReview" EntitySet="TblReview" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Review_Vendors" Association="Self.FK_Review_Vendors">
-            <End Role="TblVendors" EntitySet="TblVendors" />
-            <End Role="TblReview" EntitySet="TblReview" />
-          </AssociationSet>
-          <AssociationSet Name="FK_VendorEmployees_User" Association="Self.FK_VendorEmployees_User">
-            <End Role="TblUser" EntitySet="TblUser" />
-            <End Role="TblVendorEmployees" EntitySet="TblVendorEmployees" />
-          </AssociationSet>
-          <AssociationSet Name="FK_VendorEmployees_Vendors" Association="Self.FK_VendorEmployees_Vendors">
-            <End Role="TblVendors" EntitySet="TblVendors" />
-            <End Role="TblVendorEmployees" EntitySet="TblVendorEmployees" />
-          </AssociationSet>
-          <AssociationSet Name="FK_VendorLocation_Vendors" Association="Self.FK_VendorLocation_Vendors">
-            <End Role="TblVendors" EntitySet="TblVendors" />
-            <End Role="TblVendorLocation" EntitySet="TblVendorLocation" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Vendors_User" Association="Self.FK_Vendors_User">
-            <End Role="TblUser" EntitySet="TblUser" />
-            <End Role="TblVendors" EntitySet="TblVendors" />
-          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
@@ -347,7 +139,15 @@
           <Property Name="CuisineID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CuisineName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="VendorID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="TblVendor" Relationship="Self.FK_Categories_Categories" FromRole="TblCuisine" ToRole="TblVendors" />
+          <Property Name="MenuID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblMenu">
+          <Key>
+            <PropertyRef Name="menuID" />
+          </Key>
+          <Property Name="menuID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vendorID" Type="Int32" Nullable="false" />
+          <Property Name="isActive" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="TblMenuItem">
           <Key>
@@ -360,19 +160,6 @@
           <Property Name="picture" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="MenuSectionID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="TblMenuSection" Relationship="Self.FK_MenuItem_Menus" FromRole="TblMenuItem" ToRole="TblMenuSection" />
-          <NavigationProperty Name="TblMenu" Relationship="Self.FK_MenuItem_Menus1" FromRole="TblMenuItem" ToRole="TblMenus" />
-        </EntityType>
-        <EntityType Name="TblMenu">
-          <Key>
-            <PropertyRef Name="menuID" />
-          </Key>
-          <Property Name="menuID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="vendorID" Type="Int32" Nullable="false" />
-          <Property Name="isActive" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="TblMenuItems" Relationship="Self.FK_MenuItem_Menus1" FromRole="TblMenus" ToRole="TblMenuItem" />
-          <NavigationProperty Name="TblVendor" Relationship="Self.FK_Menus_Vendors" FromRole="TblMenus" ToRole="TblVendors" />
-          <NavigationProperty Name="TblMenuSections" Relationship="Self.FK_MenuSection_Menus" FromRole="TblMenus" ToRole="TblMenuSection" />
         </EntityType>
         <EntityType Name="TblMenuSection">
           <Key>
@@ -381,17 +168,6 @@
           <Property Name="MenuSectionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MenuID" Type="Int32" Nullable="false" />
           <Property Name="DisplayOrderNum" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="TblMenuItems" Relationship="Self.FK_MenuItem_Menus" FromRole="TblMenuSection" ToRole="TblMenuItem" />
-          <NavigationProperty Name="TblMenu" Relationship="Self.FK_MenuSection_Menus" FromRole="TblMenuSection" ToRole="TblMenus" />
-        </EntityType>
-        <EntityType Name="TblOrderItem">
-          <Key>
-            <PropertyRef Name="orderItemID" />
-            <PropertyRef Name="menuItemId" />
-          </Key>
-          <Property Name="orderItemID" Type="Int32" Nullable="false" />
-          <Property Name="menuItemId" Type="Int32" Nullable="false" />
-          <Property Name="price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
         </EntityType>
         <EntityType Name="TblOrder">
           <Key>
@@ -401,8 +177,14 @@
           <Property Name="userID" Type="Int32" Nullable="false" />
           <Property Name="vendorID" Type="Int32" Nullable="false" />
           <Property Name="orderDate" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="TblUser" Relationship="Self.FK_Orders_User" FromRole="TblOrders" ToRole="TblUser" />
-          <NavigationProperty Name="TblVendor" Relationship="Self.FK_Orders_Vendors" FromRole="TblOrders" ToRole="TblVendors" />
+        </EntityType>
+        <EntityType Name="TblOrderItem">
+          <Key>
+            <PropertyRef Name="orderItemID" />
+          </Key>
+          <Property Name="orderItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="menuItemId" Type="Int32" Nullable="false" />
+          <Property Name="price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
         </EntityType>
         <EntityType Name="TblReview">
           <Key>
@@ -414,8 +196,6 @@
           <Property Name="Rating" Type="Int32" Nullable="false" />
           <Property Name="Subject" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="TblUser" Relationship="Self.FK_Review_User" FromRole="TblReview" ToRole="TblUser" />
-          <NavigationProperty Name="TblVendor" Relationship="Self.FK_Review_Vendors" FromRole="TblReview" ToRole="TblVendors" />
         </EntityType>
         <EntityType Name="TblUser">
           <Key>
@@ -427,33 +207,8 @@
           <Property Name="DOB" Type="DateTime" Precision="0" />
           <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="phone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
-          <Property Name="password" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="deactivated" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="TblOrders" Relationship="Self.FK_Orders_User" FromRole="TblUser" ToRole="TblOrders" />
-          <NavigationProperty Name="TblReviews" Relationship="Self.FK_Review_User" FromRole="TblUser" ToRole="TblReview" />
-          <NavigationProperty Name="TblVendorEmployees" Relationship="Self.FK_VendorEmployees_User" FromRole="TblUser" ToRole="TblVendorEmployees" />
-          <NavigationProperty Name="TblVendors" Relationship="Self.FK_Vendors_User" FromRole="TblUser" ToRole="TblVendors" />
-        </EntityType>
-        <EntityType Name="TblVendorEmployee">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="userID" Type="Int32" Nullable="false" />
-          <Property Name="vendorID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="TblUser" Relationship="Self.FK_VendorEmployees_User" FromRole="TblVendorEmployees" ToRole="TblUser" />
-          <NavigationProperty Name="TblVendor" Relationship="Self.FK_VendorEmployees_Vendors" FromRole="TblVendorEmployees" ToRole="TblVendors" />
-        </EntityType>
-        <EntityType Name="TblVendorLocation">
-          <Key>
-            <PropertyRef Name="VendorID" />
-            <PropertyRef Name="datetime" />
-          </Key>
-          <Property Name="VendorID" Type="Int32" Nullable="false" />
-          <Property Name="datetime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="locationX" Type="Int32" Nullable="false" />
-          <Property Name="locationY" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="TblVendor" Relationship="Self.FK_VendorLocation_Vendors" FromRole="TblVendorLocation" ToRole="TblVendors" />
         </EntityType>
         <EntityType Name="TblVendor">
           <Key>
@@ -467,234 +222,37 @@
           <Property Name="inspectionDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="bio" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Website" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="TblCuisines" Relationship="Self.FK_Categories_Categories" FromRole="TblVendors" ToRole="TblCuisine" />
-          <NavigationProperty Name="TblMenus" Relationship="Self.FK_Menus_Vendors" FromRole="TblVendors" ToRole="TblMenus" />
-          <NavigationProperty Name="TblOrders" Relationship="Self.FK_Orders_Vendors" FromRole="TblVendors" ToRole="TblOrders" />
-          <NavigationProperty Name="TblReviews" Relationship="Self.FK_Review_Vendors" FromRole="TblVendors" ToRole="TblReview" />
-          <NavigationProperty Name="TblUser" Relationship="Self.FK_Vendors_User" FromRole="TblVendors" ToRole="TblUser" />
-          <NavigationProperty Name="TblVendorEmployees" Relationship="Self.FK_VendorEmployees_Vendors" FromRole="TblVendors" ToRole="TblVendorEmployees" />
-          <NavigationProperty Name="TblVendorLocations" Relationship="Self.FK_VendorLocation_Vendors" FromRole="TblVendors" ToRole="TblVendorLocation" />
         </EntityType>
-        <Association Name="FK_Categories_Categories">
-          <End Role="TblVendors" Type="Self.TblVendor" Multiplicity="1" />
-          <End Role="TblCuisine" Type="Self.TblCuisine" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblVendors">
-              <PropertyRef Name="vendorID" />
-            </Principal>
-            <Dependent Role="TblCuisine">
-              <PropertyRef Name="VendorID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_MenuItem_Menus">
-          <End Role="TblMenuSection" Type="Self.TblMenuSection" Multiplicity="1" />
-          <End Role="TblMenuItem" Type="Self.TblMenuItem" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblMenuSection">
-              <PropertyRef Name="MenuSectionID" />
-            </Principal>
-            <Dependent Role="TblMenuItem">
-              <PropertyRef Name="MenuSectionID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_MenuItem_Menus1">
-          <End Role="TblMenus" Type="Self.TblMenu" Multiplicity="1" />
-          <End Role="TblMenuItem" Type="Self.TblMenuItem" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblMenus">
-              <PropertyRef Name="menuID" />
-            </Principal>
-            <Dependent Role="TblMenuItem">
-              <PropertyRef Name="menuID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Menus_Vendors">
-          <End Role="TblVendors" Type="Self.TblVendor" Multiplicity="1" />
-          <End Role="TblMenus" Type="Self.TblMenu" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblVendors">
-              <PropertyRef Name="vendorID" />
-            </Principal>
-            <Dependent Role="TblMenus">
-              <PropertyRef Name="vendorID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_MenuSection_Menus">
-          <End Role="TblMenus" Type="Self.TblMenu" Multiplicity="1" />
-          <End Role="TblMenuSection" Type="Self.TblMenuSection" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblMenus">
-              <PropertyRef Name="menuID" />
-            </Principal>
-            <Dependent Role="TblMenuSection">
-              <PropertyRef Name="MenuID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Orders_User">
-          <End Role="TblUser" Type="Self.TblUser" Multiplicity="1" />
-          <End Role="TblOrders" Type="Self.TblOrder" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblUser">
-              <PropertyRef Name="userID" />
-            </Principal>
-            <Dependent Role="TblOrders">
-              <PropertyRef Name="userID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Orders_Vendors">
-          <End Role="TblVendors" Type="Self.TblVendor" Multiplicity="1" />
-          <End Role="TblOrders" Type="Self.TblOrder" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblVendors">
-              <PropertyRef Name="vendorID" />
-            </Principal>
-            <Dependent Role="TblOrders">
-              <PropertyRef Name="vendorID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Review_User">
-          <End Role="TblUser" Type="Self.TblUser" Multiplicity="1" />
-          <End Role="TblReview" Type="Self.TblReview" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblUser">
-              <PropertyRef Name="userID" />
-            </Principal>
-            <Dependent Role="TblReview">
-              <PropertyRef Name="UserID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Review_Vendors">
-          <End Role="TblVendors" Type="Self.TblVendor" Multiplicity="1" />
-          <End Role="TblReview" Type="Self.TblReview" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblVendors">
-              <PropertyRef Name="vendorID" />
-            </Principal>
-            <Dependent Role="TblReview">
-              <PropertyRef Name="VendorID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_VendorEmployees_User">
-          <End Role="TblUser" Type="Self.TblUser" Multiplicity="1" />
-          <End Role="TblVendorEmployees" Type="Self.TblVendorEmployee" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblUser">
-              <PropertyRef Name="userID" />
-            </Principal>
-            <Dependent Role="TblVendorEmployees">
-              <PropertyRef Name="userID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Vendors_User">
-          <End Role="TblUser" Type="Self.TblUser" Multiplicity="1" />
-          <End Role="TblVendors" Type="Self.TblVendor" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblUser">
-              <PropertyRef Name="userID" />
-            </Principal>
-            <Dependent Role="TblVendors">
-              <PropertyRef Name="OwnerID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_VendorEmployees_Vendors">
-          <End Role="TblVendors" Type="Self.TblVendor" Multiplicity="1" />
-          <End Role="TblVendorEmployees" Type="Self.TblVendorEmployee" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblVendors">
-              <PropertyRef Name="vendorID" />
-            </Principal>
-            <Dependent Role="TblVendorEmployees">
-              <PropertyRef Name="vendorID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_VendorLocation_Vendors">
-          <End Role="TblVendors" Type="Self.TblVendor" Multiplicity="1" />
-          <End Role="TblVendorLocation" Type="Self.TblVendorLocation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblVendors">
-              <PropertyRef Name="vendorID" />
-            </Principal>
-            <Dependent Role="TblVendorLocation">
-              <PropertyRef Name="VendorID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
+        <EntityType Name="TblVendorEmployee">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userID" Type="Int32" Nullable="false" />
+          <Property Name="vendorID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblVendorLocation">
+          <Key>
+            <PropertyRef Name="VendorID" />
+            <PropertyRef Name="datetime" />
+          </Key>
+          <Property Name="VendorID" Type="Int32" Nullable="false" />
+          <Property Name="datetime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="locationX" Type="Int32" Nullable="false" />
+          <Property Name="locationY" Type="Int32" Nullable="false" />
+        </EntityType>
         <EntityContainer Name="RoundTheCornerEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="TblCuisines" EntityType="Self.TblCuisine" />
-          <EntitySet Name="TblMenuItems" EntityType="Self.TblMenuItem" />
           <EntitySet Name="TblMenus" EntityType="Self.TblMenu" />
+          <EntitySet Name="TblMenuItems" EntityType="Self.TblMenuItem" />
           <EntitySet Name="TblMenuSections" EntityType="Self.TblMenuSection" />
-          <EntitySet Name="TblOrderItems" EntityType="Self.TblOrderItem" />
           <EntitySet Name="TblOrders" EntityType="Self.TblOrder" />
+          <EntitySet Name="TblOrderItems" EntityType="Self.TblOrderItem" />
           <EntitySet Name="TblReviews" EntityType="Self.TblReview" />
           <EntitySet Name="TblUsers" EntityType="Self.TblUser" />
+          <EntitySet Name="TblVendors" EntityType="Self.TblVendor" />
           <EntitySet Name="TblVendorEmployees" EntityType="Self.TblVendorEmployee" />
           <EntitySet Name="TblVendorLocations" EntityType="Self.TblVendorLocation" />
-          <EntitySet Name="TblVendors" EntityType="Self.TblVendor" />
-          <AssociationSet Name="FK_Categories_Categories" Association="Self.FK_Categories_Categories">
-            <End Role="TblVendors" EntitySet="TblVendors" />
-            <End Role="TblCuisine" EntitySet="TblCuisines" />
-          </AssociationSet>
-          <AssociationSet Name="FK_MenuItem_Menus" Association="Self.FK_MenuItem_Menus">
-            <End Role="TblMenuSection" EntitySet="TblMenuSections" />
-            <End Role="TblMenuItem" EntitySet="TblMenuItems" />
-          </AssociationSet>
-          <AssociationSet Name="FK_MenuItem_Menus1" Association="Self.FK_MenuItem_Menus1">
-            <End Role="TblMenus" EntitySet="TblMenus" />
-            <End Role="TblMenuItem" EntitySet="TblMenuItems" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Menus_Vendors" Association="Self.FK_Menus_Vendors">
-            <End Role="TblVendors" EntitySet="TblVendors" />
-            <End Role="TblMenus" EntitySet="TblMenus" />
-          </AssociationSet>
-          <AssociationSet Name="FK_MenuSection_Menus" Association="Self.FK_MenuSection_Menus">
-            <End Role="TblMenus" EntitySet="TblMenus" />
-            <End Role="TblMenuSection" EntitySet="TblMenuSections" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Orders_User" Association="Self.FK_Orders_User">
-            <End Role="TblUser" EntitySet="TblUsers" />
-            <End Role="TblOrders" EntitySet="TblOrders" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Orders_Vendors" Association="Self.FK_Orders_Vendors">
-            <End Role="TblVendors" EntitySet="TblVendors" />
-            <End Role="TblOrders" EntitySet="TblOrders" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Review_User" Association="Self.FK_Review_User">
-            <End Role="TblUser" EntitySet="TblUsers" />
-            <End Role="TblReview" EntitySet="TblReviews" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Review_Vendors" Association="Self.FK_Review_Vendors">
-            <End Role="TblVendors" EntitySet="TblVendors" />
-            <End Role="TblReview" EntitySet="TblReviews" />
-          </AssociationSet>
-          <AssociationSet Name="FK_VendorEmployees_User" Association="Self.FK_VendorEmployees_User">
-            <End Role="TblUser" EntitySet="TblUsers" />
-            <End Role="TblVendorEmployees" EntitySet="TblVendorEmployees" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Vendors_User" Association="Self.FK_Vendors_User">
-            <End Role="TblUser" EntitySet="TblUsers" />
-            <End Role="TblVendors" EntitySet="TblVendors" />
-          </AssociationSet>
-          <AssociationSet Name="FK_VendorEmployees_Vendors" Association="Self.FK_VendorEmployees_Vendors">
-            <End Role="TblVendors" EntitySet="TblVendors" />
-            <End Role="TblVendorEmployees" EntitySet="TblVendorEmployees" />
-          </AssociationSet>
-          <AssociationSet Name="FK_VendorLocation_Vendors" Association="Self.FK_VendorLocation_Vendors">
-            <End Role="TblVendors" EntitySet="TblVendors" />
-            <End Role="TblVendorLocation" EntitySet="TblVendorLocations" />
-          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -708,6 +266,16 @@
                 <ScalarProperty Name="CuisineID" ColumnName="CuisineID" />
                 <ScalarProperty Name="CuisineName" ColumnName="CuisineName" />
                 <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblMenus">
+            <EntityTypeMapping TypeName="RoundTheCornerModel.TblMenu">
+              <MappingFragment StoreEntitySet="TblMenu">
+                <ScalarProperty Name="menuID" ColumnName="menuID" />
+                <ScalarProperty Name="vendorID" ColumnName="vendorID" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -724,15 +292,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TblMenus">
-            <EntityTypeMapping TypeName="RoundTheCornerModel.TblMenu">
-              <MappingFragment StoreEntitySet="TblMenus">
-                <ScalarProperty Name="menuID" ColumnName="menuID" />
-                <ScalarProperty Name="vendorID" ColumnName="vendorID" />
-                <ScalarProperty Name="isActive" ColumnName="isActive" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="TblMenuSections">
             <EntityTypeMapping TypeName="RoundTheCornerModel.TblMenuSection">
               <MappingFragment StoreEntitySet="TblMenuSection">
@@ -742,22 +301,22 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TblOrderItems">
-            <EntityTypeMapping TypeName="RoundTheCornerModel.TblOrderItem">
-              <MappingFragment StoreEntitySet="TblOrderItems">
-                <ScalarProperty Name="orderItemID" ColumnName="orderItemID" />
-                <ScalarProperty Name="menuItemId" ColumnName="menuItemId" />
-                <ScalarProperty Name="price" ColumnName="price" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="TblOrders">
             <EntityTypeMapping TypeName="RoundTheCornerModel.TblOrder">
-              <MappingFragment StoreEntitySet="TblOrders">
+              <MappingFragment StoreEntitySet="TblOrder">
                 <ScalarProperty Name="orderID" ColumnName="orderID" />
                 <ScalarProperty Name="userID" ColumnName="userID" />
                 <ScalarProperty Name="vendorID" ColumnName="vendorID" />
                 <ScalarProperty Name="orderDate" ColumnName="orderDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblOrderItems">
+            <EntityTypeMapping TypeName="RoundTheCornerModel.TblOrderItem">
+              <MappingFragment StoreEntitySet="TblOrderItem">
+                <ScalarProperty Name="orderItemID" ColumnName="orderItemID" />
+                <ScalarProperty Name="menuItemId" ColumnName="menuItemId" />
+                <ScalarProperty Name="price" ColumnName="price" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -787,10 +346,24 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="TblVendors">
+            <EntityTypeMapping TypeName="RoundTheCornerModel.TblVendor">
+              <MappingFragment StoreEntitySet="TblVendor">
+                <ScalarProperty Name="vendorID" ColumnName="vendorID" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="CompanyEmail" ColumnName="CompanyEmail" />
+                <ScalarProperty Name="LicenseNumber" ColumnName="LicenseNumber" />
+                <ScalarProperty Name="inspectionDate" ColumnName="inspectionDate" />
+                <ScalarProperty Name="bio" ColumnName="bio" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="TblVendorEmployees">
             <EntityTypeMapping TypeName="RoundTheCornerModel.TblVendorEmployee">
-              <MappingFragment StoreEntitySet="TblVendorEmployees">
-                <ScalarProperty Name="ID" ColumnName="ID" />
+              <MappingFragment StoreEntitySet="TblVendorEmployee">
+                <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="userID" ColumnName="userID" />
                 <ScalarProperty Name="vendorID" ColumnName="vendorID" />
               </MappingFragment>
@@ -803,20 +376,6 @@
                 <ScalarProperty Name="datetime" ColumnName="datetime" />
                 <ScalarProperty Name="locationX" ColumnName="locationX" />
                 <ScalarProperty Name="locationY" ColumnName="locationY" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TblVendors">
-            <EntityTypeMapping TypeName="RoundTheCornerModel.TblVendor">
-              <MappingFragment StoreEntitySet="TblVendors">
-                <ScalarProperty Name="vendorID" ColumnName="vendorID" />
-                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
-                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
-                <ScalarProperty Name="CompanyEmail" ColumnName="CompanyEmail" />
-                <ScalarProperty Name="LicenseNumber" ColumnName="LicenseNumber" />
-                <ScalarProperty Name="inspectionDate" ColumnName="inspectionDate" />
-                <ScalarProperty Name="bio" ColumnName="bio" />
-                <ScalarProperty Name="Website" ColumnName="Website" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

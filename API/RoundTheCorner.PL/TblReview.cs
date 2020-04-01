@@ -20,8 +20,5 @@ namespace RoundTheCorner.PL
         public int Rating { get; set; }
         public string Subject { get; set; }
         public string Body { get; set; }
-    
-        public virtual TblUser TblUser { get; set; }
-        public virtual TblVendor TblVendor { get; set; }
     }
 }

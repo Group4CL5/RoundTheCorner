@@ -17,7 +17,6 @@ namespace RoundTheCorner.PL
         public int CuisineID { get; set; }
         public string CuisineName { get; set; }
         public int VendorID { get; set; }
-    
-        public virtual TblVendor TblVendor { get; set; }
+        public int MenuID { get; set; }
     }
 }

@@ -18,7 +18,5 @@ namespace RoundTheCorner.PL
         public System.DateTime datetime { get; set; }
         public int locationX { get; set; }
         public int locationY { get; set; }
-    
-        public virtual TblVendor TblVendor { get; set; }
     }
 }

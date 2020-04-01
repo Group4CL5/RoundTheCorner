@@ -18,8 +18,5 @@ namespace RoundTheCorner.PL
         public int userID { get; set; }
         public int vendorID { get; set; }
         public System.DateTime orderDate { get; set; }
-    
-        public virtual TblUser TblUser { get; set; }
-        public virtual TblVendor TblVendor { get; set; }
     }
 }

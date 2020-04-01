@@ -14,15 +14,6 @@ namespace RoundTheCorner.PL
     
     public partial class TblUser
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TblUser()
-        {
-            this.TblOrders = new HashSet<TblOrder>();
-            this.TblReviews = new HashSet<TblReview>();
-            this.TblVendorEmployees = new HashSet<TblVendorEmployee>();
-            this.TblVendors = new HashSet<TblVendor>();
-        }
-    
         public int userID { get; set; }
         public string firstName { get; set; }
         public string lastName { get; set; }
@@ -31,14 +22,5 @@ namespace RoundTheCorner.PL
         public string phone { get; set; }
         public string password { get; set; }
         public bool deactivated { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TblOrder> TblOrders { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TblReview> TblReviews { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TblVendorEmployee> TblVendorEmployees { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TblVendor> TblVendors { get; set; }
     }
 }
