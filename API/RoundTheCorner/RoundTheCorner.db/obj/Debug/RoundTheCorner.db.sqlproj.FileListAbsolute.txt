@@ -15,3 +15,8 @@ C:\Users\Your Name\Documents\GitHub\RoundTheCorner\API\RoundTheCorner\RoundTheCo
 C:\Users\Your Name\Documents\GitHub\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\obj\Debug\RoundTheCorner.db.sqlprojAssemblyReference.cache
 C:\Users\Your Name\Documents\GitHub\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\obj\Debug\RoundTheCorner.db.dll
 C:\Users\Your Name\Documents\GitHub\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\obj\Debug\RoundTheCorner.db.pdb
+C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\obj\Debug\RoundTheCorner.db.sqlprojAssemblyReference.cache
+C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\obj\Debug\Model.xml
+C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\obj\Debug\refactor.xml
+C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\obj\Debug\postdeploy.sql
+C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\obj\Debug\predeploy.sql

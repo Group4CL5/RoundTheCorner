@@ -51,6 +51,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReviewModel.cs" />
     <Compile Include="UserModel.cs" />
+    <Compile Include="VendorEmployeeModel.cs" />
     <Compile Include="VendorLocationModel.cs" />
     <Compile Include="VendorModel.cs" />
   </ItemGroup>
