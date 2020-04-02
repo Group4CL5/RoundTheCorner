@@ -8,6 +8,7 @@ namespace RoundTheCorner.BL.Tests
     [TestClass]
     public class utVendorEmployee
     {
+        // Just a comment
         public void Seed()
         {
             bool result = VendorEmployeeManager.Seed();
