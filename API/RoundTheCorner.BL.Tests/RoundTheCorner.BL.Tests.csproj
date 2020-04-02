@@ -57,9 +57,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="utMenu.cs" />
-    <Compile Include="utMenuSection.cs" />
-    <Compile Include="utVendorEmployee.cs" />
+    <Compile Include="utOrder.cs" />
     <Compile Include="utReview.cs" />
     <Compile Include="utOrderItem.cs" />
     <Compile Include="utUser.cs" />

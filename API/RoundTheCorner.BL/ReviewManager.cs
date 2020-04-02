@@ -9,10 +9,7 @@ using RoundTheCorner.PL;
 namespace RoundTheCorner.BL
 {
     public class ReviewManager
-    {
-
-
-       
+    {       
 
         public static bool Seed()
         {
