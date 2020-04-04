@@ -14,3 +14,7 @@
 GET RID OF
 [1] Continue as GUest
 [2] Is Truck? (were focusing on trucks)
+
+04April20
+[1] Tbl-MenuItem fix data type of picture
+[2]  Fix the casing (clarity)
