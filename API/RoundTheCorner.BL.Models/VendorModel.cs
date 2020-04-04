@@ -11,7 +11,7 @@ namespace RoundTheCorner.BL.Models
         public int ownerID { get; set; }
         public string companyName { get; set; }
         public string companyEmail { get; set; }
-        public string licenseNumber { get; set; }
+        public int licenseNumber { get; set; }
         public DateTime inspectionDate { get; set; }
         public string bio { get; set; }
         public string website { get; set; }
