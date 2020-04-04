@@ -65,3 +65,7 @@ C:\Users\tyler\OneDrive\Documents\Visual Studio 2019\MSSAProjects\RoundTheCorner
 C:\Users\tyler\OneDrive\Documents\Visual Studio 2019\MSSAProjects\RoundTheCorner\API\RoundTheCorner.BL\bin\Debug\EntityFramework.xml
 C:\Users\tyler\OneDrive\Documents\Visual Studio 2019\MSSAProjects\RoundTheCorner\API\RoundTheCorner.BL\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\tyler\OneDrive\Documents\Visual Studio 2019\MSSAProjects\RoundTheCorner\API\RoundTheCorner.BL\obj\Debug\RoundTheCorner.BL.csproj.CopyComplete
+C:\Users\Your Name\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL\obj\Debug\RoundTheCorner.BL.csprojAssemblyReference.cache
+C:\Users\Your Name\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL\obj\Debug\RoundTheCorner.BL.csproj.CoreCompileInputs.cache
+C:\Users\Your Name\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL\obj\Debug\RoundTheCorner.BL.dll
+C:\Users\Your Name\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL\obj\Debug\RoundTheCorner.BL.pdb

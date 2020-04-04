@@ -8,7 +8,7 @@ using RoundTheCorner.PL;
 
 namespace RoundTheCorner.BL
 {
-    class MenuItemManager
+    public class MenuItemManager
     {
         public static bool Seed()
         {
@@ -80,7 +80,7 @@ namespace RoundTheCorner.BL
                 throw ex;
             }
         }
-        public static MenuItemModel GetCuisine(int id)
+        public static MenuItemModel GetMenuItem(int id)
         {
             try
             {

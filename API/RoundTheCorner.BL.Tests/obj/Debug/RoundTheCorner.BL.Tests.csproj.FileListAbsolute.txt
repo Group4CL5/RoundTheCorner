@@ -105,3 +105,7 @@ C:\Users\tyler\OneDrive\Documents\Visual Studio 2019\MSSAProjects\RoundTheCorner
 C:\Users\tyler\OneDrive\Documents\Visual Studio 2019\MSSAProjects\RoundTheCorner\API\RoundTheCorner.BL.Tests\obj\Debug\RoundTheCorner.BL.Tests.csproj.CopyComplete
 C:\Users\tyler\OneDrive\Documents\Visual Studio 2019\MSSAProjects\RoundTheCorner\API\RoundTheCorner.BL.Tests\obj\Debug\RoundTheCorner.BL.Tests.dll
 C:\Users\tyler\OneDrive\Documents\Visual Studio 2019\MSSAProjects\RoundTheCorner\API\RoundTheCorner.BL.Tests\obj\Debug\RoundTheCorner.BL.Tests.pdb
+C:\Users\Your Name\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL.Tests\obj\Debug\RoundTheCorner.BL.Tests.csprojAssemblyReference.cache
+C:\Users\Your Name\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL.Tests\obj\Debug\RoundTheCorner.BL.Tests.csproj.CoreCompileInputs.cache
+C:\Users\Your Name\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL.Tests\obj\Debug\RoundTheCorner.BL.Tests.dll
+C:\Users\Your Name\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL.Tests\obj\Debug\RoundTheCorner.BL.Tests.pdb

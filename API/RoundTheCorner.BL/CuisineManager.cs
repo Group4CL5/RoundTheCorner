@@ -8,7 +8,7 @@ using RoundTheCorner.PL;
 
 namespace RoundTheCorner.BL
 {
-    class CuisineManager
+    public class CuisineManager
     {
         public static bool Seed()
         {

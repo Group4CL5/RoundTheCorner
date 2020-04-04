@@ -33,3 +33,15 @@ C:\Users\tyler\OneDrive\Documents\Visual Studio 2019\MSSAProjects\RoundTheCorner
 C:\Users\tyler\OneDrive\Documents\Visual Studio 2019\MSSAProjects\RoundTheCorner\API\RoundTheCorner.PL\obj\Debug\RoundTheCorner.PL.csproj.CopyComplete
 C:\Users\tyler\OneDrive\Documents\Visual Studio 2019\MSSAProjects\RoundTheCorner\API\RoundTheCorner.PL\obj\Debug\RoundTheCorner.PL.dll
 C:\Users\tyler\OneDrive\Documents\Visual Studio 2019\MSSAProjects\RoundTheCorner\API\RoundTheCorner.PL\obj\Debug\RoundTheCorner.PL.pdb
+C:\Users\Your Name\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.PL\bin\Debug\RoundTheCorner.PL.dll.config
+C:\Users\Your Name\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.PL\bin\Debug\RoundTheCorner.PL.dll
+C:\Users\Your Name\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.PL\bin\Debug\RoundTheCorner.PL.pdb
+C:\Users\Your Name\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.PL\bin\Debug\EntityFramework.dll
+C:\Users\Your Name\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.PL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Your Name\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.PL\bin\Debug\EntityFramework.xml
+C:\Users\Your Name\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.PL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Your Name\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.PL\obj\Debug\RoundTheCorner.PL.csprojAssemblyReference.cache
+C:\Users\Your Name\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.PL\obj\Debug\RoundTheCorner.PL.csproj.CoreCompileInputs.cache
+C:\Users\Your Name\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.PL\obj\Debug\RoundTheCorner.PL.csproj.CopyComplete
+C:\Users\Your Name\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.PL\obj\Debug\RoundTheCorner.PL.dll
+C:\Users\Your Name\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.PL\obj\Debug\RoundTheCorner.PL.pdb
