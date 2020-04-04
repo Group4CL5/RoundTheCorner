@@ -15,7 +15,7 @@ namespace RoundTheCorner.BL
             OrderItemModel orderItem = new OrderItemModel
             {
                 menuItemID = 1,
-                price = 1
+                price = 123
             };
 
             return Insert(orderItem);

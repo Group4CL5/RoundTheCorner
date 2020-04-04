@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RoundTheCorner.BL.Models;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace RoundTheCorner.BL.Tests
 {
@@ -27,27 +28,24 @@ namespace RoundTheCorner.BL.Tests
         [TestMethod]
         public void Update()
         {
-            OrderModel order = new OrderModel
-            {
-                orderID = 1,
-                userID = 1,
-                vendorID = 1,
-                orderDate = new DateTime(2020, 04, 01)
-
-            };
+            List<OrderModel> orders = OrderManager.GetOrders();
+            OrderModel order = orders.FirstOrDefault(o => o.orderDate.Year == 1980);
+            order.orderDate = new DateTime(1979, 04, 02);
 
             OrderManager.Update(order);
 
-            OrderModel newOrder = OrderManager.GetOrder(1);
+            OrderModel newOrder = OrderManager.GetOrder(order.orderID);
 
-            Assert.AreEqual(order.orderID, newOrder.orderID);
+            Assert.AreEqual(order.orderDate, newOrder.orderDate);
         }
 
 
         [TestMethod]
         public void Delete()
         {
-            bool result = OrderManager.Delete(2);
+            List<OrderModel> orders = OrderManager.GetOrders();
+            OrderModel order = orders.FirstOrDefault(o => o.orderDate.Year == 1979);
+            bool result = OrderManager.Delete(order.orderID);
             Assert.IsTrue(result);
         }
     }
