@@ -21,5 +21,6 @@ namespace RoundTheCorner.PL
         public byte[] picture { get; set; }
         public string description { get; set; }
         public int MenuSectionID { get; set; }
+        public object menuItemID { get; set; }
     }
 }
