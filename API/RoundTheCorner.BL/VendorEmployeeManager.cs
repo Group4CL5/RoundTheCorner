@@ -10,7 +10,7 @@ namespace RoundTheCorner.BL
 {
     public class VendorEmployeeManager
     {
-
+        // Just a comment
         public static bool Seed()
         {
             VendorEmployeeModel vendorEmployee = new VendorEmployeeModel
