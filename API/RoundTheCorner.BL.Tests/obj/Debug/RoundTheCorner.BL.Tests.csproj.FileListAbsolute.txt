@@ -52,3 +52,56 @@ C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL.Tests\obj\D
 C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL.Tests\obj\Debug\RoundTheCorner.BL.Tests.csproj.CopyComplete
 C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL.Tests\obj\Debug\RoundTheCorner.BL.Tests.dll
 C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL.Tests\obj\Debug\RoundTheCorner.BL.Tests.pdb
+D:\(4) Studios\RoundTheCorner\API\RoundTheCorner.BL.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+D:\(4) Studios\RoundTheCorner\API\RoundTheCorner.BL.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+D:\(4) Studios\RoundTheCorner\API\RoundTheCorner.BL.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+D:\(4) Studios\RoundTheCorner\API\RoundTheCorner.BL.Tests\bin\Debug\RoundTheCorner.BL.Tests.dll.config
+D:\(4) Studios\RoundTheCorner\API\RoundTheCorner.BL.Tests\bin\Debug\RoundTheCorner.BL.Tests.dll
+D:\(4) Studios\RoundTheCorner\API\RoundTheCorner.BL.Tests\bin\Debug\RoundTheCorner.BL.Tests.pdb
+D:\(4) Studios\RoundTheCorner\API\RoundTheCorner.BL.Tests\bin\Debug\EntityFramework.dll
+D:\(4) Studios\RoundTheCorner\API\RoundTheCorner.BL.Tests\bin\Debug\EntityFramework.SqlServer.dll
+D:\(4) Studios\RoundTheCorner\API\RoundTheCorner.BL.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+D:\(4) Studios\RoundTheCorner\API\RoundTheCorner.BL.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+D:\(4) Studios\RoundTheCorner\API\RoundTheCorner.BL.Tests\bin\Debug\RoundTheCorner.BL.dll
+D:\(4) Studios\RoundTheCorner\API\RoundTheCorner.BL.Tests\bin\Debug\RoundTheCorner.BL.Models.dll
+D:\(4) Studios\RoundTheCorner\API\RoundTheCorner.BL.Tests\bin\Debug\RoundTheCorner.PL.dll
+D:\(4) Studios\RoundTheCorner\API\RoundTheCorner.BL.Tests\bin\Debug\RoundTheCorner.BL.Models.pdb
+D:\(4) Studios\RoundTheCorner\API\RoundTheCorner.BL.Tests\bin\Debug\RoundTheCorner.BL.pdb
+D:\(4) Studios\RoundTheCorner\API\RoundTheCorner.BL.Tests\bin\Debug\RoundTheCorner.BL.dll.config
+D:\(4) Studios\RoundTheCorner\API\RoundTheCorner.BL.Tests\bin\Debug\EntityFramework.xml
+D:\(4) Studios\RoundTheCorner\API\RoundTheCorner.BL.Tests\bin\Debug\EntityFramework.SqlServer.xml
+D:\(4) Studios\RoundTheCorner\API\RoundTheCorner.BL.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+D:\(4) Studios\RoundTheCorner\API\RoundTheCorner.BL.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+D:\(4) Studios\RoundTheCorner\API\RoundTheCorner.BL.Tests\bin\Debug\RoundTheCorner.PL.pdb
+D:\(4) Studios\RoundTheCorner\API\RoundTheCorner.BL.Tests\bin\Debug\RoundTheCorner.PL.dll.config
+D:\(4) Studios\RoundTheCorner\API\RoundTheCorner.BL.Tests\obj\Debug\RoundTheCorner.BL.Tests.csprojAssemblyReference.cache
+D:\(4) Studios\RoundTheCorner\API\RoundTheCorner.BL.Tests\obj\Debug\RoundTheCorner.BL.Tests.csproj.CoreCompileInputs.cache
+D:\(4) Studios\RoundTheCorner\API\RoundTheCorner.BL.Tests\obj\Debug\RoundTheCorner.BL.Tests.csproj.CopyComplete
+D:\(4) Studios\RoundTheCorner\API\RoundTheCorner.BL.Tests\obj\Debug\RoundTheCorner.BL.Tests.dll
+D:\(4) Studios\RoundTheCorner\API\RoundTheCorner.BL.Tests\obj\Debug\RoundTheCorner.BL.Tests.pdb
+C:\Users\tyler\OneDrive\Documents\Visual Studio 2019\MSSAProjects\RoundTheCorner\API\RoundTheCorner.BL.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\tyler\OneDrive\Documents\Visual Studio 2019\MSSAProjects\RoundTheCorner\API\RoundTheCorner.BL.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\tyler\OneDrive\Documents\Visual Studio 2019\MSSAProjects\RoundTheCorner\API\RoundTheCorner.BL.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\tyler\OneDrive\Documents\Visual Studio 2019\MSSAProjects\RoundTheCorner\API\RoundTheCorner.BL.Tests\bin\Debug\RoundTheCorner.BL.Tests.dll.config
+C:\Users\tyler\OneDrive\Documents\Visual Studio 2019\MSSAProjects\RoundTheCorner\API\RoundTheCorner.BL.Tests\bin\Debug\RoundTheCorner.BL.Tests.dll
+C:\Users\tyler\OneDrive\Documents\Visual Studio 2019\MSSAProjects\RoundTheCorner\API\RoundTheCorner.BL.Tests\bin\Debug\RoundTheCorner.BL.Tests.pdb
+C:\Users\tyler\OneDrive\Documents\Visual Studio 2019\MSSAProjects\RoundTheCorner\API\RoundTheCorner.BL.Tests\bin\Debug\EntityFramework.dll
+C:\Users\tyler\OneDrive\Documents\Visual Studio 2019\MSSAProjects\RoundTheCorner\API\RoundTheCorner.BL.Tests\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\tyler\OneDrive\Documents\Visual Studio 2019\MSSAProjects\RoundTheCorner\API\RoundTheCorner.BL.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\tyler\OneDrive\Documents\Visual Studio 2019\MSSAProjects\RoundTheCorner\API\RoundTheCorner.BL.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\tyler\OneDrive\Documents\Visual Studio 2019\MSSAProjects\RoundTheCorner\API\RoundTheCorner.BL.Tests\bin\Debug\RoundTheCorner.BL.dll
+C:\Users\tyler\OneDrive\Documents\Visual Studio 2019\MSSAProjects\RoundTheCorner\API\RoundTheCorner.BL.Tests\bin\Debug\RoundTheCorner.BL.Models.dll
+C:\Users\tyler\OneDrive\Documents\Visual Studio 2019\MSSAProjects\RoundTheCorner\API\RoundTheCorner.BL.Tests\bin\Debug\RoundTheCorner.PL.dll
+C:\Users\tyler\OneDrive\Documents\Visual Studio 2019\MSSAProjects\RoundTheCorner\API\RoundTheCorner.BL.Tests\bin\Debug\RoundTheCorner.BL.Models.pdb
+C:\Users\tyler\OneDrive\Documents\Visual Studio 2019\MSSAProjects\RoundTheCorner\API\RoundTheCorner.BL.Tests\bin\Debug\RoundTheCorner.BL.pdb
+C:\Users\tyler\OneDrive\Documents\Visual Studio 2019\MSSAProjects\RoundTheCorner\API\RoundTheCorner.BL.Tests\bin\Debug\RoundTheCorner.BL.dll.config
+C:\Users\tyler\OneDrive\Documents\Visual Studio 2019\MSSAProjects\RoundTheCorner\API\RoundTheCorner.BL.Tests\bin\Debug\EntityFramework.xml
+C:\Users\tyler\OneDrive\Documents\Visual Studio 2019\MSSAProjects\RoundTheCorner\API\RoundTheCorner.BL.Tests\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\tyler\OneDrive\Documents\Visual Studio 2019\MSSAProjects\RoundTheCorner\API\RoundTheCorner.BL.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\tyler\OneDrive\Documents\Visual Studio 2019\MSSAProjects\RoundTheCorner\API\RoundTheCorner.BL.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\tyler\OneDrive\Documents\Visual Studio 2019\MSSAProjects\RoundTheCorner\API\RoundTheCorner.BL.Tests\bin\Debug\RoundTheCorner.PL.pdb
+C:\Users\tyler\OneDrive\Documents\Visual Studio 2019\MSSAProjects\RoundTheCorner\API\RoundTheCorner.BL.Tests\bin\Debug\RoundTheCorner.PL.dll.config
+C:\Users\tyler\OneDrive\Documents\Visual Studio 2019\MSSAProjects\RoundTheCorner\API\RoundTheCorner.BL.Tests\obj\Debug\RoundTheCorner.BL.Tests.csprojAssemblyReference.cache
+C:\Users\tyler\OneDrive\Documents\Visual Studio 2019\MSSAProjects\RoundTheCorner\API\RoundTheCorner.BL.Tests\obj\Debug\RoundTheCorner.BL.Tests.csproj.CopyComplete
+C:\Users\tyler\OneDrive\Documents\Visual Studio 2019\MSSAProjects\RoundTheCorner\API\RoundTheCorner.BL.Tests\obj\Debug\RoundTheCorner.BL.Tests.dll
+C:\Users\tyler\OneDrive\Documents\Visual Studio 2019\MSSAProjects\RoundTheCorner\API\RoundTheCorner.BL.Tests\obj\Debug\RoundTheCorner.BL.Tests.pdb
