@@ -26,3 +26,9 @@ D:\(4) Studios\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\bin\Debug\Rou
 D:\(4) Studios\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\obj\Debug\RoundTheCorner.db.sqlprojAssemblyReference.cache
 D:\(4) Studios\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\obj\Debug\RoundTheCorner.db.dll
 D:\(4) Studios\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\obj\Debug\RoundTheCorner.db.pdb
+C:\Users\tyler\OneDrive\Documents\Visual Studio 2019\MSSAProjects\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\bin\Debug\RoundTheCorner.db.dacpac
+C:\Users\tyler\OneDrive\Documents\Visual Studio 2019\MSSAProjects\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\bin\Debug\RoundTheCorner.db.dll
+C:\Users\tyler\OneDrive\Documents\Visual Studio 2019\MSSAProjects\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\bin\Debug\RoundTheCorner.db.pdb
+C:\Users\tyler\OneDrive\Documents\Visual Studio 2019\MSSAProjects\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\obj\Debug\RoundTheCorner.db.sqlprojAssemblyReference.cache
+C:\Users\tyler\OneDrive\Documents\Visual Studio 2019\MSSAProjects\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\obj\Debug\RoundTheCorner.db.dll
+C:\Users\tyler\OneDrive\Documents\Visual Studio 2019\MSSAProjects\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\obj\Debug\RoundTheCorner.db.pdb
