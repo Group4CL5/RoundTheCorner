@@ -15,11 +15,11 @@ namespace RoundTheCorner.BL
         {
             ReviewModel review = new ReviewModel
             {
-                vendorID = 1,
-                userID = 1,
-                rating = 5,
-                subject = "Best food in town",
-                body = "The food was yummy and made me happy. Recommend it to everyone in town."
+                VendorID = 1,
+                UserID = 1,
+                Rating = 5,
+                Subject = "Test",
+                Body = "The food was yummy and made me happy. Recommend it to everyone in town."
             };
 
             return Insert(review);
@@ -36,9 +36,9 @@ namespace RoundTheCorner.BL
                         ReviewID = rc.TblReviews.Any()? rc.TblReviews.Max(u => u.ReviewID) +1: 1,
                         VendorID = 1,
 
-                       Rating = review.rating,
-                       Subject = review.subject,
-                       Body = review.body
+                       Rating = review.Rating,
+                       Subject = review.Subject,
+                       Body = review.Body
 
                     };
                     rc.TblReviews.Add(newRow);
@@ -52,7 +52,7 @@ namespace RoundTheCorner.BL
             }
         }
 
-        public static bool Insert(int rating, string subject, string body)
+        public static bool Insert(int Rating, string Subject, string Body)
         {
             try
             {
@@ -63,9 +63,9 @@ namespace RoundTheCorner.BL
                         ReviewID = rc.TblReviews.Any() ? rc.TblReviews.Max(u => u.ReviewID) + 1 : 1,
                         VendorID = 1,
                         UserID = 1,
-                        Rating = rating,
-                        Subject= subject,
-                        Body = body
+                        Rating = Rating,
+                        Subject= Subject,
+                        Body = Body
                     };
                     rc.TblReviews.Add(newRow);
                     rc.SaveChanges();
@@ -92,10 +92,10 @@ namespace RoundTheCorner.BL
                         {
                             ReviewModel review = new ReviewModel
                             {
-                                reviewID = tblReview.ReviewID,
-                                rating = tblReview.Rating,
-                                subject = tblReview.Subject,
-                                body = tblReview.Body
+                                ReviewID = tblReview.ReviewID,
+                                Rating = tblReview.Rating,
+                                Subject = tblReview.Subject,
+                                Body = tblReview.Body
 
                             };
 
@@ -116,7 +116,7 @@ namespace RoundTheCorner.BL
             }
         }
 
-        public static List<ReviewModel> GetReview()
+        public static List<ReviewModel> GetReviews()
         {
             try
             {
@@ -128,7 +128,7 @@ namespace RoundTheCorner.BL
                     {
                         List<ReviewModel> reviews = new List<ReviewModel>();
 
-                        tblReview.ForEach(u => reviews.Add(new ReviewModel { reviewID = u.ReviewID, vendorID = u.VendorID, userID=u.UserID, subject=u.Subject, body = u.Body, rating = u.Rating }));
+                        tblReview.ForEach(u => reviews.Add(new ReviewModel { ReviewID = u.ReviewID, VendorID = u.VendorID, UserID=u.UserID, Subject=u.Subject, Body = u.Body, Rating = u.Rating }));
 
                         return reviews;
                     }
@@ -147,20 +147,20 @@ namespace RoundTheCorner.BL
         {
             try
             {
-                if (review.reviewID != 0)
+                if (review.ReviewID != 0)
                 {
                     using (RoundTheCornerEntities rc = new RoundTheCornerEntities())
                     {
-                        TblReview tblReview = rc.TblReviews.FirstOrDefault(u => u.ReviewID == review.reviewID);
+                        TblReview tblReview = rc.TblReviews.FirstOrDefault(u => u.ReviewID == review.ReviewID);
 
                         if (tblReview != null)
                         {
-                            tblReview.ReviewID = review.reviewID;
-                            tblReview.UserID = review.userID;
-                            tblReview.VendorID = review.vendorID;
-                            tblReview.Rating = review.rating;
-                            tblReview.Subject = review.subject;
-                            tblReview.Body = review.body;
+                            tblReview.ReviewID = review.ReviewID;
+                            tblReview.UserID = review.UserID;
+                            tblReview.VendorID = review.VendorID;
+                            tblReview.Rating = review.Rating;
+                            tblReview.Subject = review.Subject;
+                            tblReview.Body = review.Body;
 
 
                             rc.SaveChanges();

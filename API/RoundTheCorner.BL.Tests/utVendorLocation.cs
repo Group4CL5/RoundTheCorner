@@ -9,7 +9,7 @@ using RoundTheCorner.BL.Models;
 namespace RoundTheCorner.BL.Tests
 {
     [TestClass]
-    public class utVendorLocation
+    public class UTVendorLocation
     {
         [TestMethod]
         public void Seed()
@@ -31,15 +31,15 @@ namespace RoundTheCorner.BL.Tests
         {
             VendorLocationModel vendorLocation = new VendorLocationModel
             {
-                vendorID = 2,
-                locationX = 111, 
-                locationY = 222,
-                date = new DateTime(1950, 12, 31)
+                VendorID = 2,
+                LocationX = 111, 
+                LocationY = 222,
+                Date = new DateTime(1950, 12, 31)
             };
 
             VendorLocationManager.Update(vendorLocation);
             VendorLocationModel newVendorLocation = VendorLocationManager.GetVendorLocation(2);
-            Assert.AreEqual(vendorLocation.vendorID, newVendorLocation.vendorID);
+            Assert.AreEqual(vendorLocation.VendorID, newVendorLocation.VendorID);
         }
 
         [TestMethod]

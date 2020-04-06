@@ -7,7 +7,7 @@ using System.Linq;
 namespace RoundTheCorner.BL.Tests
 {
     [TestClass]
-    public class utMenuSection
+    public class UTMenuSection
     {
 
         [TestMethod]
@@ -31,14 +31,14 @@ namespace RoundTheCorner.BL.Tests
         {
             List<MenuSectionModel> menuSections = MenuSectionManager.GetMenuSections();
 
-            MenuSectionModel menuSection = menuSections.FirstOrDefault(m => m.displayOrderNum == 100);
-            menuSection.displayOrderNum = 99;
+            MenuSectionModel menuSection = menuSections.FirstOrDefault(m => m.DisplayOrderNum == 100);
+            menuSection.DisplayOrderNum = 99;
 
             MenuSectionManager.Update(menuSection);
 
-            MenuSectionModel newMenuSection = MenuSectionManager.GetMenuSection(menuSection.menuSectionID);
+            MenuSectionModel newMenuSection = MenuSectionManager.GetMenuSection(menuSection.MenuSectionID);
 
-            Assert.AreEqual(menuSection.displayOrderNum, newMenuSection.displayOrderNum);
+            Assert.AreEqual(menuSection.DisplayOrderNum, newMenuSection.DisplayOrderNum);
         }
 
         [TestMethod]
@@ -46,9 +46,9 @@ namespace RoundTheCorner.BL.Tests
         {
             List<MenuSectionModel> menuSections = MenuSectionManager.GetMenuSections();
 
-            MenuSectionModel menuSection = menuSections.FirstOrDefault(m => m.displayOrderNum == 99);
+            MenuSectionModel menuSection = menuSections.FirstOrDefault(m => m.DisplayOrderNum == 99);
             
-            bool result = MenuSectionManager.Delete(menuSection.menuSectionID);
+            bool result = MenuSectionManager.Delete(menuSection.MenuSectionID);
             Assert.IsTrue(result);
         }
     }

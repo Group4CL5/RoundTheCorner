@@ -8,8 +8,8 @@ namespace RoundTheCorner.BL.Models
 {
     public class MenuSectionModel
     {
-        public int menuSectionID { get; set; }
-        public int menuID { get; set; }
-        public int displayOrderNum { get; set; }
+        public int MenuSectionID { get; set; }
+        public int MenuID { get; set; }
+        public int DisplayOrderNum { get; set; }
     }
 }

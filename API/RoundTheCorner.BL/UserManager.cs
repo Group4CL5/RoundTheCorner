@@ -9,11 +9,11 @@ namespace RoundTheCorner.BL
 {
     public class UserManager
     {
-        public static string GetHash(string password)
+        public static string GetHash(string Password)
         {
             using (var hash = new System.Security.Cryptography.SHA1Managed())
             {
-                var hashbytes = System.Text.Encoding.UTF8.GetBytes(password);
+                var hashbytes = System.Text.Encoding.UTF8.GetBytes(Password);
                 return Convert.ToBase64String(hash.ComputeHash(hashbytes));
             }
         }
@@ -22,21 +22,21 @@ namespace RoundTheCorner.BL
         {
             try
             {
-                if (!string.IsNullOrEmpty(user.email))
+                if (!string.IsNullOrEmpty(user.Email))
                 {
-                    if (!string.IsNullOrEmpty(user.password))
+                    if (!string.IsNullOrEmpty(user.Password))
                     {
                         using (RoundTheCornerEntities rc = new RoundTheCornerEntities())
                         {
-                            string hashPassword = GetHash(user.password).ToString();
-                            TblUser tblUser = rc.TblUsers.FirstOrDefault(u => u.email == user.email && u.password == hashPassword);
+                            string hashPassword = GetHash(user.Password).ToString();
+                            TblUser tblUser = rc.TblUsers.FirstOrDefault(u => u.Email == user.Email && u.Password == hashPassword);
 
 
-                            if (tblUser != null && tblUser.deactivated == false)
+                            if (tblUser != null && tblUser.Deactivated == false)
                             {
-                                user.firstName = tblUser.firstName;
-                                user.lastName = tblUser.lastName;
-                                user.deactivated = tblUser.deactivated;
+                                user.FirstName = tblUser.FirstName;
+                                user.LastName = tblUser.LastName;
+                                user.Deactivated = tblUser.Deactivated;
                                 user.DOB = (DateTime)tblUser.DOB;
 
                                 return true;
@@ -65,13 +65,13 @@ namespace RoundTheCorner.BL
         {
             UserModel user = new UserModel
             {
-                email = "test@test.com",
-                firstName = "test",
-                lastName = "testAccount",
-                password = "123",
+                Email = "test@test.com",
+                FirstName = "test",
+                LastName = "testAccount",
+                Password = "123",
                 DOB = new DateTime(1997, 09, 11),
-                phone = "123-456-7890",
-                deactivated = false
+                Phone = "123-456-7890",
+                Deactivated = false
             };
 
             return Insert(user);
@@ -85,14 +85,14 @@ namespace RoundTheCorner.BL
                 {
                     PL.TblUser newRow = new TblUser()
                     {
-                        userID = rc.TblUsers.Any()? rc.TblUsers.Max(u => u.userID) +1: 1,
-                        email = user.email,
-                        firstName = user.firstName,
-                        lastName = user.lastName,
+                        UserID = rc.TblUsers.Any()? rc.TblUsers.Max(u => u.UserID) +1: 1,
+                        Email = user.Email,
+                        FirstName = user.FirstName,
+                        LastName = user.LastName,
                         DOB = user.DOB,
-                        password = GetHash(user.password).ToString(),
-                        phone = user.phone,
-                        deactivated = user.deactivated
+                        Password = GetHash(user.Password).ToString(),
+                        Phone = user.Phone,
+                        Deactivated = user.Deactivated
                     };
                     rc.TblUsers.Add(newRow);
                     rc.SaveChanges();
@@ -105,7 +105,7 @@ namespace RoundTheCorner.BL
             }
         }
         
-        public static bool Insert(string email, string firstname, string lastname, string password, string phone)
+        public static bool Insert(string Email, string firstname, string lastname, string Password, string Phone)
         {
             try
             {
@@ -113,12 +113,12 @@ namespace RoundTheCorner.BL
                 {
                     PL.TblUser newRow = new TblUser()
                     {
-                        userID = rc.TblUsers.Any()? rc.TblUsers.Max(u => u.userID) +1: 1,
-                        email = email,
-                        firstName = firstname,
-                        lastName = lastname,
-                        password = password,
-                        phone = phone
+                        UserID = rc.TblUsers.Any()? rc.TblUsers.Max(u => u.UserID) +1: 1,
+                        Email = Email,
+                        FirstName = firstname,
+                        LastName = lastname,
+                        Password = Password,
+                        Phone = Phone
                     };
                     rc.TblUsers.Add(newRow);
                     rc.SaveChanges();
@@ -138,18 +138,18 @@ namespace RoundTheCorner.BL
                 if (id != 0) {
                     using (RoundTheCornerEntities rc = new RoundTheCornerEntities())
                     {
-                        var tblUser = rc.TblUsers.FirstOrDefault(u => u.userID == id);
+                        var tblUser = rc.TblUsers.FirstOrDefault(u => u.UserID == id);
 
                         if (tblUser != null)
                         {
                             UserModel user = new UserModel
                             {
-                                userID = tblUser.userID,
-                                firstName = tblUser.firstName,
-                                lastName = tblUser.lastName,
-                                email = tblUser.email,
+                                UserID = tblUser.UserID,
+                                FirstName = tblUser.FirstName,
+                                LastName = tblUser.LastName,
+                                Email = tblUser.Email,
                                 DOB = (DateTime)tblUser.DOB,
-                                deactivated = tblUser.deactivated
+                                Deactivated = tblUser.Deactivated
                             };
 
                             return user;
@@ -181,7 +181,7 @@ namespace RoundTheCorner.BL
                     {
                         List<UserModel> users = new List<UserModel>();
 
-                        tblUsers.ForEach(u => users.Add(new UserModel { userID = u.userID, email = u.email, firstName = u.firstName, lastName = u.lastName, deactivated = u.deactivated, DOB = (DateTime)u.DOB, phone = u.phone }));
+                        tblUsers.ForEach(u => users.Add(new UserModel { UserID = u.UserID, Email = u.Email, FirstName = u.FirstName, LastName = u.LastName, Deactivated = u.Deactivated, DOB = (DateTime)u.DOB, Phone = u.Phone }));
 
                         return users;
                     }
@@ -200,18 +200,18 @@ namespace RoundTheCorner.BL
         {
             try
             {
-                if (user.userID != 0)
+                if (user.UserID != 0)
                 {
                     using (RoundTheCornerEntities rc = new RoundTheCornerEntities())
                     {
-                        TblUser tblUser = rc.TblUsers.FirstOrDefault(u => u.userID == user.userID);
+                        TblUser tblUser = rc.TblUsers.FirstOrDefault(u => u.UserID == user.UserID);
 
                         if (tblUser != null) 
                         {
-                            tblUser.phone = user.phone;
-                            tblUser.email = user.email;
-                            tblUser.firstName = user.firstName;
-                            tblUser.lastName = user.lastName;
+                            tblUser.Phone = user.Phone;
+                            tblUser.Email = user.Email;
+                            tblUser.FirstName = user.FirstName;
+                            tblUser.LastName = user.LastName;
 
                             rc.SaveChanges();
                             return true;
@@ -241,11 +241,11 @@ namespace RoundTheCorner.BL
                 {
                     using (RoundTheCornerEntities rc = new RoundTheCornerEntities())
                     {
-                        TblUser tblUser = rc.TblUsers.FirstOrDefault(u => u.userID == id);
+                        TblUser tblUser = rc.TblUsers.FirstOrDefault(u => u.UserID == id);
 
                         if (tblUser != null)
                         {
-                            tblUser.deactivated = true;
+                            tblUser.Deactivated = true;
                             rc.SaveChanges();
                             return true;
                         }
@@ -276,7 +276,7 @@ namespace RoundTheCorner.BL
                 {
                     using (RoundTheCornerEntities rc = new RoundTheCornerEntities())
                     {
-                        var user = rc.TblUsers.FirstOrDefault(u => u.userID == id);
+                        var user = rc.TblUsers.FirstOrDefault(u => u.UserID == id);
 
                         if (user != null)
                         {

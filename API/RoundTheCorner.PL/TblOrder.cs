@@ -14,9 +14,9 @@ namespace RoundTheCorner.PL
     
     public partial class TblOrder
     {
-        public int orderID { get; set; }
-        public int userID { get; set; }
-        public int vendorID { get; set; }
-        public System.DateTime orderDate { get; set; }
+        public int OrderID { get; set; }
+        public int UserID { get; set; }
+        public int VendorID { get; set; }
+        public System.DateTime OrderDate { get; set; }
     }
 }

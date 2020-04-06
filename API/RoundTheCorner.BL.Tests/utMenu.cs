@@ -7,7 +7,7 @@ namespace RoundTheCorner.BL.Tests
 {
     // UT For the Menus
     [TestClass]
-    public class utMenu
+    public class UTMenu
     {
         [TestMethod]
         public void Seed()
@@ -32,7 +32,7 @@ namespace RoundTheCorner.BL.Tests
             MenuManager.Deactivate(2);
             MenuModel newMenu = MenuManager.GetMenu(2);
 
-            Assert.AreNotEqual(menu.isActive, newMenu.isActive);
+            Assert.AreNotEqual(menu.IsActive, newMenu.IsActive);
         }
 
         [TestMethod]

@@ -9,7 +9,7 @@ using RoundTheCorner.BL.Models;
 namespace RoundTheCorner.BL.Tests
 {
     [TestClass]
-    public class utVendor
+    public class UTVendor
     {
         [TestMethod]
         public void Seed()
@@ -32,21 +32,21 @@ namespace RoundTheCorner.BL.Tests
         {
             VendorModel vendor = new VendorModel
             {
-                vendorID = 2,
-                ownerID = 2,
-                companyName = "100Tacos",
-                companyEmail = "100tacos@taco.com",
-                licenseNumber = 1122334,
-                inspectionDate = new DateTime(1950, 12, 31),
-                bio = "We love bring tacos to people (even if you dont like tacos)!",
-                website = "100Tacos.com",
+                VendorID = 2,
+                OwnerID = 2,
+                CompanyName = "100Tacos",
+                CompanyEmail = "100tacos@taco.com",
+                LicenseNumber = 1122334,
+                InspectionDate = new DateTime(1950, 12, 31),
+                Bio = "We love bring tacos to people (even if you dont like tacos)!",
+                Website = "100Tacos.com",
             };
 
             VendorManager.Update(vendor);
 
             VendorModel newVendor = VendorManager.GetVendor(2);
 
-            Assert.AreEqual(vendor.vendorID, newVendor.vendorID);
+            Assert.AreEqual(vendor.VendorID, newVendor.VendorID);
         }
 
         [TestMethod]

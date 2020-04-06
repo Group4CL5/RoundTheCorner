@@ -14,8 +14,8 @@ namespace RoundTheCorner.BL
         {
             OrderItemModel orderItem = new OrderItemModel
             {
-                menuItemID = 1,
-                price = 123
+                MenuItemID = 1,
+                Price = 123
             };
 
             return Insert(orderItem);
@@ -29,9 +29,9 @@ namespace RoundTheCorner.BL
                 {
                     PL.TblOrderItem newRow = new TblOrderItem()
                     {
-                        orderItemID = rc.TblOrderItems.Any() ? rc.TblOrderItems.Max(u => u.orderItemID) + 1 : 1,
-                        menuItemId = orderItem.menuItemID,
-                        price = orderItem.price
+                        OrderItemID = rc.TblOrderItems.Any() ? rc.TblOrderItems.Max(u => u.OrderItemID) + 1 : 1,
+                        MenuItemId = orderItem.MenuItemID,
+                        Price = orderItem.Price
                         
                     };
                     rc.TblOrderItems.Add(newRow);
@@ -44,7 +44,7 @@ namespace RoundTheCorner.BL
                 throw ex;
             }
         }
-        public static bool Insert(int menuItemID, decimal price)
+        public static bool Insert(int MenuItemID, decimal Price)
         {
             try
             {
@@ -52,9 +52,9 @@ namespace RoundTheCorner.BL
                 {
                     PL.TblOrderItem newRow = new TblOrderItem()
                     {
-                        orderItemID = rc.TblOrderItems.Any() ? rc.TblOrderItems.Max(u => u.orderItemID) + 1 : 1,
-                        menuItemId = menuItemID,
-                        price = price
+                        OrderItemID = rc.TblOrderItems.Any() ? rc.TblOrderItems.Max(u => u.OrderItemID) + 1 : 1,
+                        MenuItemId = MenuItemID,
+                        Price = Price
                     };
                     rc.TblOrderItems.Add(newRow);
                     rc.SaveChanges();
@@ -74,15 +74,15 @@ namespace RoundTheCorner.BL
                 {
                     using (RoundTheCornerEntities rc = new RoundTheCornerEntities())
                     {
-                        var tblOrderItem = rc.TblOrderItems.FirstOrDefault(u => u.orderItemID == id);
+                        var tblOrderItem = rc.TblOrderItems.FirstOrDefault(u => u.OrderItemID == id);
 
                         if (tblOrderItem != null)
                         {
                             OrderItemModel orderItem = new OrderItemModel
                             {
-                                orderItemID = tblOrderItem.orderItemID,
-                                price = tblOrderItem.price,
-                                menuItemID = tblOrderItem.menuItemId
+                                OrderItemID = tblOrderItem.OrderItemID,
+                                Price = tblOrderItem.Price,
+                                MenuItemID = tblOrderItem.MenuItemId
                             };
 
                             return orderItem;
@@ -105,17 +105,17 @@ namespace RoundTheCorner.BL
         {
             try
             {
-                if (orderItem.orderItemID != 0)
+                if (orderItem.OrderItemID != 0)
                 {
                     using (RoundTheCornerEntities rc = new RoundTheCornerEntities())
                     {
-                        TblOrderItem tblOrderItem = rc.TblOrderItems.FirstOrDefault(u => u.orderItemID == orderItem.orderItemID);
+                        TblOrderItem tblOrderItem = rc.TblOrderItems.FirstOrDefault(u => u.OrderItemID == orderItem.OrderItemID);
 
                         if (tblOrderItem != null)
                         {
-                            tblOrderItem.orderItemID = orderItem.orderItemID;
-                            tblOrderItem.price = orderItem.price;
-                            tblOrderItem.menuItemId = orderItem.menuItemID;
+                            tblOrderItem.OrderItemID = orderItem.OrderItemID;
+                            tblOrderItem.Price = orderItem.Price;
+                            tblOrderItem.MenuItemId = orderItem.MenuItemID;
                            
 
                             rc.SaveChanges();
@@ -145,7 +145,7 @@ namespace RoundTheCorner.BL
                 {
                     using (RoundTheCornerEntities rc = new RoundTheCornerEntities())
                     {
-                        var orderItem = rc.TblOrderItems.FirstOrDefault(u => u.orderItemID == id);
+                        var orderItem = rc.TblOrderItems.FirstOrDefault(u => u.OrderItemID == id);
 
                         if (orderItem != null)
                         {
@@ -182,7 +182,7 @@ namespace RoundTheCorner.BL
                     {
                         List<OrderItemModel> orderItems = new List<OrderItemModel>();
 
-                        tblOrderItems.ForEach(u => orderItems.Add(new OrderItemModel { orderItemID = u.orderItemID, menuItemID = u.menuItemId, price = u.price }));
+                        tblOrderItems.ForEach(u => orderItems.Add(new OrderItemModel { OrderItemID = u.OrderItemID, MenuItemID = u.MenuItemId, Price = u.Price }));
 
                         return orderItems;
                     }
@@ -201,13 +201,13 @@ namespace RoundTheCorner.BL
             {
                 using (RoundTheCornerEntities rc = new RoundTheCornerEntities())
                 {
-                    var tblOrderItems = rc.TblOrderItems.Where(w => menuID == w.menuItemId).ToList();
+                    var tblOrderItems = rc.TblOrderItems.Where(w => menuID == w.MenuItemId).ToList();
 
                     if (tblOrderItems != null)
                     {
                         List<OrderItemModel> orderItems = new List<OrderItemModel>();
 
-                        tblOrderItems.ForEach(u => orderItems.Add(new OrderItemModel { orderItemID = u.orderItemID, menuItemID = u.menuItemId, price = u.price }));
+                        tblOrderItems.ForEach(u => orderItems.Add(new OrderItemModel { OrderItemID = u.OrderItemID, MenuItemID = u.MenuItemId, Price = u.Price }));
 
                         return orderItems;
                     }

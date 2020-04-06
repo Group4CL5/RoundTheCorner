@@ -53,6 +53,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="C__RefactorLog.cs">
+      <DependentUpon>RoundTheCorner.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoundTheCorner.Context.cs">
       <AutoGen>True</AutoGen>

@@ -23,6 +23,8 @@ namespace RoundTheCorner.Controllers
         public ActionResult GetUser(int UserID) => View();
         public ActionResult GetUsers() => View();
 
+        public PartialViewResult LogIn() => PartialView();
+
         
     }
 }

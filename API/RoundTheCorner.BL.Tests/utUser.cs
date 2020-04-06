@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RoundTheCorner.BL.Models;
 
 namespace RoundTheCorner.BL.Tests
 {
     [TestClass]
-    public class utUser
+    public class UTUser
     {
         [TestMethod]
         public void Seed()
@@ -27,20 +28,17 @@ namespace RoundTheCorner.BL.Tests
         [TestMethod]
         public void Update()
         {
-            UserModel user = new UserModel
-            {
-                userID = 2,
-                email = "test@test.com",
-                firstName = "Wadabinga",
-                lastName = "testAccount",
-                phone = "123-456-7890"
-            };
+            List<UserModel> userModels = UserManager.GetUsers();
+
+
+            UserModel user = userModels.FirstOrDefault(u => u.FirstName == "test");
+            user.FirstName = "Tony";
 
             UserManager.Update(user);
 
-            UserModel newUser = UserManager.GetUser(2);
+            UserModel newUser = UserManager.GetUser(user.UserID);
 
-            Assert.AreEqual(user.firstName, newUser.firstName);
+            Assert.AreEqual(user.FirstName, newUser.FirstName);
         }
 
         [TestMethod]
@@ -48,8 +46,8 @@ namespace RoundTheCorner.BL.Tests
         {
             UserModel user = new UserModel
             {
-                email = "test@test.com",
-                password = "123",
+                Email = "test@test.com",
+                Password = "123",
             };
 
             bool result = UserManager.Login(user);
@@ -60,17 +58,25 @@ namespace RoundTheCorner.BL.Tests
         [TestMethod]
         public void Deactivate()
         {
-            UserManager.Deactivate(2);
+            List<UserModel> userModels = UserManager.GetUsers();
 
-            UserModel user = UserManager.GetUser(2);
+            UserModel user = userModels.FirstOrDefault(u => u.FirstName == "Tony");
 
-            Assert.IsTrue(user.deactivated);
+            UserManager.Deactivate(user.UserID);
+
+            UserModel newUser = UserManager.GetUser(user.UserID);
+
+            Assert.IsTrue(newUser.Deactivated);
         }
 
         [TestMethod]
         public void Delete()
         {
-            bool result = UserManager.Delete(2);
+            List<UserModel> userModels = UserManager.GetUsers();
+
+            UserModel user = userModels.FirstOrDefault(u => u.FirstName == "Tony");
+
+            bool result = UserManager.Delete(user.UserID);
             Assert.IsTrue(result);
         }
     }

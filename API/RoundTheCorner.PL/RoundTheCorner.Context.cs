@@ -25,6 +25,7 @@ namespace RoundTheCorner.PL
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<C__RefactorLog> C__RefactorLog { get; set; }
         public virtual DbSet<TblCuisine> TblCuisines { get; set; }
         public virtual DbSet<TblMenu> TblMenus { get; set; }
         public virtual DbSet<TblMenuItem> TblMenuItems { get; set; }

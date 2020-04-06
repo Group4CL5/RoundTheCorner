@@ -6,9 +6,10 @@ using RoundTheCorner.BL.Models;
 namespace RoundTheCorner.BL.Tests
 {
     [TestClass]
-    public class utVendorEmployee
+    public class UTVendorEmployee
     {
         // Just a comment
+        [TestMethod]
         public void Seed()
         {
             bool result = VendorEmployeeManager.Seed();
@@ -29,9 +30,9 @@ namespace RoundTheCorner.BL.Tests
         {
             VendorEmployeeModel vendorEmployee = new VendorEmployeeModel
             {
-                id = 2,
-                vendorID = 2,
-                userID = 2,
+                ID = 2,
+                VendorID = 2,
+                UserID = 2,
                 
             };
 
@@ -39,7 +40,7 @@ namespace RoundTheCorner.BL.Tests
 
             VendorEmployeeModel newVendorEmployee = VendorEmployeeManager.GetVendorEmployee(2);
 
-            Assert.AreEqual(vendorEmployee.id, newVendorEmployee.id);
+            Assert.AreEqual(vendorEmployee.ID, newVendorEmployee.ID);
         }
 
         [TestMethod]

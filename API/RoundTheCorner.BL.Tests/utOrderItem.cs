@@ -8,7 +8,7 @@ using RoundTheCorner.BL.Models;
 namespace RoundTheCorner.BL.Tests
 {
     [TestClass]
-    public class utOrderItem
+    public class UTOrderItem
     {
         [TestMethod]
         public void Seed()
@@ -30,13 +30,13 @@ namespace RoundTheCorner.BL.Tests
         public void Update()
         {
             List<OrderItemModel> orderItems = OrderItemManager.GetOrderItems();
-            OrderItemModel orderItem = orderItems.FirstOrDefault(u => u.price == 123);
-            orderItem.price = 321;
+            OrderItemModel orderItem = orderItems.FirstOrDefault(u => u.Price == 123);
+            orderItem.Price = 321;
             OrderItemManager.Update(orderItem);
 
-            OrderItemModel newOrderItem = OrderItemManager.GetOrderItem(orderItem.orderItemID);
+            OrderItemModel newOrderItem = OrderItemManager.GetOrderItem(orderItem.OrderItemID);
 
-            Assert.AreEqual(orderItem.price,newOrderItem.price);
+            Assert.AreEqual(orderItem.Price,newOrderItem.Price);
         }
 
 
@@ -44,8 +44,8 @@ namespace RoundTheCorner.BL.Tests
         public void Delete()
         {
             List<OrderItemModel> orderItems = OrderItemManager.GetOrderItems();
-            OrderItemModel orderItem = orderItems.FirstOrDefault(u => u.price == 321);
-            bool result = OrderItemManager.Delete(orderItem.orderItemID);
+            OrderItemModel orderItem = orderItems.FirstOrDefault(u => u.Price == 321);
+            bool result = OrderItemManager.Delete(orderItem.OrderItemID);
             Assert.IsTrue(result);
         }
     }

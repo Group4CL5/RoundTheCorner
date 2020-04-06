@@ -8,9 +8,9 @@ namespace RoundTheCorner.BL.Models
 {
     public class VendorEmployeeModel
     {
-        public int id { get; set; }
-        public int userID { get; set; }
+        public int ID { get; set; }
+        public int UserID { get; set; }
 
-        public int vendorID {get;set;}
+        public int VendorID {get;set;}
     }
 }

@@ -8,10 +8,10 @@ namespace RoundTheCorner.BL.Models
 {
     public class VendorLocationModel
     {
-        public int vendorID { get; set; }
-        public DateTime date { get; set; }
-        public int locationX { get; set; }
-        public int locationY { get; set; }
+        public int VendorID { get; set; }
+        public DateTime Date { get; set; }
+        public int LocationX { get; set; }
+        public int LocationY { get; set; }
 
     }
 }

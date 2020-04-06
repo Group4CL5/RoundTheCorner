@@ -14,13 +14,12 @@ namespace RoundTheCorner.PL
     
     public partial class TblMenuItem
     {
-        public int itemID { get; set; }
-        public int menuID { get; set; }
-        public string itemName { get; set; }
-        public decimal price { get; set; }
-        public byte[] picture { get; set; }
-        public string description { get; set; }
+        public int ItemID { get; set; }
+        public int MenuID { get; set; }
+        public string ItemName { get; set; }
+        public decimal Price { get; set; }
+        public string Picture { get; set; }
+        public string Description { get; set; }
         public int MenuSectionID { get; set; }
-        public object menuItemID { get; set; }
     }
 }

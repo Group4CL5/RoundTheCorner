@@ -81,3 +81,12 @@ body, html {
     min-height: 100%;
     position: relative;
 }
+.column-left {
+    margin-top: 10px;
+    float: left;
+}
+
+.column-right {
+    margin-top: 10px;
+    float: right;
+}

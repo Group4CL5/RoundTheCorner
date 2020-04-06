@@ -15,8 +15,8 @@ namespace RoundTheCorner.PL
     public partial class TblVendorLocation
     {
         public int VendorID { get; set; }
-        public System.DateTime datetime { get; set; }
-        public int locationX { get; set; }
-        public int locationY { get; set; }
+        public System.DateTime Datetime { get; set; }
+        public int LocationX { get; set; }
+        public int LocationY { get; set; }
     }
 }

@@ -7,14 +7,14 @@ namespace RoundTheCorner.BL.Models
 {
     public class VendorModel
     {
-        public int vendorID { get; set; }
-        public int ownerID { get; set; }
-        public string companyName { get; set; }
-        public string companyEmail { get; set; }
-        public int licenseNumber { get; set; }
-        public DateTime inspectionDate { get; set; }
-        public string bio { get; set; }
-        public string website { get; set; }
+        public int VendorID { get; set; }
+        public int OwnerID { get; set; }
+        public string CompanyName { get; set; }
+        public string CompanyEmail { get; set; }
+        public int LicenseNumber { get; set; }
+        public DateTime InspectionDate { get; set; }
+        public string Bio { get; set; }
+        public string Website { get; set; }
 
     }
 }

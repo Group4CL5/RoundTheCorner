@@ -14,14 +14,14 @@ namespace RoundTheCorner.BL
         {
             VendorModel vendor = new VendorModel
             {
-                vendorID = 1,
-                ownerID = 1,
-                companyName = "100Tacos", 
-                companyEmail = "100tacos@taco.com",
-                licenseNumber = 1122334,
-                inspectionDate = new DateTime(1950, 12, 31),
-                bio = "We love bring tacos to people (even if you dont like tacos)!",
-                website = "100Tacos.com",
+                VendorID = 1,
+                OwnerID = 1,
+                CompanyName = "100Tacos", 
+                CompanyEmail = "100tacos@taco.com",
+                LicenseNumber = 1122334,
+                InspectionDate = new DateTime(1950, 12, 31),
+                Bio = "We love bring tacos to people (even if you dont like tacos)!",
+                Website = "100Tacos.com",
 
             };
 
@@ -36,14 +36,14 @@ namespace RoundTheCorner.BL
                 {
                     PL.TblVendor newRow = new TblVendor()
                     {
-                        vendorID = rc.TblVendors.Any() ? rc.TblVendors.Max(v => v.vendorID) + 1 : 1,
-                        OwnerID = vendor.ownerID,
-                        CompanyName = vendor.companyName,
-                        CompanyEmail = vendor.companyEmail,
-                        LicenseNumber = vendor.licenseNumber,
-                        inspectionDate = vendor.inspectionDate,
-                        bio = vendor.bio,
-                        Website = vendor.website
+                        VendorID = rc.TblVendors.Any() ? rc.TblVendors.Max(v => v.VendorID) + 1 : 1,
+                        OwnerID = vendor.OwnerID,
+                        CompanyName = vendor.CompanyName,
+                        CompanyEmail = vendor.CompanyEmail,
+                        LicenseNumber = vendor.LicenseNumber,
+                        InspectionDate = vendor.InspectionDate,
+                        Bio = vendor.Bio,
+                        Website = vendor.Website
                     };
                     rc.TblVendors.Add(newRow);
                     rc.SaveChanges();
@@ -56,7 +56,7 @@ namespace RoundTheCorner.BL
             }
         }
 
-        public static bool Insert(int ownerID, string companyName, string companyEmail, DateTime inspectionDate, string bio, string website)
+        public static bool Insert(int OwnerID, string CompanyName, string CompanyEmail, DateTime InspectionDate, string Bio, string Website)
         {
             try
             {
@@ -64,13 +64,13 @@ namespace RoundTheCorner.BL
                 {
                     PL.TblVendor newRow = new TblVendor()
                     {
-                        vendorID = rc.TblVendors.Any() ? rc.TblVendors.Max(v => v.vendorID) + 1 : 1,
-                        OwnerID = ownerID,
-                        CompanyName = companyName,
-                        CompanyEmail = companyEmail,
-                        inspectionDate = inspectionDate, 
-                        bio = bio, 
-                        Website = website
+                        VendorID = rc.TblVendors.Any() ? rc.TblVendors.Max(v => v.VendorID) + 1 : 1,
+                        OwnerID = OwnerID,
+                        CompanyName = CompanyName,
+                        CompanyEmail = CompanyEmail,
+                        InspectionDate = InspectionDate, 
+                        Bio = Bio, 
+                        Website = Website
                     };
                     rc.TblVendors.Add(newRow);
                     rc.SaveChanges();
@@ -91,20 +91,20 @@ namespace RoundTheCorner.BL
                 {
                     using (RoundTheCornerEntities rc = new RoundTheCornerEntities())
                     {
-                        var tblVendor = rc.TblVendors.FirstOrDefault(v => v.vendorID == id);
+                        var tblVendor = rc.TblVendors.FirstOrDefault(v => v.VendorID == id);
 
                         if (tblVendor != null)
                         {
                             VendorModel vendor = new VendorModel
                             {
-                                vendorID = tblVendor.vendorID,
-                                ownerID = tblVendor.OwnerID,
-                                companyName = tblVendor.CompanyName,
-                                companyEmail = tblVendor.CompanyEmail,
-                                licenseNumber = tblVendor.LicenseNumber,
-                                inspectionDate = tblVendor.inspectionDate,
-                                bio = tblVendor.bio,
-                                website = tblVendor.Website
+                                VendorID = tblVendor.VendorID,
+                                OwnerID = tblVendor.OwnerID,
+                                CompanyName = tblVendor.CompanyName,
+                                CompanyEmail = tblVendor.CompanyEmail,
+                                LicenseNumber = tblVendor.LicenseNumber,
+                                InspectionDate = tblVendor.InspectionDate,
+                                Bio = tblVendor.Bio,
+                                Website = tblVendor.Website
                             };
 
                             return vendor;
@@ -136,7 +136,7 @@ namespace RoundTheCorner.BL
                     {
                         List<VendorModel> vendors = new List<VendorModel>();
 
-                        tblVendors.ForEach(v => vendors.Add(new VendorModel { vendorID = v.vendorID, ownerID = v.OwnerID, companyName = v.CompanyName, companyEmail = v.CompanyEmail, licenseNumber = v.LicenseNumber, inspectionDate = v.inspectionDate, bio = v.bio, website = v.Website }));
+                        tblVendors.ForEach(v => vendors.Add(new VendorModel { VendorID = v.VendorID, OwnerID = v.OwnerID, CompanyName = v.CompanyName, CompanyEmail = v.CompanyEmail, LicenseNumber = v.LicenseNumber, InspectionDate = v.InspectionDate, Bio = v.Bio, Website = v.Website }));
 
                         return vendors;
                     }
@@ -155,22 +155,22 @@ namespace RoundTheCorner.BL
         {
             try
             {
-                if (vendor.vendorID != 0)
+                if (vendor.VendorID != 0)
                 {
                     using (RoundTheCornerEntities rc = new RoundTheCornerEntities())
                     {
-                        TblVendor tblVendor = rc.TblVendors.FirstOrDefault(v => v.vendorID == vendor.vendorID);
+                        TblVendor tblVendor = rc.TblVendors.FirstOrDefault(v => v.VendorID == vendor.VendorID);
 
                         if (tblVendor != null)
                         {
-                            tblVendor.vendorID = vendor.vendorID;
-                            tblVendor.OwnerID = vendor.ownerID;
-                            tblVendor.CompanyName = vendor.companyName;
-                            tblVendor.CompanyEmail = vendor.companyEmail;
-                            tblVendor.LicenseNumber = vendor.licenseNumber;
-                            tblVendor.inspectionDate = vendor.inspectionDate;
-                            tblVendor.bio = vendor.bio;
-                            tblVendor.Website = vendor.website;
+                            tblVendor.VendorID = vendor.VendorID;
+                            tblVendor.OwnerID = vendor.OwnerID;
+                            tblVendor.CompanyName = vendor.CompanyName;
+                            tblVendor.CompanyEmail = vendor.CompanyEmail;
+                            tblVendor.LicenseNumber = vendor.LicenseNumber;
+                            tblVendor.InspectionDate = vendor.InspectionDate;
+                            tblVendor.Bio = vendor.Bio;
+                            tblVendor.Website = vendor.Website;
 
                             rc.SaveChanges();
                             return true;
@@ -201,7 +201,7 @@ namespace RoundTheCorner.BL
                 {
                     using (RoundTheCornerEntities rc = new RoundTheCornerEntities())
                     {
-                        var vendor = rc.TblVendors.FirstOrDefault(v => v.vendorID == id);
+                        var vendor = rc.TblVendors.FirstOrDefault(v => v.VendorID == id);
 
                         if (vendor != null)
                         {

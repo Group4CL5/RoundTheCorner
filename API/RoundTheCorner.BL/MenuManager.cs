@@ -14,8 +14,8 @@ namespace RoundTheCorner.BL
         {
             MenuModel menu = new MenuModel
             {
-                vendorID = 1,
-                isActive = true
+                VendorID = 1,
+                IsActive = true
             };
 
             return Insert(menu);
@@ -29,9 +29,9 @@ namespace RoundTheCorner.BL
                 {
                     PL.TblMenu newRow = new TblMenu()
                     {
-                        menuID = rc.TblMenus.Any() ? rc.TblMenus.Max(u => u.menuID) + 1 : 1,
-                        vendorID = menu.vendorID,
-                        isActive = menu.isActive
+                        MenuID = rc.TblMenus.Any() ? rc.TblMenus.Max(u => u.MenuID) + 1 : 1,
+                        VendorID = menu.VendorID,
+                        IsActive = menu.IsActive
                     };
                     rc.TblMenus.Add(newRow);
                     rc.SaveChanges();
@@ -52,9 +52,9 @@ namespace RoundTheCorner.BL
                 {
                     PL.TblMenu newRow = new TblMenu()
                     {
-                        menuID = rc.TblMenus.Any() ? rc.TblMenus.Max(u => u.menuID) + 1 : 1,
-                        vendorID = vendor,
-                        isActive = true
+                        MenuID = rc.TblMenus.Any() ? rc.TblMenus.Max(u => u.MenuID) + 1 : 1,
+                        VendorID = vendor,
+                        IsActive = true
                     };
                     rc.TblMenus.Add(newRow);
                     rc.SaveChanges();
@@ -75,15 +75,15 @@ namespace RoundTheCorner.BL
                 {
                     using (RoundTheCornerEntities rc = new RoundTheCornerEntities())
                     {
-                        var tblMenu = rc.TblMenus.FirstOrDefault(u => u.menuID == id);
+                        var tblMenu = rc.TblMenus.FirstOrDefault(u => u.MenuID == id);
 
                         if (tblMenu != null)
                         {
                             MenuModel menu = new MenuModel
                             {
-                                menuID = tblMenu.menuID,
-                                vendorID = tblMenu.vendorID,
-                                isActive = tblMenu.isActive
+                                MenuID = tblMenu.MenuID,
+                                VendorID = tblMenu.VendorID,
+                                IsActive = tblMenu.IsActive
                             };
 
                             return menu;
@@ -115,7 +115,7 @@ namespace RoundTheCorner.BL
                     {
                         List<MenuModel> menus = new List<MenuModel>();
 
-                        tblMenu.ForEach(u => menus.Add(new MenuModel { menuID = u.menuID, vendorID = u.vendorID, isActive = u.isActive }));
+                        tblMenu.ForEach(u => menus.Add(new MenuModel { MenuID = u.MenuID, VendorID = u.VendorID, IsActive = u.IsActive }));
 
                         return menus;
                     }
@@ -137,11 +137,11 @@ namespace RoundTheCorner.BL
                 {
                     using (RoundTheCornerEntities rc = new RoundTheCornerEntities())
                     {
-                        TblMenu tblMenu = rc.TblMenus.FirstOrDefault(u => u.menuID == id);
+                        TblMenu tblMenu = rc.TblMenus.FirstOrDefault(u => u.MenuID == id);
 
                         if (tblMenu != null)
                         {
-                            tblMenu.isActive = false;
+                            tblMenu.IsActive = false;
 
                             rc.SaveChanges();
                             return true;
@@ -172,7 +172,7 @@ namespace RoundTheCorner.BL
                 {
                     using (RoundTheCornerEntities rc = new RoundTheCornerEntities())
                     {
-                        var menu = rc.TblMenus.FirstOrDefault(u => u.menuID == id);
+                        var menu = rc.TblMenus.FirstOrDefault(u => u.MenuID == id);
 
                         if (menu != null)
                         {

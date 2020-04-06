@@ -8,12 +8,12 @@ namespace RoundTheCorner.BL.Models
 {
     public class ReviewModel
     {
-        public int reviewID { get; set; }
-        public int vendorID { get; set; }
-        public int userID { get; set; }
-        public int rating { get; set; }
-        public string subject { get; set; }
-        public string body { get; set; }
+        public int ReviewID { get; set; }
+        public int VendorID { get; set; }
+        public int UserID { get; set; }
+        public int Rating { get; set; }
+        public string Subject { get; set; }
+        public string Body { get; set; }
 
 
     }

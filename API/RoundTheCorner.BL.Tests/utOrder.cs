@@ -7,7 +7,7 @@ using System.Linq;
 namespace RoundTheCorner.BL.Tests
 {
     [TestClass]
-    public class utOrder
+    public class UTOrder
     {
         [TestMethod]
         public void Seed()
@@ -29,14 +29,14 @@ namespace RoundTheCorner.BL.Tests
         public void Update()
         {
             List<OrderModel> orders = OrderManager.GetOrders();
-            OrderModel order = orders.FirstOrDefault(o => o.orderDate.Year == 1980);
-            order.orderDate = new DateTime(1979, 04, 02);
+            OrderModel order = orders.FirstOrDefault(o => o.OrderDate.Year == 1980);
+            order.OrderDate = new DateTime(1979, 04, 02);
 
             OrderManager.Update(order);
 
-            OrderModel newOrder = OrderManager.GetOrder(order.orderID);
+            OrderModel newOrder = OrderManager.GetOrder(order.OrderID);
 
-            Assert.AreEqual(order.orderDate, newOrder.orderDate);
+            Assert.AreEqual(order.OrderDate, newOrder.OrderDate);
         }
 
 
@@ -44,8 +44,8 @@ namespace RoundTheCorner.BL.Tests
         public void Delete()
         {
             List<OrderModel> orders = OrderManager.GetOrders();
-            OrderModel order = orders.FirstOrDefault(o => o.orderDate.Year == 1979);
-            bool result = OrderManager.Delete(order.orderID);
+            OrderModel order = orders.FirstOrDefault(o => o.OrderDate.Year == 1979);
+            bool result = OrderManager.Delete(order.OrderID);
             Assert.IsTrue(result);
         }
     }

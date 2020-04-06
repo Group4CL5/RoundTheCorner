@@ -9,7 +9,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace RoundTheCorner.BL.Tests
 {
-    class utMenuItemTest
+    class UTMenuItemTest
     {
         [TestMethod]
         public void Seed()
@@ -31,19 +31,19 @@ namespace RoundTheCorner.BL.Tests
         {
             MenuItemModel menuItem = new MenuItemModel
             {
-                itemID=2,
-                menuItem = 2,
-                itemName = "Good Eats",
-                price = 2,
-                picture = new byte[] { 1 },
-                description = "very spicy",
-                menuSectionID = 2
+                ItemID=2,
+                MenuItem = 2,
+                ItemName = "Good Eats",
+                Price = 2,
+                Picture = "picture_here",
+                Description = "very spicy",
+                MenuSectionID = 2
             };
             MenuItemManager.Update(menuItem);
 
             MenuItemModel newMenuItem = MenuItemManager.GetMenuItem(2);
 
-            Assert.AreEqual(menuItem.itemID, newMenuItem.itemName);
+            Assert.AreEqual(menuItem.ItemID, newMenuItem.ItemName);
         }
         [TestMethod]
         public void Delete()
