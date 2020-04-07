@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using RoundTheCorner.BL;
 using RoundTheCorner.BL.Models;
+using RoundTheCorner.MVCUI.Models;
 
 
 namespace RoundTheCorner.Controllers
@@ -23,8 +25,40 @@ namespace RoundTheCorner.Controllers
         public ActionResult GetUser(int UserID) => View();
         public ActionResult GetUsers() => View();
 
-        public PartialViewResult LogIn() => PartialView();
+        //[ChildActionOnly]
 
+        public ActionResult LogIn()
+        {
+            if (!Authenticate.IsAuthenticated())
+            {
+                PartialView();
+            }
+            return null;
+        }
+
+        //[ChildActionOnly]
+        [HttpPost]
         
+        public ActionResult LogIn(UserModel user)
+        {
+            try
+            {
+                if (UserManager.Login(user))
+                {
+                    Session["User"] = user;
+                    return RedirectToAction("FindFood");
+                }
+
+                ViewBag.LogInError = "Sorry no Soup for you.";
+                return PartialView(user);
+
+            }
+            catch (Exception ex)
+            {
+                ViewBag.LogInError = ex.Message;
+                return PartialView(user);
+            }
+                
+        }
     }
 }

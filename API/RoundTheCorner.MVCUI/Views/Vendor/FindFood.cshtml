@@ -4,7 +4,16 @@
 }
 
 <div class="col-3 column-left" >
-    @Html.Action("LogIn", "User") 
+    @{ 
+        if (!RoundTheCorner.MVCUI.Models.Authenticate.IsAuthenticated())
+        {
+            Html.Action("LogIn", "User");
+        }
+        else
+        {
+            @:"This is a test"
+        }
+     }
 </div>
 <h1 class="card card-body text-center">Round The Corner</h1>
 <div class="col-9 column-right card card-body">   
