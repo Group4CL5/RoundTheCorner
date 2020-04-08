@@ -13,10 +13,29 @@ namespace RoundTheCorner.Controllers
     public class UserController : Controller
     {
         //From Our Class Diagram from Project Step 8 Diagrams
-        public ActionResult UserRegistration(UserModel user )
+        public ActionResult UserRegistration()
         {
-            return View();
+            UserModel userModel = new UserModel();
+            return View(userModel);
         }
+
+        [HttpPost]
+
+        public ActionResult UserRegistration(UserModel user)
+        {
+            try
+            {
+                UserManager.Insert(user);
+                return RedirectToAction("FindFood", "Vendor");
+            }
+            catch (Exception)
+            {
+
+                return View();
+            }
+            
+        }
+
         public ActionResult DeactivateUser(int UserID)
         {
             return View();
@@ -25,18 +44,19 @@ namespace RoundTheCorner.Controllers
         public ActionResult GetUser(int UserID) => View();
         public ActionResult GetUsers() => View();
 
-        //[ChildActionOnly]
+        
 
         public ActionResult LogIn()
         {
             if (!Authenticate.IsAuthenticated())
             {
-                PartialView();
+
+                return PartialView();
             }
             return null;
         }
 
-        //[ChildActionOnly]
+        
         [HttpPost]
         
         public ActionResult LogIn(UserModel user)
@@ -46,19 +66,17 @@ namespace RoundTheCorner.Controllers
                 if (UserManager.Login(user))
                 {
                     Session["User"] = user;
-                    return RedirectToAction("FindFood");
+                    return Redirect("Vendor/FindFood");
                 }
 
                 ViewBag.LogInError = "Sorry no Soup for you.";
                 return PartialView(user);
-
             }
             catch (Exception ex)
             {
                 ViewBag.LogInError = ex.Message;
                 return PartialView(user);
-            }
-                
+            }               
         }
     }
 }

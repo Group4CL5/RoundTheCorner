@@ -7,7 +7,7 @@
     @{ 
         if (!RoundTheCorner.MVCUI.Models.Authenticate.IsAuthenticated())
         {
-            Html.Action("LogIn", "User");
+            Html.RenderAction("LogIn", "User");
         }
         else
         {

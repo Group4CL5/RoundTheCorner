@@ -1,12 +1,30 @@
-﻿
+﻿@model RoundTheCorner.BL.Models.UserModel
 
-<div class="card card-body">
-    <form>
-        <label>Email</label>
-        <input />
-        <label>Password</label>
-        <input />
-        <button class="btn btn-primary">Login</button></br>
-        <a href="#">Click HERE to register</a>
-    </form>
+    <div class="card card-body">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <button class="btn btn-primary" type="submit">Login</button><br/>
+            @Html.ActionLink("Click Here To Register", "UserRegistration", "User")            
+        </div>
+        }
 </div>

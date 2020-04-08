@@ -339,11 +339,11 @@
     <Content Include="Views\Shared\_ValidationScriptsPartial.cshtml" />
     <Content Include="Views\Shared\LogInBox.cshtml" />
     <Content Include="Views\User\EditUser.cshtml" />
-    <Content Include="Views\User\UserRegistration.cshtml" />
     <Content Include="Views\Vendor\FindFood.cshtml" />
     <Content Include="Views\Vendor\VendorRegistration.cshtml" />
     <Content Include="Views\_ViewImports.cshtml" />
     <Content Include="Views\User\LogIn.cshtml" />
+    <Content Include="Views\User\UserRegistration.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
