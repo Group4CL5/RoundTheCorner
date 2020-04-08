@@ -14,8 +14,8 @@ namespace RoundTheCorner.BL
         {
             MenuSectionModel menuSectionModel = new MenuSectionModel()
             {
-                menuID = 1,
-                displayOrderNum = 100
+                MenuID = 1,
+                DisplayOrderNum = 100
             };
 
             return Insert(menuSectionModel);
@@ -30,8 +30,8 @@ namespace RoundTheCorner.BL
                     PL.TblMenuSection newRow = new TblMenuSection()
                     {
                         MenuSectionID = rc.TblMenuSections.Any() ? rc.TblMenuSections.Max(u => u.MenuSectionID) + 1 : 1,
-                        MenuID = menuSection.menuID,
-                        DisplayOrderNum = menuSection.displayOrderNum
+                        MenuID = menuSection.MenuID,
+                        DisplayOrderNum = menuSection.DisplayOrderNum
                     };
                     rc.TblMenuSections.Add(newRow);
                     rc.SaveChanges();
@@ -81,9 +81,9 @@ namespace RoundTheCorner.BL
                         {
                             MenuSectionModel menuSection = new MenuSectionModel
                             {
-                                menuSectionID = tblMenuSection.MenuSectionID,
-                                menuID = tblMenuSection.MenuID,
-                                displayOrderNum = tblMenuSection.DisplayOrderNum
+                                MenuSectionID = tblMenuSection.MenuSectionID,
+                                MenuID = tblMenuSection.MenuID,
+                                DisplayOrderNum = tblMenuSection.DisplayOrderNum
                             };
 
                             return menuSection;
@@ -115,7 +115,7 @@ namespace RoundTheCorner.BL
                     {
                         List<MenuSectionModel> menuSections = new List<MenuSectionModel>();
 
-                        tblMenuSection.ForEach(u => menuSections.Add(new MenuSectionModel { menuSectionID = u.MenuSectionID, menuID = u.MenuID, displayOrderNum = u.DisplayOrderNum }));
+                        tblMenuSection.ForEach(u => menuSections.Add(new MenuSectionModel { MenuSectionID = u.MenuSectionID, MenuID = u.MenuID, DisplayOrderNum = u.DisplayOrderNum }));
 
                         return menuSections;
                     }
@@ -133,15 +133,15 @@ namespace RoundTheCorner.BL
         {
             try
             {
-                if (menuSection.menuSectionID != 0)
+                if (menuSection.MenuSectionID != 0)
                 {
                     using (RoundTheCornerEntities rc = new RoundTheCornerEntities())
                     {
-                        TblMenuSection tblMenuSection = rc.TblMenuSections.FirstOrDefault(u => u.MenuSectionID == menuSection.menuSectionID);
+                        TblMenuSection tblMenuSection = rc.TblMenuSections.FirstOrDefault(u => u.MenuSectionID == menuSection.MenuSectionID);
 
                         if (tblMenuSection != null)
                         {
-                            tblMenuSection.DisplayOrderNum = menuSection.displayOrderNum;
+                            tblMenuSection.DisplayOrderNum = menuSection.DisplayOrderNum;
 
                             rc.SaveChanges();
                             return true;

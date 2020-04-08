@@ -14,10 +14,10 @@ namespace RoundTheCorner.BL
         {
             VendorLocationModel vendorLocation = new VendorLocationModel
             {
-                vendorID = 1,
-                locationX = 100,
-                locationY = 200,
-                date = new DateTime(1950, 12, 31),
+                VendorID = 1,
+                LocationX = 100,
+                LocationY = 200,
+                Date = new DateTime(1950, 12, 31),
 
             };
 
@@ -33,9 +33,9 @@ namespace RoundTheCorner.BL
                     PL.TblVendorLocation newRow = new TblVendorLocation()
                     {
                         VendorID = rc.TblVendorLocations.Any() ? rc.TblVendorLocations.Max(v => v.VendorID) + 1 : 1,
-                        locationX = vendorLocation.locationX, 
-                        locationY = vendorLocation.locationY, 
-                        datetime = vendorLocation.date
+                        LocationX = vendorLocation.LocationX, 
+                        LocationY = vendorLocation.LocationY, 
+                        Datetime = vendorLocation.Date
                     };
                     rc.TblVendorLocations.Add(newRow);
                     rc.SaveChanges();
@@ -48,7 +48,7 @@ namespace RoundTheCorner.BL
             }
         }
 
-        public static bool Insert(int VendorID, int locationX, int locationY, DateTime date)
+        public static bool Insert( int LocationX, int LocationY, DateTime Date)
         {
             try
             {
@@ -57,9 +57,9 @@ namespace RoundTheCorner.BL
                     PL.TblVendorLocation newRow = new TblVendorLocation()
                     {
                         VendorID = rc.TblVendorLocations.Any() ? rc.TblVendorLocations.Max(v => v.VendorID) + 1 : 1,
-                        locationX = locationX,
-                        locationY = locationY,
-                        datetime = date
+                        LocationX = LocationX,
+                        LocationY = LocationY,
+                        Datetime = Date
                     };
                     rc.TblVendorLocations.Add(newRow);
                     rc.SaveChanges();
@@ -86,10 +86,10 @@ namespace RoundTheCorner.BL
                         {
                             VendorLocationModel vendorLocation = new VendorLocationModel
                             {
-                                vendorID = tblVendorLocation.VendorID,
-                                locationX = tblVendorLocation.locationX,
-                                locationY = tblVendorLocation.locationY,
-                                date = (DateTime)tblVendorLocation.datetime
+                                VendorID = tblVendorLocation.VendorID,
+                                LocationX = tblVendorLocation.LocationX,
+                                LocationY = tblVendorLocation.LocationY,
+                                Date = (DateTime)tblVendorLocation.Datetime
                             };
                             return vendorLocation;
                         }
@@ -119,7 +119,7 @@ namespace RoundTheCorner.BL
                     {
                         List<VendorLocationModel> vendorLocations = new List<VendorLocationModel>();
 
-                        tblVendorLocations.ForEach(v => vendorLocations.Add(new VendorLocationModel { vendorID = v.VendorID, locationX = v.locationX, locationY = v.locationY, date = (DateTime)v.datetime }));
+                        tblVendorLocations.ForEach(v => vendorLocations.Add(new VendorLocationModel { VendorID = v.VendorID, LocationX = v.LocationX, LocationY = v.LocationY, Date = (DateTime)v.Datetime }));
 
                         return vendorLocations;
                     }
@@ -137,18 +137,18 @@ namespace RoundTheCorner.BL
         {
             try
             {
-                if (vendorLocation.vendorID != 0)
+                if (vendorLocation.VendorID != 0)
                 {
                     using (RoundTheCornerEntities rc = new RoundTheCornerEntities())
                     {
-                        TblVendorLocation tblVendorLocation = rc.TblVendorLocations.FirstOrDefault(v => v.VendorID == vendorLocation.vendorID);
+                        TblVendorLocation tblVendorLocation = rc.TblVendorLocations.FirstOrDefault(v => v.VendorID == vendorLocation.VendorID);
 
                         if (tblVendorLocation != null)
                         {
-                            tblVendorLocation.VendorID = vendorLocation.vendorID;
-                            tblVendorLocation.locationX = vendorLocation.locationX;
-                            tblVendorLocation.locationY = vendorLocation.locationY;
-                            tblVendorLocation.datetime = vendorLocation.date;
+                            tblVendorLocation.VendorID = vendorLocation.VendorID;
+                            tblVendorLocation.LocationX = vendorLocation.LocationX;
+                            tblVendorLocation.LocationY = vendorLocation.LocationY;
+                            tblVendorLocation.Datetime = vendorLocation.Date;
 
                             rc.SaveChanges();
                             return true;

@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RoundTheCorner.BL.Models;
 
 namespace RoundTheCorner.BL.Tests
 {
     [TestClass]
-    public class utReview
+    public class UTReview
     {
 
         [TestMethod]
@@ -19,7 +20,7 @@ namespace RoundTheCorner.BL.Tests
         [TestMethod]
         public void GetReviews()
         {
-            List<ReviewModel> reviews = ReviewManager.GetReview();
+            List<ReviewModel> reviews = ReviewManager.GetReviews();
             int expected = 2;
 
             Assert.AreEqual(reviews.Count, expected);
@@ -28,27 +29,27 @@ namespace RoundTheCorner.BL.Tests
         [TestMethod]
         public void Update()
         {
-            ReviewModel review = new ReviewModel
-            {
-                reviewID = 2,
-                vendorID = 2,
-                userID =2,
-                rating = 4,
-                subject = "subject here",
-                body = "body goes in here"
-            };
+            List<ReviewModel> reviewModels = ReviewManager.GetReviews();
+
+            ReviewModel review = reviewModels.FirstOrDefault(r => r.Subject == "Test");
+            review.Subject = "something else";
+            
 
             ReviewManager.Update(review);
 
-            ReviewModel newReview = ReviewManager.GetReview(2);
+            ReviewModel newReview = ReviewManager.GetReview(review.ReviewID);
 
-            Assert.AreEqual(review.reviewID, newReview.reviewID);
+
+            Assert.AreEqual(review.Subject, newReview.Subject);
         }
 
         [TestMethod]
         public void Delete()
         {
-            bool result = ReviewManager.Delete(2);
+            List<ReviewModel> reviewModels = ReviewManager.GetReviews();
+
+            ReviewModel review = reviewModels.FirstOrDefault(r => r.Subject == "something else");
+            bool result = ReviewManager.Delete(review.ReviewID);
             Assert.IsTrue(result);
         }
     }

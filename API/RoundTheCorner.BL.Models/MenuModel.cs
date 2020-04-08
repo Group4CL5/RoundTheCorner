@@ -8,9 +8,9 @@ namespace RoundTheCorner.BL.Models
 {
     public class MenuModel
     {
-        public int menuID { get; set; }
-        public int vendorID { get; set; }
-        public bool isActive { get; set; }
+        public int MenuID { get; set; }
+        public int VendorID { get; set; }
+        public bool IsActive { get; set; }
 
     }
 }

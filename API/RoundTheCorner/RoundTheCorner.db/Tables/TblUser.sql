@@ -1,12 +1,12 @@
 ﻿CREATE TABLE [dbo].[TblUser] (
-    [userID]      INT           IDENTITY (1, 1) NOT NULL,
-    [firstName]   NVARCHAR (25) NOT NULL,
-    [lastName]    NVARCHAR (25) NOT NULL,
+    [UserID]      INT           IDENTITY (1, 1) NOT NULL,
+    [FirstName]   NVARCHAR (25) NOT NULL,
+    [LastName]    NVARCHAR (25) NOT NULL,
     [DOB]         DATE          NULL,
-    [email]       NVARCHAR (50) NOT NULL,
-    [phone]       NVARCHAR (15) NULL,
-    [password]    NVARCHAR (32) NOT NULL,
-    [deactivated] BIT           NOT NULL, 
-    CONSTRAINT [PK_TblUser] PRIMARY KEY ([userID]),
+    [Email]       NVARCHAR (50) NOT NULL,
+    [Phone]       NVARCHAR (15) NULL,
+    [Password]    NVARCHAR (32) NOT NULL,
+    [Deactivated] BIT           NOT NULL, 
+    CONSTRAINT [PK_TblUser] PRIMARY KEY ([UserID]),
 
 );

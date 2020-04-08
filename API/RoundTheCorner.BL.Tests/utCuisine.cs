@@ -8,7 +8,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace RoundTheCorner.BL.Tests
 {
-    class utCuisine
+    class UTCuisine
     {
         [TestMethod]
         public void Seed()
@@ -31,15 +31,15 @@ namespace RoundTheCorner.BL.Tests
         {
             CuisineModel cuisine = new CuisineModel
             {
-                vendorID = 2,
-                menuID = 2,
-                cuisineName = "Good Eats 4 all"
+                VendorID = 2,
+                MenuID = 2,
+                CuisineName = "Good Eats 4 all"
             };
             CuisineManager.Update(cuisine);
 
             CuisineModel newCuisine = CuisineManager.GetCuisine(2);
 
-            Assert.AreEqual(cuisine.cuisineID, newCuisine.cuisineID);
+            Assert.AreEqual(cuisine.CuisineID, newCuisine.CuisineID);
         }
 
         [TestMethod]

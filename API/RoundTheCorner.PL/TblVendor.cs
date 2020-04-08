@@ -14,13 +14,13 @@ namespace RoundTheCorner.PL
     
     public partial class TblVendor
     {
-        public int vendorID { get; set; }
+        public int VendorID { get; set; }
         public int OwnerID { get; set; }
         public string CompanyName { get; set; }
         public string CompanyEmail { get; set; }
         public int LicenseNumber { get; set; }
-        public System.DateTime inspectionDate { get; set; }
-        public string bio { get; set; }
+        public System.DateTime InspectionDate { get; set; }
+        public string Bio { get; set; }
         public string Website { get; set; }
     }
 }

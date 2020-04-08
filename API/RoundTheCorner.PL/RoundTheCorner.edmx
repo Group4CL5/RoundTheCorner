@@ -5,6 +5,12 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="RoundTheCornerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__RefactorLog">
+          <Key>
+            <PropertyRef Name="OperationKey" />
+          </Key>
+          <Property Name="OperationKey" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
         <EntityType Name="TblCuisine">
           <Key>
             <PropertyRef Name="CuisineID" />
@@ -16,22 +22,22 @@
         </EntityType>
         <EntityType Name="TblMenu">
           <Key>
-            <PropertyRef Name="menuID" />
+            <PropertyRef Name="MenuID" />
           </Key>
-          <Property Name="menuID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="vendorID" Type="int" Nullable="false" />
-          <Property Name="isActive" Type="bit" Nullable="false" />
+          <Property Name="MenuID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VendorID" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="TblMenuItem">
           <Key>
-            <PropertyRef Name="itemID" />
+            <PropertyRef Name="ItemID" />
           </Key>
-          <Property Name="itemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="menuID" Type="int" Nullable="false" />
-          <Property Name="itemName" Type="nvarchar" MaxLength="25" Nullable="false" />
-          <Property Name="price" Type="money" Nullable="false" />
-          <Property Name="picture" Type="image" />
-          <Property Name="description" Type="text" />
+          <Property Name="ItemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MenuID" Type="int" Nullable="false" />
+          <Property Name="ItemName" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="Price" Type="money" Nullable="false" />
+          <Property Name="Picture" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="text" />
           <Property Name="MenuSectionID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="TblMenuSection">
@@ -44,20 +50,20 @@
         </EntityType>
         <EntityType Name="TblOrder">
           <Key>
-            <PropertyRef Name="orderID" />
+            <PropertyRef Name="OrderID" />
           </Key>
-          <Property Name="orderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="userID" Type="int" Nullable="false" />
-          <Property Name="vendorID" Type="int" Nullable="false" />
-          <Property Name="orderDate" Type="date" Nullable="false" />
+          <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="VendorID" Type="int" Nullable="false" />
+          <Property Name="OrderDate" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="TblOrderItem">
           <Key>
-            <PropertyRef Name="orderItemID" />
+            <PropertyRef Name="OrderItemID" />
           </Key>
-          <Property Name="orderItemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="menuItemId" Type="int" Nullable="false" />
-          <Property Name="price" Type="money" Nullable="false" />
+          <Property Name="OrderItemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MenuItemId" Type="int" Nullable="false" />
+          <Property Name="Price" Type="money" Nullable="false" />
         </EntityType>
         <EntityType Name="TblReview">
           <Key>
@@ -72,49 +78,50 @@
         </EntityType>
         <EntityType Name="TblUser">
           <Key>
-            <PropertyRef Name="userID" />
+            <PropertyRef Name="UserID" />
           </Key>
-          <Property Name="userID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="firstName" Type="nvarchar" MaxLength="25" Nullable="false" />
-          <Property Name="lastName" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="25" Nullable="false" />
           <Property Name="DOB" Type="date" />
-          <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="phone" Type="nvarchar" MaxLength="15" />
-          <Property Name="password" Type="nvarchar" MaxLength="32" Nullable="false" />
-          <Property Name="deactivated" Type="bit" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="15" />
+          <Property Name="Password" Type="nvarchar" MaxLength="32" Nullable="false" />
+          <Property Name="Deactivated" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="TblVendor">
           <Key>
-            <PropertyRef Name="vendorID" />
+            <PropertyRef Name="VendorID" />
           </Key>
-          <Property Name="vendorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VendorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="OwnerID" Type="int" Nullable="false" />
           <Property Name="CompanyName" Type="nvarchar" MaxLength="25" Nullable="false" />
           <Property Name="CompanyEmail" Type="nvarchar" MaxLength="25" />
           <Property Name="LicenseNumber" Type="int" Nullable="false" />
-          <Property Name="inspectionDate" Type="date" Nullable="false" />
-          <Property Name="bio" Type="ntext" />
+          <Property Name="InspectionDate" Type="date" Nullable="false" />
+          <Property Name="Bio" Type="ntext" />
           <Property Name="Website" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="TblVendorEmployee">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="userID" Type="int" Nullable="false" />
-          <Property Name="vendorID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="VendorID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="TblVendorLocation">
           <Key>
             <PropertyRef Name="VendorID" />
-            <PropertyRef Name="datetime" />
+            <PropertyRef Name="Datetime" />
           </Key>
           <Property Name="VendorID" Type="int" Nullable="false" />
-          <Property Name="datetime" Type="datetime" Nullable="false" />
-          <Property Name="locationX" Type="int" Nullable="false" />
-          <Property Name="locationY" Type="int" Nullable="false" />
+          <Property Name="Datetime" Type="datetime" Nullable="false" />
+          <Property Name="LocationX" Type="int" Nullable="false" />
+          <Property Name="LocationY" Type="int" Nullable="false" />
         </EntityType>
         <EntityContainer Name="RoundTheCornerModelStoreContainer">
+          <EntitySet Name="__RefactorLog" EntityType="Self.__RefactorLog" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblCuisine" EntityType="Self.TblCuisine" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblMenu" EntityType="Self.TblMenu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblMenuItem" EntityType="Self.TblMenuItem" Schema="dbo" store:Type="Tables" />
@@ -132,6 +139,12 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="RoundTheCornerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__RefactorLog">
+          <Key>
+            <PropertyRef Name="OperationKey" />
+          </Key>
+          <Property Name="OperationKey" Type="Guid" Nullable="false" />
+        </EntityType>
         <EntityType Name="TblCuisine">
           <Key>
             <PropertyRef Name="CuisineID" />
@@ -143,22 +156,22 @@
         </EntityType>
         <EntityType Name="TblMenu">
           <Key>
-            <PropertyRef Name="menuID" />
+            <PropertyRef Name="MenuID" />
           </Key>
-          <Property Name="menuID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="vendorID" Type="Int32" Nullable="false" />
-          <Property Name="isActive" Type="Boolean" Nullable="false" />
+          <Property Name="MenuID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VendorID" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="TblMenuItem">
           <Key>
-            <PropertyRef Name="itemID" />
+            <PropertyRef Name="ItemID" />
           </Key>
-          <Property Name="itemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="menuID" Type="Int32" Nullable="false" />
-          <Property Name="itemName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <Property Name="picture" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MenuID" Type="Int32" Nullable="false" />
+          <Property Name="ItemName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Picture" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="MenuSectionID" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="TblMenuSection">
@@ -171,20 +184,20 @@
         </EntityType>
         <EntityType Name="TblOrder">
           <Key>
-            <PropertyRef Name="orderID" />
+            <PropertyRef Name="OrderID" />
           </Key>
-          <Property Name="orderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="userID" Type="Int32" Nullable="false" />
-          <Property Name="vendorID" Type="Int32" Nullable="false" />
-          <Property Name="orderDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="VendorID" Type="Int32" Nullable="false" />
+          <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="0" />
         </EntityType>
         <EntityType Name="TblOrderItem">
           <Key>
-            <PropertyRef Name="orderItemID" />
+            <PropertyRef Name="OrderItemID" />
           </Key>
-          <Property Name="orderItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="menuItemId" Type="Int32" Nullable="false" />
-          <Property Name="price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="OrderItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MenuItemId" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
         </EntityType>
         <EntityType Name="TblReview">
           <Key>
@@ -199,49 +212,50 @@
         </EntityType>
         <EntityType Name="TblUser">
           <Key>
-            <PropertyRef Name="userID" />
+            <PropertyRef Name="UserID" />
           </Key>
-          <Property Name="userID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="firstName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="lastName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DOB" Type="DateTime" Precision="0" />
-          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="phone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
-          <Property Name="password" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="deactivated" Type="Boolean" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Deactivated" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="TblVendor">
           <Key>
-            <PropertyRef Name="vendorID" />
+            <PropertyRef Name="VendorID" />
           </Key>
-          <Property Name="vendorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VendorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="OwnerID" Type="Int32" Nullable="false" />
           <Property Name="CompanyName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CompanyEmail" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
           <Property Name="LicenseNumber" Type="Int32" Nullable="false" />
-          <Property Name="inspectionDate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="bio" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="InspectionDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Bio" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Website" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="TblVendorEmployee">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="userID" Type="Int32" Nullable="false" />
-          <Property Name="vendorID" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="VendorID" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="TblVendorLocation">
           <Key>
             <PropertyRef Name="VendorID" />
-            <PropertyRef Name="datetime" />
+            <PropertyRef Name="Datetime" />
           </Key>
           <Property Name="VendorID" Type="Int32" Nullable="false" />
-          <Property Name="datetime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="locationX" Type="Int32" Nullable="false" />
-          <Property Name="locationY" Type="Int32" Nullable="false" />
+          <Property Name="Datetime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LocationX" Type="Int32" Nullable="false" />
+          <Property Name="LocationY" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityContainer Name="RoundTheCornerEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__RefactorLog" EntityType="Self.C__RefactorLog" />
           <EntitySet Name="TblCuisines" EntityType="Self.TblCuisine" />
           <EntitySet Name="TblMenus" EntityType="Self.TblMenu" />
           <EntitySet Name="TblMenuItems" EntityType="Self.TblMenuItem" />
@@ -260,6 +274,13 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="RoundTheCornerModelStoreContainer" CdmEntityContainer="RoundTheCornerEntities">
+          <EntitySetMapping Name="C__RefactorLog">
+            <EntityTypeMapping TypeName="RoundTheCornerModel.C__RefactorLog">
+              <MappingFragment StoreEntitySet="__RefactorLog">
+                <ScalarProperty Name="OperationKey" ColumnName="OperationKey" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="TblCuisines">
             <EntityTypeMapping TypeName="RoundTheCornerModel.TblCuisine">
               <MappingFragment StoreEntitySet="TblCuisine">
@@ -273,21 +294,21 @@
           <EntitySetMapping Name="TblMenus">
             <EntityTypeMapping TypeName="RoundTheCornerModel.TblMenu">
               <MappingFragment StoreEntitySet="TblMenu">
-                <ScalarProperty Name="menuID" ColumnName="menuID" />
-                <ScalarProperty Name="vendorID" ColumnName="vendorID" />
-                <ScalarProperty Name="isActive" ColumnName="isActive" />
+                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+                <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TblMenuItems">
             <EntityTypeMapping TypeName="RoundTheCornerModel.TblMenuItem">
               <MappingFragment StoreEntitySet="TblMenuItem">
-                <ScalarProperty Name="itemID" ColumnName="itemID" />
-                <ScalarProperty Name="menuID" ColumnName="menuID" />
-                <ScalarProperty Name="itemName" ColumnName="itemName" />
-                <ScalarProperty Name="price" ColumnName="price" />
-                <ScalarProperty Name="picture" ColumnName="picture" />
-                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="MenuSectionID" ColumnName="MenuSectionID" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -304,19 +325,19 @@
           <EntitySetMapping Name="TblOrders">
             <EntityTypeMapping TypeName="RoundTheCornerModel.TblOrder">
               <MappingFragment StoreEntitySet="TblOrder">
-                <ScalarProperty Name="orderID" ColumnName="orderID" />
-                <ScalarProperty Name="userID" ColumnName="userID" />
-                <ScalarProperty Name="vendorID" ColumnName="vendorID" />
-                <ScalarProperty Name="orderDate" ColumnName="orderDate" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TblOrderItems">
             <EntityTypeMapping TypeName="RoundTheCornerModel.TblOrderItem">
               <MappingFragment StoreEntitySet="TblOrderItem">
-                <ScalarProperty Name="orderItemID" ColumnName="orderItemID" />
-                <ScalarProperty Name="menuItemId" ColumnName="menuItemId" />
-                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="OrderItemID" ColumnName="OrderItemID" />
+                <ScalarProperty Name="MenuItemId" ColumnName="MenuItemId" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -335,27 +356,27 @@
           <EntitySetMapping Name="TblUsers">
             <EntityTypeMapping TypeName="RoundTheCornerModel.TblUser">
               <MappingFragment StoreEntitySet="TblUser">
-                <ScalarProperty Name="userID" ColumnName="userID" />
-                <ScalarProperty Name="firstName" ColumnName="firstName" />
-                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="DOB" ColumnName="DOB" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="phone" ColumnName="phone" />
-                <ScalarProperty Name="password" ColumnName="password" />
-                <ScalarProperty Name="deactivated" ColumnName="deactivated" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Deactivated" ColumnName="Deactivated" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TblVendors">
             <EntityTypeMapping TypeName="RoundTheCornerModel.TblVendor">
               <MappingFragment StoreEntitySet="TblVendor">
-                <ScalarProperty Name="vendorID" ColumnName="vendorID" />
+                <ScalarProperty Name="VendorID" ColumnName="VendorID" />
                 <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
                 <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
                 <ScalarProperty Name="CompanyEmail" ColumnName="CompanyEmail" />
                 <ScalarProperty Name="LicenseNumber" ColumnName="LicenseNumber" />
-                <ScalarProperty Name="inspectionDate" ColumnName="inspectionDate" />
-                <ScalarProperty Name="bio" ColumnName="bio" />
+                <ScalarProperty Name="InspectionDate" ColumnName="InspectionDate" />
+                <ScalarProperty Name="Bio" ColumnName="Bio" />
                 <ScalarProperty Name="Website" ColumnName="Website" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -363,9 +384,9 @@
           <EntitySetMapping Name="TblVendorEmployees">
             <EntityTypeMapping TypeName="RoundTheCornerModel.TblVendorEmployee">
               <MappingFragment StoreEntitySet="TblVendorEmployee">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="userID" ColumnName="userID" />
-                <ScalarProperty Name="vendorID" ColumnName="vendorID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="VendorID" ColumnName="VendorID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -373,9 +394,9 @@
             <EntityTypeMapping TypeName="RoundTheCornerModel.TblVendorLocation">
               <MappingFragment StoreEntitySet="TblVendorLocation">
                 <ScalarProperty Name="VendorID" ColumnName="VendorID" />
-                <ScalarProperty Name="datetime" ColumnName="datetime" />
-                <ScalarProperty Name="locationX" ColumnName="locationX" />
-                <ScalarProperty Name="locationY" ColumnName="locationY" />
+                <ScalarProperty Name="Datetime" ColumnName="Datetime" />
+                <ScalarProperty Name="LocationX" ColumnName="LocationX" />
+                <ScalarProperty Name="LocationY" ColumnName="LocationY" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

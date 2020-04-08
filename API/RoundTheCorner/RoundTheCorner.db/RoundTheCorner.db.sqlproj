@@ -93,4 +93,7 @@
   <ItemGroup>
     <PostDeploy Include="Post-Deployment\Script.PostDeployment.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="RoundTheCorner.db.refactorlog" />
+  </ItemGroup>
 </Project>

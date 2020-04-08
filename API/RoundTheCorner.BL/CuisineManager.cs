@@ -14,9 +14,9 @@ namespace RoundTheCorner.BL
         {
             CuisineModel cuisine = new CuisineModel
             {
-                vendorID = 1,
-                menuID = 1,
-                cuisineName="Good Eats"
+                VendorID = 1,
+                MenuID = 1,
+                CuisineName="Good Eats"
             };
 
             return Insert(cuisine);
@@ -31,9 +31,9 @@ namespace RoundTheCorner.BL
                     PL.TblCuisine newRow = new TblCuisine()
                     {
                         CuisineID = rc.TblCuisines.Any() ? rc.TblCuisines.Max(u => u.CuisineID) + 1 : 1,
-                        MenuID = cuisine.menuID,
-                        VendorID = cuisine.vendorID,
-                        CuisineName= cuisine.cuisineName
+                        MenuID = cuisine.MenuID,
+                        VendorID = cuisine.VendorID,
+                        CuisineName= cuisine.CuisineName
 
                     };
                     rc.TblCuisines.Add(newRow);
@@ -84,10 +84,10 @@ namespace RoundTheCorner.BL
                         {
                             CuisineModel cuisine = new CuisineModel
                             {
-                                cuisineID = tblCuisine.CuisineID,
-                                vendorID = tblCuisine.VendorID,
-                                menuID = tblCuisine.MenuID,
-                                cuisineName = tblCuisine.CuisineName
+                                CuisineID = tblCuisine.CuisineID,
+                                VendorID = tblCuisine.VendorID,
+                                MenuID = tblCuisine.MenuID,
+                                CuisineName = tblCuisine.CuisineName
                             };
 
                             return cuisine;
@@ -110,18 +110,18 @@ namespace RoundTheCorner.BL
         {
             try
             {
-                if (cuisine.cuisineID != 0)
+                if (cuisine.CuisineID != 0)
                 {
                     using (RoundTheCornerEntities rc = new RoundTheCornerEntities())
                     {
-                        TblCuisine tblCuisine = rc.TblCuisines.FirstOrDefault(u => u.CuisineID == cuisine.cuisineID);
+                        TblCuisine tblCuisine = rc.TblCuisines.FirstOrDefault(u => u.CuisineID == cuisine.CuisineID);
 
                         if (tblCuisine != null)
                         {
-                            tblCuisine.CuisineID = cuisine.cuisineID;
-                            tblCuisine.VendorID = cuisine.vendorID;
-                            tblCuisine.MenuID = cuisine.menuID;
-                            tblCuisine.CuisineName = cuisine.cuisineName;
+                            tblCuisine.CuisineID = cuisine.CuisineID;
+                            tblCuisine.VendorID = cuisine.VendorID;
+                            tblCuisine.MenuID = cuisine.MenuID;
+                            tblCuisine.CuisineName = cuisine.CuisineName;
 
 
 
@@ -189,8 +189,8 @@ namespace RoundTheCorner.BL
                     {
                         List<CuisineModel> cuisines = new List<CuisineModel>();
 
-                        tblCuisines.ForEach(u => cuisines.Add(new CuisineModel { cuisineID = u.CuisineID, menuID= u.MenuID,
-                          vendorID =u.VendorID, cuisineName = u.CuisineName }));
+                        tblCuisines.ForEach(u => cuisines.Add(new CuisineModel { CuisineID = u.CuisineID, MenuID= u.MenuID,
+                          VendorID =u.VendorID, CuisineName = u.CuisineName }));
 
                         return cuisines;
                     }
@@ -203,20 +203,20 @@ namespace RoundTheCorner.BL
                 throw ex;
             }
         }
-        public static List<CuisineModel> GetCuisines(int cuisineID)
+        public static List<CuisineModel> GetCuisines(int CuisineID)
         {
             try
             {
                 using (RoundTheCornerEntities rc = new RoundTheCornerEntities())
                 {
-                    var tblCuisines = rc.TblCuisines.Where(w => cuisineID == w.CuisineID).ToList();
+                    var tblCuisines = rc.TblCuisines.Where(w => CuisineID == w.CuisineID).ToList();
 
                     if (tblCuisines != null)
                     {
                         List<CuisineModel> cuisines = new List<CuisineModel>();
 
-                        tblCuisines.ForEach(u => cuisines.Add(new CuisineModel { cuisineID = u.CuisineID, menuID = u.MenuID, 
-                            vendorID=u.VendorID, cuisineName = u.CuisineName }));
+                        tblCuisines.ForEach(u => cuisines.Add(new CuisineModel { CuisineID = u.CuisineID, MenuID = u.MenuID, 
+                            VendorID=u.VendorID, CuisineName = u.CuisineName }));
 
                         return cuisines;
                     }

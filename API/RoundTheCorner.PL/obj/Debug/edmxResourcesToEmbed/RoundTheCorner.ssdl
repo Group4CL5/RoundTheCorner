@@ -1,5 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="RoundTheCornerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__RefactorLog">
+    <Key>
+      <PropertyRef Name="OperationKey" />
+    </Key>
+    <Property Name="OperationKey" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
   <EntityType Name="TblCuisine">
     <Key>
       <PropertyRef Name="CuisineID" />
@@ -11,22 +17,22 @@
   </EntityType>
   <EntityType Name="TblMenu">
     <Key>
-      <PropertyRef Name="menuID" />
+      <PropertyRef Name="MenuID" />
     </Key>
-    <Property Name="menuID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="vendorID" Type="int" Nullable="false" />
-    <Property Name="isActive" Type="bit" Nullable="false" />
+    <Property Name="MenuID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VendorID" Type="int" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="TblMenuItem">
     <Key>
-      <PropertyRef Name="itemID" />
+      <PropertyRef Name="ItemID" />
     </Key>
-    <Property Name="itemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="menuID" Type="int" Nullable="false" />
-    <Property Name="itemName" Type="nvarchar" MaxLength="25" Nullable="false" />
-    <Property Name="price" Type="money" Nullable="false" />
-    <Property Name="picture" Type="image" />
-    <Property Name="description" Type="text" />
+    <Property Name="ItemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MenuID" Type="int" Nullable="false" />
+    <Property Name="ItemName" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="Price" Type="money" Nullable="false" />
+    <Property Name="Picture" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="text" />
     <Property Name="MenuSectionID" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="TblMenuSection">
@@ -39,20 +45,20 @@
   </EntityType>
   <EntityType Name="TblOrder">
     <Key>
-      <PropertyRef Name="orderID" />
+      <PropertyRef Name="OrderID" />
     </Key>
-    <Property Name="orderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="userID" Type="int" Nullable="false" />
-    <Property Name="vendorID" Type="int" Nullable="false" />
-    <Property Name="orderDate" Type="date" Nullable="false" />
+    <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="VendorID" Type="int" Nullable="false" />
+    <Property Name="OrderDate" Type="date" Nullable="false" />
   </EntityType>
   <EntityType Name="TblOrderItem">
     <Key>
-      <PropertyRef Name="orderItemID" />
+      <PropertyRef Name="OrderItemID" />
     </Key>
-    <Property Name="orderItemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="menuItemId" Type="int" Nullable="false" />
-    <Property Name="price" Type="money" Nullable="false" />
+    <Property Name="OrderItemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MenuItemId" Type="int" Nullable="false" />
+    <Property Name="Price" Type="money" Nullable="false" />
   </EntityType>
   <EntityType Name="TblReview">
     <Key>
@@ -67,49 +73,50 @@
   </EntityType>
   <EntityType Name="TblUser">
     <Key>
-      <PropertyRef Name="userID" />
+      <PropertyRef Name="UserID" />
     </Key>
-    <Property Name="userID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="firstName" Type="nvarchar" MaxLength="25" Nullable="false" />
-    <Property Name="lastName" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="25" Nullable="false" />
     <Property Name="DOB" Type="date" />
-    <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="phone" Type="nvarchar" MaxLength="15" />
-    <Property Name="password" Type="nvarchar" MaxLength="32" Nullable="false" />
-    <Property Name="deactivated" Type="bit" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="15" />
+    <Property Name="Password" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="Deactivated" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="TblVendor">
     <Key>
-      <PropertyRef Name="vendorID" />
+      <PropertyRef Name="VendorID" />
     </Key>
-    <Property Name="vendorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VendorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="OwnerID" Type="int" Nullable="false" />
     <Property Name="CompanyName" Type="nvarchar" MaxLength="25" Nullable="false" />
     <Property Name="CompanyEmail" Type="nvarchar" MaxLength="25" />
     <Property Name="LicenseNumber" Type="int" Nullable="false" />
-    <Property Name="inspectionDate" Type="date" Nullable="false" />
-    <Property Name="bio" Type="ntext" />
+    <Property Name="InspectionDate" Type="date" Nullable="false" />
+    <Property Name="Bio" Type="ntext" />
     <Property Name="Website" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="TblVendorEmployee">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="userID" Type="int" Nullable="false" />
-    <Property Name="vendorID" Type="int" Nullable="false" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="VendorID" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="TblVendorLocation">
     <Key>
       <PropertyRef Name="VendorID" />
-      <PropertyRef Name="datetime" />
+      <PropertyRef Name="Datetime" />
     </Key>
     <Property Name="VendorID" Type="int" Nullable="false" />
-    <Property Name="datetime" Type="datetime" Nullable="false" />
-    <Property Name="locationX" Type="int" Nullable="false" />
-    <Property Name="locationY" Type="int" Nullable="false" />
+    <Property Name="Datetime" Type="datetime" Nullable="false" />
+    <Property Name="LocationX" Type="int" Nullable="false" />
+    <Property Name="LocationY" Type="int" Nullable="false" />
   </EntityType>
   <EntityContainer Name="RoundTheCornerModelStoreContainer">
+    <EntitySet Name="__RefactorLog" EntityType="Self.__RefactorLog" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TblCuisine" EntityType="Self.TblCuisine" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TblMenu" EntityType="Self.TblMenu" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TblMenuItem" EntityType="Self.TblMenuItem" Schema="dbo" store:Type="Tables" />

@@ -1,8 +1,8 @@
 ﻿CREATE TABLE [dbo].[TblMenu] (
-    [menuID]   INT IDENTITY (1, 1) NOT NULL,
-    [vendorID] INT NOT NULL,
-    [isActive] BIT NOT NULL, 
-    CONSTRAINT [PK_TblMenus] PRIMARY KEY ([menuID]),
+    [MenuID]   INT IDENTITY (1, 1) NOT NULL,
+    [VendorID] INT NOT NULL,
+    [IsActive] BIT NOT NULL, 
+    CONSTRAINT [PK_TblMenus] PRIMARY KEY ([MenuID]),
 
     --CONSTRAINT [FK_Menus_Vendors] FOREIGN KEY ([vendorID]) REFERENCES [dbo].[TblVendors] ([vendorID])
 );

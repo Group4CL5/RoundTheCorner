@@ -8,10 +8,10 @@ namespace RoundTheCorner.BL.Models
 {
     public class OrderModel
     {
-        public int orderID {get; set;}
-        public int userID {get; set;}
-        public int vendorID {get; set;}
-        public DateTime orderDate {get; set;}
+        public int OrderID {get; set;}
+        public int UserID {get; set;}
+        public int VendorID {get; set;}
+        public DateTime OrderDate {get; set;}
 
     }
 }

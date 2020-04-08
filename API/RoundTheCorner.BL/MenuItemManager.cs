@@ -14,12 +14,12 @@ namespace RoundTheCorner.BL
         {
             MenuItemModel menuItem = new MenuItemModel
             {
-                menuItem = 1,
-                itemName = "Good Eats",
-                price = 1,
-                picture = new byte[] { 1},
-                description = "sooo good",
-                menuSectionID = 1
+                MenuItem = 1,
+                ItemName = "Good Eats",
+                Price = 1,
+                Picture = "picture_here",
+                Description = "sooo good",
+                MenuSectionID = 1
 
             };
 
@@ -35,13 +35,13 @@ namespace RoundTheCorner.BL
                 {
                     PL.TblMenuItem newRow = new TblMenuItem()
                     {
-                        itemID = rc.TblMenuItems.Any() ? rc.TblMenuItems.Max(u => u.itemID) + 1 : 1,
-                        itemName = menuItem.itemName,
-                        menuID = menuItem.menuItem,
-                        price = menuItem.price,
-                        picture=menuItem.picture,
-                        description=menuItem.description,
-                        MenuSectionID=menuItem.menuSectionID
+                        ItemID = rc.TblMenuItems.Any() ? rc.TblMenuItems.Max(u => u.ItemID) + 1 : 1,
+                        ItemName = menuItem.ItemName,
+                        MenuID = menuItem.MenuItem,
+                        Price = menuItem.Price,
+                        Picture= menuItem.Picture,
+                        Description= menuItem.Description,
+                        MenuSectionID= menuItem.MenuSectionID
                     };
                     rc.TblMenuItems.Add(newRow);
                     rc.SaveChanges();
@@ -53,7 +53,7 @@ namespace RoundTheCorner.BL
                 throw ex;
             }
         }
-        public static bool Insert(string menuItemname, int menuID, int vendorID, decimal price,byte[] picture,int menusectionID,string desc)
+        public static bool Insert(string menuItemname, int menuID, decimal price, string picture,int menusectionID,string desc)
         {
             try
             {
@@ -61,12 +61,12 @@ namespace RoundTheCorner.BL
                 {
                     PL.TblMenuItem newRow = new TblMenuItem()
                     {
-                        itemID = rc.TblMenuItems.Any() ? rc.TblMenuItems.Max(u => u.itemID) + 1 : 1,
-                        menuID = menuID,
-                        itemName = menuItemname,
-                        price = price,
-                        picture = picture,
-                        description = desc,
+                        ItemID = rc.TblMenuItems.Any() ? rc.TblMenuItems.Max(u => u.ItemID) + 1 : 1,
+                        MenuID = menuID,                        
+                        ItemName = menuItemname,
+                        Price = price,
+                        Picture = picture,
+                        Description = desc,
                         MenuSectionID = menusectionID
 
                     };
@@ -88,19 +88,19 @@ namespace RoundTheCorner.BL
                 {
                     using (RoundTheCornerEntities rc = new RoundTheCornerEntities())
                     {
-                        var TblMenuItem = rc.TblMenuItems.FirstOrDefault(u => u.itemID == id);
+                        var TblMenuItem = rc.TblMenuItems.FirstOrDefault(u => u.ItemID == id);
 
                         if (TblMenuItem != null)
                         {
                             MenuItemModel menuItem = new MenuItemModel
                             {
-                                itemID = TblMenuItem.itemID,
-                                menuItem = TblMenuItem.menuID,
-                                itemName = TblMenuItem.itemName,
-                                price = TblMenuItem.price,
-                                picture = TblMenuItem.picture,
-                                description = TblMenuItem.description,
-                                menuSectionID = TblMenuItem.MenuSectionID
+                                ItemID = TblMenuItem.ItemID,
+                                MenuItem = TblMenuItem.MenuID,
+                                ItemName = TblMenuItem.ItemName,
+                                Price = TblMenuItem.Price,
+                                Picture = TblMenuItem.Picture,
+                                Description = TblMenuItem.Description,
+                                MenuSectionID = TblMenuItem.MenuSectionID
                             };
 
                             return menuItem;
@@ -123,20 +123,20 @@ namespace RoundTheCorner.BL
         {
             try
             {
-                if (menuItem.itemID != 0)
+                if (menuItem.ItemID != 0)
                 {
                     using (RoundTheCornerEntities rc = new RoundTheCornerEntities())
                     {
-                        TblMenuItem TblMenuItem = rc.TblMenuItems.FirstOrDefault(u => u.itemID == menuItem.itemID);
+                        TblMenuItem TblMenuItem = rc.TblMenuItems.FirstOrDefault(u => u.ItemID == menuItem.ItemID);
 
                         if (TblMenuItem != null)
                         {
-                            TblMenuItem.itemID = menuItem.itemID;
-                            TblMenuItem.itemName = menuItem.itemName;
-                            TblMenuItem.picture = menuItem.picture;
-                            TblMenuItem.price = menuItem.price;
-                            TblMenuItem.description = menuItem.description;
-                            TblMenuItem.MenuSectionID = menuItem.menuSectionID;
+                            TblMenuItem.ItemID = menuItem.ItemID;
+                            TblMenuItem.ItemName = menuItem.ItemName;
+                            TblMenuItem.Picture = menuItem.Picture;
+                            TblMenuItem.Price = menuItem.Price;
+                            TblMenuItem.Description = menuItem.Description;
+                            TblMenuItem.MenuSectionID = menuItem.MenuSectionID;
                             rc.SaveChanges();
                             return true;
                         }
@@ -164,7 +164,7 @@ namespace RoundTheCorner.BL
                 {
                     using (RoundTheCornerEntities rc = new RoundTheCornerEntities())
                     {
-                        var menuItem = rc.TblMenuItems.FirstOrDefault(u => u.itemID == id);
+                        var menuItem = rc.TblMenuItems.FirstOrDefault(u => u.ItemID == id);
 
                         if (menuItem != null)
                         {
@@ -203,13 +203,13 @@ namespace RoundTheCorner.BL
 
                         TblMenuItems.ForEach(u => menuItems.Add(new MenuItemModel
                         {
-                           itemID=u.itemID,
-                            menuItem = u.menuID,
-                            itemName = u.itemName,
-                            price = u.price,
-                            picture = u.picture,
-                            description = u.description,
-                            menuSectionID = u.MenuSectionID
+                           ItemID=u.ItemID,
+                            MenuItem = u.MenuID,
+                            ItemName = u.ItemName,
+                            Price = u.Price,
+                            Picture = u.Picture,
+                            Description = u.Description,
+                            MenuSectionID = u.MenuSectionID
 
                         }));
 
@@ -230,7 +230,7 @@ namespace RoundTheCorner.BL
             {
                 using (RoundTheCornerEntities rc = new RoundTheCornerEntities())
                 {
-                    var TblMenuItems = rc.TblMenuItems.Where(w => menuItemID == w.itemID).ToList();
+                    var TblMenuItems = rc.TblMenuItems.Where(w => menuItemID == w.ItemID).ToList();
 
                     if (TblMenuItems != null)
                     {
@@ -238,13 +238,13 @@ namespace RoundTheCorner.BL
 
                         TblMenuItems.ForEach(u => menuItems.Add(new MenuItemModel
                         {
-                            itemID = u.itemID,
-                            menuItem = u.menuID,
-                            itemName = u.itemName,
-                            price = u.price,
-                            picture = u.picture,
-                            description = u.description,
-                            menuSectionID = u.MenuSectionID
+                            ItemID = u.ItemID,
+                            MenuItem = u.MenuID,
+                            ItemName = u.ItemName,
+                            Price = u.Price,
+                            Picture = u.Picture,
+                            Description = u.Description,
+                            MenuSectionID = u.MenuSectionID
                         }));
 
                         return menuItems;

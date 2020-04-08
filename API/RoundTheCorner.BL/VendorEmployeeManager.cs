@@ -15,9 +15,9 @@ namespace RoundTheCorner.BL
         {
             VendorEmployeeModel vendorEmployee = new VendorEmployeeModel
             {
-                vendorID = 1,
-                userID = 1,
-                id =1
+                VendorID = 1,
+                UserID = 1,
+                ID =1
             };
 
             return Insert(vendorEmployee);
@@ -31,9 +31,9 @@ namespace RoundTheCorner.BL
                 {
                     PL.TblVendorEmployee newRow = new TblVendorEmployee()
                     {
-                        id = rc.TblVendorEmployees.Any() ? rc.TblVendorEmployees.Max(u => u.id) + 1 : 1,
-                        vendorID = 1,
-                        userID = 1
+                        ID = rc.TblVendorEmployees.Any() ? rc.TblVendorEmployees.Max(u => u.ID) + 1 : 1,
+                        VendorID = vendorEmployee.VendorID,
+                        UserID = vendorEmployee.UserID
                     };
                     rc.TblVendorEmployees.Add(newRow);
                     rc.SaveChanges();
@@ -46,7 +46,7 @@ namespace RoundTheCorner.BL
             }
         }
 
-        public static bool Insert(int id, int userID, int vendorID)
+        public static bool Insert( int UserID, int VendorID)
         {
             try
             {
@@ -54,9 +54,9 @@ namespace RoundTheCorner.BL
                 {
                     PL.TblVendorEmployee newRow = new TblVendorEmployee()
                     {
-                        id = rc.TblVendorEmployees.Any() ? rc.TblVendorEmployees.Max(u => u.id) + 1 : 1,
-                        userID = 1,
-                        vendorID = 1
+                        ID = rc.TblVendorEmployees.Any() ? rc.TblVendorEmployees.Max(u => u.ID) + 1 : 1,
+                        UserID = UserID,
+                        VendorID = VendorID
 
                     };
                     rc.TblVendorEmployees.Add(newRow);
@@ -70,23 +70,23 @@ namespace RoundTheCorner.BL
             }
         }
 
-        public static VendorEmployeeModel GetVendorEmployee(int id)
+        public static VendorEmployeeModel GetVendorEmployee(int ID)
         {
             try
             {
-                if (id != 0)
+                if (ID != 0)
                 {
                     using (RoundTheCornerEntities rc = new RoundTheCornerEntities())
                     {
-                        var tblVendorEmployee = rc.TblVendorEmployees.FirstOrDefault(u => u.id == id);
+                        var tblVendorEmployee = rc.TblVendorEmployees.FirstOrDefault(u => u.ID == ID);
 
                         if (tblVendorEmployee != null)
                         {
                             VendorEmployeeModel vendorEmployee = new VendorEmployeeModel
                             {
-                                id = tblVendorEmployee.id,
-                                userID = tblVendorEmployee.userID,
-                                vendorID = tblVendorEmployee.vendorID
+                                ID = tblVendorEmployee.ID,
+                                UserID = tblVendorEmployee.UserID,
+                                VendorID = tblVendorEmployee.VendorID
 
                             };
 
@@ -119,7 +119,7 @@ namespace RoundTheCorner.BL
                     {
                         List<VendorEmployeeModel> vendorEmployees = new List<VendorEmployeeModel>();
 
-                        tblVendorEmployee.ForEach(u => vendorEmployees.Add(new VendorEmployeeModel { id = u.id, vendorID = u.vendorID, userID = u.userID }));
+                        tblVendorEmployee.ForEach(u => vendorEmployees.Add(new VendorEmployeeModel { ID = u.ID, VendorID = u.VendorID, UserID = u.UserID }));
 
                         return vendorEmployees;
                     }
@@ -138,17 +138,17 @@ namespace RoundTheCorner.BL
         {
             try
             {
-                if (vendorEmployee.id != 0)
+                if (vendorEmployee.ID != 0)
                 {
                     using (RoundTheCornerEntities rc = new RoundTheCornerEntities())
                     {
-                        TblVendorEmployee tblVendorEmployee = rc.TblVendorEmployees.FirstOrDefault(u => u.id == vendorEmployee.id);
+                        TblVendorEmployee tblVendorEmployee = rc.TblVendorEmployees.FirstOrDefault(u => u.ID == vendorEmployee.ID);
 
                         if (tblVendorEmployee != null)
                         {
-                            tblVendorEmployee.id = vendorEmployee.id;
-                            tblVendorEmployee.userID = vendorEmployee.userID;
-                            tblVendorEmployee.vendorID = vendorEmployee.vendorID;
+                            tblVendorEmployee.ID = vendorEmployee.ID;
+                            tblVendorEmployee.UserID = vendorEmployee.UserID;
+                            tblVendorEmployee.VendorID = vendorEmployee.VendorID;
                             
 
                             rc.SaveChanges();
@@ -162,7 +162,7 @@ namespace RoundTheCorner.BL
                 }
                 else
                 {
-                    throw new Exception("Must have a valid id");
+                    throw new Exception("Must have a valID ID");
                 }
             }
             catch (Exception ex)
@@ -172,15 +172,15 @@ namespace RoundTheCorner.BL
         }
 
         // Unit tests only
-        public static bool Delete(int id)
+        public static bool Delete(int ID)
         {
             try
             {
-                if (id != 0)
+                if (ID != 0)
                 {
                     using (RoundTheCornerEntities rc = new RoundTheCornerEntities())
                     {
-                        var vendorEmployee = rc.TblVendorEmployees.FirstOrDefault(u => u.id == id);
+                        var vendorEmployee = rc.TblVendorEmployees.FirstOrDefault(u => u.ID == ID);
 
                         if (vendorEmployee != null)
                         {

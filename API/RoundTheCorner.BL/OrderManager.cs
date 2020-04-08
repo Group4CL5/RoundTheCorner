@@ -14,10 +14,10 @@ namespace RoundTheCorner.BL
         {
             OrderModel order = new OrderModel
             {
-                orderID = 1,
-                userID = 1,
-                vendorID = 1,
-                orderDate = new DateTime (1980,04,01)
+                OrderID = 1,
+                UserID = 1,
+                VendorID = 1,
+                OrderDate = new DateTime (1980,04,01)
 
             };
 
@@ -32,10 +32,10 @@ namespace RoundTheCorner.BL
                 {
                     PL.TblOrder newRow = new TblOrder()
                     {
-                        orderID = rc.TblOrders.Any() ? rc.TblOrders.Max(u => u.orderID) + 1 : 1,
-                        vendorID = order.orderID,
-                        userID= order.orderID,                        
-                        orderDate = order.orderDate
+                        OrderID = rc.TblOrders.Any() ? rc.TblOrders.Max(u => u.OrderID) + 1 : 1,
+                        VendorID = order.OrderID,
+                        UserID= order.OrderID,                        
+                        OrderDate = order.OrderDate
                     };
                     rc.TblOrders.Add(newRow);
                     rc.SaveChanges();
@@ -47,7 +47,7 @@ namespace RoundTheCorner.BL
                 throw ex;
             }
         }
-        public static bool Insert(int orderID, int userID, int vendorID, DateTime orderDate )
+        public static bool Insert( int UserID, int VendorID, DateTime OrderDate )
         {
             try
             {
@@ -55,11 +55,11 @@ namespace RoundTheCorner.BL
                 {
                     PL.TblOrder newRow = new TblOrder()
                     {
-                        orderID = rc.TblOrders.Any() ? rc.TblOrders.Max(u => u.orderID) + 1 : 1,
+                        OrderID = rc.TblOrders.Any() ? rc.TblOrders.Max(u => u.OrderID) + 1 : 1,
                         
-                        userID = userID,
-                        vendorID = vendorID,
-                        orderDate = orderDate
+                        UserID = UserID,
+                        VendorID = VendorID,
+                        OrderDate = OrderDate
                     };
                     rc.TblOrders.Add(newRow);
                     rc.SaveChanges();
@@ -79,16 +79,16 @@ namespace RoundTheCorner.BL
                 {
                     using (RoundTheCornerEntities rc = new RoundTheCornerEntities())
                     {
-                        var tblOrder = rc.TblOrders.FirstOrDefault(u => u.orderID == id);
+                        var tblOrder = rc.TblOrders.FirstOrDefault(u => u.OrderID == id);
 
                         if (tblOrder != null)
                         {
                             OrderModel order = new OrderModel
                             {                                                             
-                                orderID = tblOrder.orderID,
-                                userID = tblOrder.userID,
-                                vendorID = tblOrder.vendorID,
-                                orderDate = tblOrder.orderDate
+                                OrderID = tblOrder.OrderID,
+                                UserID = tblOrder.UserID,
+                                VendorID = tblOrder.VendorID,
+                                OrderDate = tblOrder.OrderDate
 
                             };
 
@@ -112,18 +112,18 @@ namespace RoundTheCorner.BL
         {
             try
             {
-                if (order.orderID != 0)
+                if (order.OrderID != 0)
                 {
                     using (RoundTheCornerEntities rc = new RoundTheCornerEntities())
                     {
-                        TblOrder tblOrder = rc.TblOrders.FirstOrDefault(u => u.orderID == order.orderID);
+                        TblOrder tblOrder = rc.TblOrders.FirstOrDefault(u => u.OrderID == order.OrderID);
 
                         if (tblOrder != null)
                         {
-                            tblOrder.orderID = order.orderID;
-                            tblOrder.userID= order.orderID;
-                            tblOrder.vendorID = order.orderID;
-                            tblOrder.orderDate = order.orderDate;
+                            tblOrder.OrderID = order.OrderID;
+                            tblOrder.UserID= order.OrderID;
+                            tblOrder.VendorID = order.OrderID;
+                            tblOrder.OrderDate = order.OrderDate;
                             
 
                             rc.SaveChanges();
@@ -153,7 +153,7 @@ namespace RoundTheCorner.BL
                 {
                     using (RoundTheCornerEntities rc = new RoundTheCornerEntities())
                     {
-                        var order = rc.TblOrders.FirstOrDefault(u => u.orderID == id);
+                        var order = rc.TblOrders.FirstOrDefault(u => u.OrderID == id);
 
                         if (order != null)
                         {
@@ -190,8 +190,8 @@ namespace RoundTheCorner.BL
                     {
                         List<OrderModel> orders = new List<OrderModel>();
 
-                        tblOrder.ForEach(u => orders.Add(new OrderModel { orderID = u.orderID, vendorID = u.vendorID, userID = u.userID, 
-                        orderDate = u.orderDate }));
+                        tblOrder.ForEach(u => orders.Add(new OrderModel { OrderID = u.OrderID, VendorID = u.VendorID, UserID = u.UserID, 
+                        OrderDate = u.OrderDate }));
 
                         return orders;
                     }
@@ -204,23 +204,23 @@ namespace RoundTheCorner.BL
                 throw ex;
             }
         }
-        public static List<OrderModel> GetUserOrders(int userID)
+        public static List<OrderModel> GetUserOrders(int UserID)
         {
             try
             {
                 using (RoundTheCornerEntities rc = new RoundTheCornerEntities())
                 {
-                    var tblOrders = rc.TblOrders.Where(w => userID == w.userID).ToList();
+                    var tblOrders = rc.TblOrders.Where(w => UserID == w.UserID).ToList();
 
                     if (tblOrders != null)
                     {
                         List<OrderModel> orders = new List<OrderModel>();
 
                         tblOrders.ForEach(u => orders.Add(new OrderModel {
-                            orderID = u.orderID,
-                            vendorID = u.vendorID,
-                            userID = u.userID,
-                            orderDate = u.orderDate
+                            OrderID = u.OrderID,
+                            VendorID = u.VendorID,
+                            UserID = u.UserID,
+                            OrderDate = u.OrderDate
                         }));
 
                         return orders;

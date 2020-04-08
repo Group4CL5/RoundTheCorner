@@ -8,8 +8,8 @@ namespace RoundTheCorner.BL.Models
 {
     public class OrderItemModel
     {
-        public int orderItemID { get; set; }
-        public int menuItemID { get; set; }
-        public decimal price { get; set; }
+        public int OrderItemID { get; set; }
+        public int MenuItemID { get; set; }
+        public decimal Price { get; set; }
     }
 }

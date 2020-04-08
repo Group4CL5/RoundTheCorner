@@ -14,8 +14,8 @@ namespace RoundTheCorner.PL
     
     public partial class TblOrderItem
     {
-        public int orderItemID { get; set; }
-        public int menuItemId { get; set; }
-        public decimal price { get; set; }
+        public int OrderItemID { get; set; }
+        public int MenuItemId { get; set; }
+        public decimal Price { get; set; }
     }
 }
