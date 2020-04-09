@@ -203,13 +203,13 @@ namespace RoundTheCorner.BL
                 throw ex;
             }
         }
-        public static List<CuisineModel> GetCuisines(int CuisineID)
+        public static List<CuisineModel> GetCuisines(int VendorID)
         {
             try
             {
                 using (RoundTheCornerEntities rc = new RoundTheCornerEntities())
                 {
-                    var tblCuisines = rc.TblCuisines.Where(w => CuisineID == w.CuisineID).ToList();
+                    var tblCuisines = rc.TblCuisines.Where(w => VendorID == w.VendorID).ToList();
 
                     if (tblCuisines != null)
                     {

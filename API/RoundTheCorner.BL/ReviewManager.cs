@@ -116,6 +116,7 @@ namespace RoundTheCorner.BL
             }
         }
 
+
         public static List<ReviewModel> GetReviews()
         {
             try
@@ -128,7 +129,7 @@ namespace RoundTheCorner.BL
                     {
                         List<ReviewModel> reviews = new List<ReviewModel>();
 
-                        tblReview.ForEach(u => reviews.Add(new ReviewModel { ReviewID = u.ReviewID, VendorID = u.VendorID, UserID=u.UserID, Subject=u.Subject, Body = u.Body, Rating = u.Rating }));
+                        tblReview.ForEach(u => reviews.Add(new ReviewModel { ReviewID = u.ReviewID, VendorID = u.VendorID, UserID = u.UserID, Subject = u.Subject, Body = u.Body, Rating = u.Rating }));
 
                         return reviews;
                     }
@@ -141,6 +142,33 @@ namespace RoundTheCorner.BL
                 throw ex;
             }
         }
+
+        public static List<ReviewModel> GetReviews(int VendorId)
+        {
+            try
+            {
+                using (RoundTheCornerEntities rc = new RoundTheCornerEntities())
+                {
+                    var tblReview = rc.TblReviews.Where(r => r.VendorID == VendorId).ToList();
+
+                    if (tblReview != null)
+                    {
+                        List<ReviewModel> reviews = new List<ReviewModel>();
+
+                        tblReview.ForEach(u => reviews.Add(new ReviewModel { ReviewID = u.ReviewID, VendorID = u.VendorID, UserID = u.UserID, Subject = u.Subject, Body = u.Body, Rating = u.Rating }));
+
+                        return reviews;
+                    }
+
+                    throw new Exception("There currently are no reviews");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
 
 
         public static bool Update(ReviewModel review)

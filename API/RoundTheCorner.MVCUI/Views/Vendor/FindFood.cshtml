@@ -1,22 +1,11 @@
-﻿
+﻿@model IEnumerable<RoundTheCorner.MVCUI.Models.ViewModels.VendorCuisineLocationRating>
 @{
     ViewData["Title"] = "FindFood";
 }
 
-<div class="col-3 column-left" >
-    @{ 
-        if (!RoundTheCorner.MVCUI.Models.Authenticate.IsAuthenticated())
-        {
-            Html.RenderAction("LogIn", "User");
-        }
-        else
-        {
-            @:"This is a test"
-        }
-     }
-</div>
+
 <h1 class="card card-body text-center">Round The Corner</h1>
-<div class="col-9 column-right card card-body">   
+<div class="card card-body">   
     <h2 class="text-center">Find Food Near You</h2>
     <div style="background-color:blue; width:100%; height : 300px ;color:white;">//map will diplay here</div>
 
@@ -24,12 +13,23 @@
         <thead>
             <tr>
                 <th>Name</th>
-                <th>Category</th>
+                <th>Cuisine</th>
                 <th>Location</th>
                 <th>Rating</th>
             </tr>
         </thead>
         <tbody>
+            @{
+                foreach (RoundTheCorner.MVCUI.Models.ViewModels.VendorCuisineLocationRating item in Model)
+                {
+                    <tr>
+                        <td><a href="/Menu/Details" runat="server">@item.Vendor.CompanyName</a></td>
+                        <td>@item.Cuisine.CuisineName</td>
+                        <td>@item.Location</td>
+                        <td>@item.Rating.ToString("#.#") stars</td>
+                    </tr>
+                }
+            }
             <tr>
                 <td><a href="/Menu/Details" runat="server">Truck 1 </a></td>
                 <td>jamacian</td>
