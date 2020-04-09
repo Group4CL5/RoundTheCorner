@@ -16,5 +16,14 @@ GET RID OF
 [2] Is Truck? (were focusing on trucks)
 
 04April20
-[1] Tbl-MenuItem fix data type of picture
-[2]  Fix the casing (clarity)
+[1] Tbl-MenuItem fix data type of picture-Complete
+[2]  Fix the casing (clarity)-Complete
+
+06April20
+[1] Create a page where the vendor request to be added to the site.
+-Form will be sent to us for verification.
+-Reply with confirmation or request for additional information.
+[2] Place map on home page. 
+[3] Need to create a return URL => When the user successfully login.
+[4] Might want to use a Hash Set<> to store username and password.
+
