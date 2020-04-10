@@ -102,8 +102,43 @@ namespace RoundTheCorner.BL
                 throw ex;
             }
         }
+         public static MenuModel GetVendorMenu(int id)
+        {
+            try
+            {
+                if (id != 0)
+                {
+                    using (RoundTheCornerEntities rc = new RoundTheCornerEntities())
+                    {
+                        var tblMenu = rc.TblMenus.FirstOrDefault(u => u.VendorID == id);
 
-        public static List<MenuModel> GetMenu()
+                        if (tblMenu != null)
+                        {
+                            MenuModel menu = new MenuModel
+                            {
+                                MenuID = tblMenu.MenuID,
+                                VendorID = tblMenu.VendorID,
+                                IsActive = tblMenu.IsActive
+                            };
+
+                            return menu;
+                        }
+
+                        throw new Exception("Menu cannot be found");
+                    }
+                }
+                else
+                {
+                    throw new Exception("ID cannot be 0");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static List<MenuModel> GetMenus()
         {
             try
             {
@@ -127,7 +162,7 @@ namespace RoundTheCorner.BL
             {
                 throw ex;
             }
-        }
+        }       
 
         public static bool Deactivate(int id)
         {

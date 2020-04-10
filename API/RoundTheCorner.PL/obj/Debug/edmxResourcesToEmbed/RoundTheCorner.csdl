@@ -35,14 +35,6 @@
     <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="MenuSectionID" Type="Int32" Nullable="false" />
   </EntityType>
-  <EntityType Name="TblMenuSection">
-    <Key>
-      <PropertyRef Name="MenuSectionID" />
-    </Key>
-    <Property Name="MenuSectionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="MenuID" Type="Int32" Nullable="false" />
-    <Property Name="DisplayOrderNum" Type="Int32" Nullable="false" />
-  </EntityType>
   <EntityType Name="TblOrder">
     <Key>
       <PropertyRef Name="OrderID" />
@@ -120,7 +112,6 @@
     <EntitySet Name="TblCuisines" EntityType="Self.TblCuisine" />
     <EntitySet Name="TblMenus" EntityType="Self.TblMenu" />
     <EntitySet Name="TblMenuItems" EntityType="Self.TblMenuItem" />
-    <EntitySet Name="TblMenuSections" EntityType="Self.TblMenuSection" />
     <EntitySet Name="TblOrders" EntityType="Self.TblOrder" />
     <EntitySet Name="TblOrderItems" EntityType="Self.TblOrderItem" />
     <EntitySet Name="TblReviews" EntityType="Self.TblReview" />
@@ -128,5 +119,15 @@
     <EntitySet Name="TblVendors" EntityType="Self.TblVendor" />
     <EntitySet Name="TblVendorEmployees" EntityType="Self.TblVendorEmployee" />
     <EntitySet Name="TblVendorLocations" EntityType="Self.TblVendorLocation" />
+    <EntitySet Name="TblMenuSections" EntityType="RoundTheCornerModel.TblMenuSection" />
   </EntityContainer>
+  <EntityType Name="TblMenuSection">
+    <Key>
+      <PropertyRef Name="MenuSectionID" />
+    </Key>
+    <Property Name="MenuSectionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MenuID" Type="Int32" Nullable="false" />
+    <Property Name="DisplayOrderNum" Type="Int32" Nullable="false" />
+    <Property Name="MenuSectionName" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>

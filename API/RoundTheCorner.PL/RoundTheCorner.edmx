@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="RoundTheCornerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="RoundTheCornerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="__RefactorLog">
           <Key>
             <PropertyRef Name="OperationKey" />
@@ -47,6 +47,7 @@
           <Property Name="MenuSectionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="MenuID" Type="int" Nullable="false" />
           <Property Name="DisplayOrderNum" Type="int" Nullable="false" />
+          <Property Name="MenuSectionName" Type="nvarchar" MaxLength="25" Nullable="false" />
         </EntityType>
         <EntityType Name="TblOrder">
           <Key>
@@ -134,8 +135,7 @@
           <EntitySet Name="TblVendorEmployee" EntityType="Self.TblVendorEmployee" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblVendorLocation" EntityType="Self.TblVendorLocation" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="RoundTheCornerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -173,14 +173,6 @@
           <Property Name="Picture" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="MenuSectionID" Type="Int32" Nullable="false" />
-        </EntityType>
-        <EntityType Name="TblMenuSection">
-          <Key>
-            <PropertyRef Name="MenuSectionID" />
-          </Key>
-          <Property Name="MenuSectionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="MenuID" Type="Int32" Nullable="false" />
-          <Property Name="DisplayOrderNum" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="TblOrder">
           <Key>
@@ -259,7 +251,6 @@
           <EntitySet Name="TblCuisines" EntityType="Self.TblCuisine" />
           <EntitySet Name="TblMenus" EntityType="Self.TblMenu" />
           <EntitySet Name="TblMenuItems" EntityType="Self.TblMenuItem" />
-          <EntitySet Name="TblMenuSections" EntityType="Self.TblMenuSection" />
           <EntitySet Name="TblOrders" EntityType="Self.TblOrder" />
           <EntitySet Name="TblOrderItems" EntityType="Self.TblOrderItem" />
           <EntitySet Name="TblReviews" EntityType="Self.TblReview" />
@@ -267,7 +258,17 @@
           <EntitySet Name="TblVendors" EntityType="Self.TblVendor" />
           <EntitySet Name="TblVendorEmployees" EntityType="Self.TblVendorEmployee" />
           <EntitySet Name="TblVendorLocations" EntityType="Self.TblVendorLocation" />
+          <EntitySet Name="TblMenuSections" EntityType="RoundTheCornerModel.TblMenuSection" />
         </EntityContainer>
+        <EntityType Name="TblMenuSection">
+          <Key>
+            <PropertyRef Name="MenuSectionID" />
+          </Key>
+          <Property Name="MenuSectionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MenuID" Type="Int32" Nullable="false" />
+          <Property Name="DisplayOrderNum" Type="Int32" Nullable="false" />
+          <Property Name="MenuSectionName" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -310,15 +311,6 @@
                 <ScalarProperty Name="Picture" ColumnName="Picture" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="MenuSectionID" ColumnName="MenuSectionID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TblMenuSections">
-            <EntityTypeMapping TypeName="RoundTheCornerModel.TblMenuSection">
-              <MappingFragment StoreEntitySet="TblMenuSection">
-                <ScalarProperty Name="MenuSectionID" ColumnName="MenuSectionID" />
-                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
-                <ScalarProperty Name="DisplayOrderNum" ColumnName="DisplayOrderNum" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -397,6 +389,16 @@
                 <ScalarProperty Name="Datetime" ColumnName="Datetime" />
                 <ScalarProperty Name="LocationX" ColumnName="LocationX" />
                 <ScalarProperty Name="LocationY" ColumnName="LocationY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblMenuSections">
+            <EntityTypeMapping TypeName="RoundTheCornerModel.TblMenuSection">
+              <MappingFragment StoreEntitySet="TblMenuSection">
+                <ScalarProperty Name="MenuSectionName" ColumnName="MenuSectionName" />
+                <ScalarProperty Name="DisplayOrderNum" ColumnName="DisplayOrderNum" />
+                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+                <ScalarProperty Name="MenuSectionID" ColumnName="MenuSectionID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

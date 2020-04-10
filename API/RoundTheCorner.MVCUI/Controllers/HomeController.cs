@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using RoundTheCorner.BL;
 using RoundTheCorner.BL.Models;
+using RoundTheCorner.MVCUI.Models.ViewModels;
+using RoundTheCorner.PL;
 
 namespace RoundTheCorner.Controllers
 {
@@ -20,9 +22,31 @@ namespace RoundTheCorner.Controllers
         //    _logger = logger;
         //}
 
-        public ActionResult Index()
+        public ActionResult Index(string Cuisine)
         {
-            return View();
+            List<VendorCuisineLocationRating> VCLR = new List<VendorCuisineLocationRating>();
+            List<VendorModel> Vendors = VendorManager.GetVendors();
+
+            if (!string.IsNullOrEmpty(Cuisine))
+
+            {
+
+                ViewBag.Cuisine = Cuisine;
+            }
+
+            foreach (VendorModel item in Vendors)
+            {
+                VCLR.Add(new VendorCuisineLocationRating
+                {
+                    Vendor = item,
+                    VendorLocation = VendorLocationManager.GetVendorLocation(item.VendorID),
+                    Reviews = ReviewManager.GetReviews(item.VendorID),
+                    Cuisine = CuisineManager.GetCuisine(item.VendorID)
+
+                });
+            }
+            return View(VCLR);
+            
         }
 
         public ActionResult AboutUs()

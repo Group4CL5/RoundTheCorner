@@ -40,15 +40,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="TblMenuSections">
-      <EntityTypeMapping TypeName="RoundTheCornerModel.TblMenuSection">
-        <MappingFragment StoreEntitySet="TblMenuSection">
-          <ScalarProperty Name="MenuSectionID" ColumnName="MenuSectionID" />
-          <ScalarProperty Name="MenuID" ColumnName="MenuID" />
-          <ScalarProperty Name="DisplayOrderNum" ColumnName="DisplayOrderNum" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="TblOrders">
       <EntityTypeMapping TypeName="RoundTheCornerModel.TblOrder">
         <MappingFragment StoreEntitySet="TblOrder">
@@ -124,6 +115,16 @@
           <ScalarProperty Name="Datetime" ColumnName="Datetime" />
           <ScalarProperty Name="LocationX" ColumnName="LocationX" />
           <ScalarProperty Name="LocationY" ColumnName="LocationY" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblMenuSections">
+      <EntityTypeMapping TypeName="RoundTheCornerModel.TblMenuSection">
+        <MappingFragment StoreEntitySet="TblMenuSection">
+          <ScalarProperty Name="MenuSectionName" ColumnName="MenuSectionName" />
+          <ScalarProperty Name="DisplayOrderNum" ColumnName="DisplayOrderNum" />
+          <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+          <ScalarProperty Name="MenuSectionID" ColumnName="MenuSectionID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

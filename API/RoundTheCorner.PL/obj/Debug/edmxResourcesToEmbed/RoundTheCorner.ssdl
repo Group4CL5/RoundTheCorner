@@ -42,6 +42,7 @@
     <Property Name="MenuSectionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="MenuID" Type="int" Nullable="false" />
     <Property Name="DisplayOrderNum" Type="int" Nullable="false" />
+    <Property Name="MenuSectionName" Type="nvarchar" MaxLength="25" Nullable="false" />
   </EntityType>
   <EntityType Name="TblOrder">
     <Key>

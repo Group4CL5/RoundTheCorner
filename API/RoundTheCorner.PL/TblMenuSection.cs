@@ -17,5 +17,6 @@ namespace RoundTheCorner.PL
         public int MenuSectionID { get; set; }
         public int MenuID { get; set; }
         public int DisplayOrderNum { get; set; }
+        public string MenuSectionName { get; set; }
     }
 }

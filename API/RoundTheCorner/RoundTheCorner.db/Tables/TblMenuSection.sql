@@ -2,6 +2,7 @@
     [MenuSectionID]   INT IDENTITY (1, 1) NOT NULL,
     [MenuID]          INT NOT NULL,
     [DisplayOrderNum] INT NOT NULL, 
+    [MenuSectionName] NVARCHAR(25) NOT NULL, 
     CONSTRAINT [PK_TblMenuSection] PRIMARY KEY ([MenuSectionID]),
 
     --CONSTRAINT [FK_MenuSection_Menus] FOREIGN KEY ([MenuID]) REFERENCES [dbo].[TblMenus] ([menuID])

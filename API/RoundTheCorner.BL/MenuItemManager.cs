@@ -224,13 +224,13 @@ namespace RoundTheCorner.BL
                 throw ex;
             }
         }
-        public static List<MenuItemModel> GetMenuItems(int menuItemID)
+        public static List<MenuItemModel> GetMenuItems(int menuID)
         {
             try
             {
                 using (RoundTheCornerEntities rc = new RoundTheCornerEntities())
                 {
-                    var TblMenuItems = rc.TblMenuItems.Where(w => menuItemID == w.ItemID).ToList();
+                    var TblMenuItems = rc.TblMenuItems.Where(w => menuID == w.MenuID).ToList();
 
                     if (TblMenuItems != null)
                     {

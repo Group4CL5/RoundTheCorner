@@ -1,61 +1,54 @@
-﻿
+﻿@model RoundTheCorner.MVCUI.Models.ViewModels.MenuSectionMenuItems
 @{
     ViewData["Title"] = "Details";
 }
 
-<h1>Menu Details</h1>
+@Html.ActionLink("Back To Map", "Index", "Home")
+    <div class="row">
+        <div class="col-md-3">
+            <h1>@Model.VendorModel.CompanyName Menu</h1>
+            <p>
+                @Model.VendorModel.Bio
+            </p>
+            <p>
+                <a href="@Model.VendorModel.Website">@Model.VendorModel.Website</a>
+            </p>
+        </div>
+        <div class="col-md-9">
+            <form>
+                @{ foreach (RoundTheCorner.BL.Models.MenuSectionModel s in Model.MenuSections)
+                    {
+                        <h4>@s.MenuSectionName</h4>
+                        <table class=" table table-sm table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Item Name</th>
+                                    <th>Description</th>
+                                    <th>Price</th>
+                                    <th>Qty</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (RoundTheCorner.BL.Models.MenuItemModel item in Model.MenuItems)
+                                {
+                                    if (item.MenuSectionID == s.MenuSectionID)
+                                    {
+                                        <tr>
+                                            <td>@item.ItemName</td>
+                                            <td>@item.Description</td>
+                                            <td>@item.Price.ToString("c")</td>
 
-<form>
-    <h4>Entree</h4>
-    <table class=" table table-sm table-striped table-bordered">
-        <thead>
-            <tr>
-                <th>Item Name</th>
-                <th>Description</th>
-                <th>Price</th>
-                <th>Qty</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>item 1</td>
-                <td> blah blah blah </td>
-                <td>1000000</td>
-                <td><input type="number" class="form-control" /></td>
-            </tr>
-            <tr>
-                <td>item 2</td>
-                <td>socks chair button</td>
-                <td>3000</td>
-                <td><input type="number" class="form-control" /></td>
-            </tr>
-        </tbody>
-    </table>
+                                            <td><input type="number" class="form-control" /></td>
+                                        </tr>
+                                    }
+                                }
 
-    <h4>Drinks</h4>
-    <table class=" table table-sm table-striped table-bordered">
-        <thead>
-            <tr>
-                <th>Item Name</th>
-                <th>Description</th>
-                <th>Price</th>
-                <th>Qty</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>item 1</td>
-                <td> blah blah blah </td>
-                <td>1000000</td>
-                <td><input type="number" class="form-control" min="0" max="10" /></td>
-            </tr>
-            <tr>
-                <td>item 2</td>
-                <td>socks chair button</td>
-                <td>3000</td>
-                <td><input type="number" class="form-control" min="0" max="10" /></td>
-            </tr>
-        </tbody>
-    </table>
-    <button class="btn btn-primary">Place Order</button>
-</form>
+                            </tbody>
+                        </table>
+                    }
+                }
+
+                <button class="btn btn-primary">Place Order</button>
+            </form>
+        </div>
+    </div>
