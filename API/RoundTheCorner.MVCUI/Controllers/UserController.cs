@@ -15,8 +15,13 @@ namespace RoundTheCorner.Controllers
         //From Our Class Diagram from Project Step 8 Diagrams
         public ActionResult UserRegistration()
         {
-            UserModel userModel = new UserModel();
-            return View(userModel);
+
+            if (!Authenticate.IsAuthenticated())
+            {
+                UserModel userModel = new UserModel();
+                return View(userModel);
+            }            
+            return RedirectToAction("FindFood", "Vendor");
         }
 
         [HttpPost]
@@ -51,9 +56,9 @@ namespace RoundTheCorner.Controllers
             if (!Authenticate.IsAuthenticated())
             {
 
-                return PartialView();
+                return View();
             }
-            return null;
+            return RedirectToAction("FindFood", "Vendor");
         }
 
         
@@ -66,16 +71,16 @@ namespace RoundTheCorner.Controllers
                 if (UserManager.Login(user))
                 {
                     Session["User"] = user;
-                    return Redirect("Vendor/FindFood");
+                    return RedirectToAction("FindFood", "Vendor");
                 }
 
                 ViewBag.LogInError = "Sorry no Soup for you.";
-                return PartialView(user);
+                return View(user);
             }
             catch (Exception ex)
             {
                 ViewBag.LogInError = ex.Message;
-                return PartialView(user);
+                return View(user);
             }               
         }
     }

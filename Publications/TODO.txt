@@ -26,4 +26,68 @@ GET RID OF
 [2] Place map on home page. 
 [3] Need to create a return URL => When the user successfully login.
 [4] Might want to use a Hash Set<> to store username and password.
+[5] WebConfig-Login-<authentication mode="Forms">
+   <forms loginUrl="~/Account/LogOn" timeout="2880" name=".ASPXAUTH_NETWORK" />  
+  </authentication>
+
+09April20
+Views Folder
+(1) Home Folder
+-About Us(**Working**)
+-Contact(Error)
+-Index(LoginPage(DELETE?))
+-Privacy(**Working**)
+
+(2) Menu Folder
+-Details(Customer Places Order)(**Working**)
+
+(3) Shared Folder
+-Layout
+-ValidationScripts
+-Error
+-LogInBox
+
+(4) User Folder
+-Edit User(error)
+-Login(login)(**Working**)
+-UserRegistration(Create Account/User)(**Working**)
+
+(5) Vendor Folder
+-FindFood(HomePage)
+-VendorRegistration(**Working**)
+-ViewImports
+
+View Add Ons
+Vendor 
+-Registration**Working
+-Bio-input
+-VendorModifyProfile/Back end-input
+-VendorMenu-input
+-Vendor Profile Overview-input
+-EditVendorMenu
+
+Costomer Folder
+-Login-input
+
+RCGeneral View Folder
+-HomePage
+-Additional Cuisine list
+
+Filter Folder
+Note: Shows vendors and location(map?)
+
+Map Folder
+Note: Shows full map with pin locations(?)
+
+ Cart (Menu Details)Folder
+-CuisineItems /add***Working
+-Cart Detail/(chechout, continue shopping)
+-CheckOut (Comfirmation)
+
+ReviewFolder
+-Comment/Rating-input
+
+(8) PayPal
+
+
 

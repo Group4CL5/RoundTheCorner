@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using RoundTheCorner.BL.Models;
+using RoundTheCorner.BL;
+using RoundTheCorner.MVCUI.Models.ViewModels;
 
 namespace RoundTheCorner.Controllers
 {
@@ -12,7 +14,21 @@ namespace RoundTheCorner.Controllers
         // GET: Vendor
         public ActionResult FindFood()
         {
-            return View();
+            List<VendorCuisineLocationRating> VCLR = new List<VendorCuisineLocationRating>();
+            List<VendorModel> Vendors = VendorManager.GetVendors();
+
+            foreach (VendorModel item in Vendors)
+            {
+                VCLR.Add(new VendorCuisineLocationRating
+                {
+                    Vendor = item,
+                    VendorLocation = VendorLocationManager.GetVendorLocation(item.VendorID),
+                    Reviews = ReviewManager.GetReviews(item.VendorID),
+                    Cuisine = CuisineManager.GetCuisine(item.VendorID)
+
+                });
+            }
+            return View(VCLR);
         }
 
         // Diagrams for Project 8

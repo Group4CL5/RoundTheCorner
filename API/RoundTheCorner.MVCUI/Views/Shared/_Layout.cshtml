@@ -32,9 +32,14 @@
                             <li class="nav-item">
                                 <a class="nav-link" runat="server" href="/Vendor/FindFood">Find Food</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" runat="server" href="/User/UserRegistration">User Registration</a>
-                            </li>
+                            @{ 
+                                if (!RoundTheCorner.MVCUI.Models.Authenticate.IsAuthenticated())
+                                {
+                                <li class="nav-item">
+                                   <a class="nav-link" runat="server" href="/User/Login">Login</a>
+                                 </li>
+                              }
+                                }
                         </ul>
                     </div>
                 </div>
