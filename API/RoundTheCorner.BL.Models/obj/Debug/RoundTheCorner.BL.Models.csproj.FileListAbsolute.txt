@@ -15,3 +15,9 @@ C:\Users\tyler\OneDrive\Documents\Visual Studio 2019\MSSAProjects\RoundTheCorner
 C:\Users\tyler\OneDrive\Documents\Visual Studio 2019\MSSAProjects\RoundTheCorner\API\RoundTheCorner.BL.Models\obj\Debug\RoundTheCorner.BL.Models.csprojAssemblyReference.cache
 C:\Users\tyler\OneDrive\Documents\Visual Studio 2019\MSSAProjects\RoundTheCorner\API\RoundTheCorner.BL.Models\obj\Debug\RoundTheCorner.BL.Models.dll
 C:\Users\tyler\OneDrive\Documents\Visual Studio 2019\MSSAProjects\RoundTheCorner\API\RoundTheCorner.BL.Models\obj\Debug\RoundTheCorner.BL.Models.pdb
+C:\Users\Your Name\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL.Models\bin\Debug\RoundTheCorner.BL.Models.dll
+C:\Users\Your Name\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL.Models\bin\Debug\RoundTheCorner.BL.Models.pdb
+C:\Users\Your Name\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL.Models\obj\Debug\RoundTheCorner.BL.Models.csprojAssemblyReference.cache
+C:\Users\Your Name\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL.Models\obj\Debug\RoundTheCorner.BL.Models.csproj.CoreCompileInputs.cache
+C:\Users\Your Name\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL.Models\obj\Debug\RoundTheCorner.BL.Models.dll
+C:\Users\Your Name\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL.Models\obj\Debug\RoundTheCorner.BL.Models.pdb

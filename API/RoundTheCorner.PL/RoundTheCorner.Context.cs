@@ -33,9 +33,9 @@ namespace RoundTheCorner.PL
         public virtual DbSet<TblOrderItem> TblOrderItems { get; set; }
         public virtual DbSet<TblReview> TblReviews { get; set; }
         public virtual DbSet<TblUser> TblUsers { get; set; }
-        public virtual DbSet<TblVendor> TblVendors { get; set; }
         public virtual DbSet<TblVendorEmployee> TblVendorEmployees { get; set; }
         public virtual DbSet<TblVendorLocation> TblVendorLocations { get; set; }
         public virtual DbSet<TblMenuSection> TblMenuSections { get; set; }
+        public virtual DbSet<TblVendor> TblVendors { get; set; }
     }
 }

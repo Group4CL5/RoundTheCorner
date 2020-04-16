@@ -97,6 +97,7 @@
     <Property Name="InspectionDate" Type="date" Nullable="false" />
     <Property Name="Bio" Type="ntext" />
     <Property Name="Website" Type="nvarchar" MaxLength="50" />
+    <Property Name="Confirmed" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="TblVendorEmployee">
     <Key>

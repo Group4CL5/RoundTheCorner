@@ -28,7 +28,3 @@ C:\Users\tyler\OneDrive\Documents\Visual Studio 2019\MSSAProjects\RoundTheCorner
 C:\Users\tyler\OneDrive\Documents\Visual Studio 2019\MSSAProjects\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\obj\Debug\RoundTheCorner.db.sqlprojAssemblyReference.cache
 C:\Users\tyler\OneDrive\Documents\Visual Studio 2019\MSSAProjects\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\obj\Debug\RoundTheCorner.db.dll
 C:\Users\tyler\OneDrive\Documents\Visual Studio 2019\MSSAProjects\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\obj\Debug\RoundTheCorner.db.pdb
-C:\Users\Your Name\Documents\GitHub\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\obj\Debug\Model.xml
-C:\Users\Your Name\Documents\GitHub\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\obj\Debug\refactor.xml
-C:\Users\Your Name\Documents\GitHub\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\obj\Debug\postdeploy.sql
-C:\Users\Your Name\Documents\GitHub\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\obj\Debug\predeploy.sql

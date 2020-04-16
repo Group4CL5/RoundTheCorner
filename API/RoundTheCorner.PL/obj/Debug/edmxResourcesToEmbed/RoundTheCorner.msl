@@ -85,20 +85,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="TblVendors">
-      <EntityTypeMapping TypeName="RoundTheCornerModel.TblVendor">
-        <MappingFragment StoreEntitySet="TblVendor">
-          <ScalarProperty Name="VendorID" ColumnName="VendorID" />
-          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
-          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
-          <ScalarProperty Name="CompanyEmail" ColumnName="CompanyEmail" />
-          <ScalarProperty Name="LicenseNumber" ColumnName="LicenseNumber" />
-          <ScalarProperty Name="InspectionDate" ColumnName="InspectionDate" />
-          <ScalarProperty Name="Bio" ColumnName="Bio" />
-          <ScalarProperty Name="Website" ColumnName="Website" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="TblVendorEmployees">
       <EntityTypeMapping TypeName="RoundTheCornerModel.TblVendorEmployee">
         <MappingFragment StoreEntitySet="TblVendorEmployee">
@@ -125,6 +111,21 @@
           <ScalarProperty Name="DisplayOrderNum" ColumnName="DisplayOrderNum" />
           <ScalarProperty Name="MenuID" ColumnName="MenuID" />
           <ScalarProperty Name="MenuSectionID" ColumnName="MenuSectionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblVendors">
+      <EntityTypeMapping TypeName="RoundTheCornerModel.TblVendor">
+        <MappingFragment StoreEntitySet="TblVendor">
+          <ScalarProperty Name="Confirmed" ColumnName="Confirmed" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="Bio" ColumnName="Bio" />
+          <ScalarProperty Name="InspectionDate" ColumnName="InspectionDate" />
+          <ScalarProperty Name="LicenseNumber" ColumnName="LicenseNumber" />
+          <ScalarProperty Name="CompanyEmail" ColumnName="CompanyEmail" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+          <ScalarProperty Name="VendorID" ColumnName="VendorID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

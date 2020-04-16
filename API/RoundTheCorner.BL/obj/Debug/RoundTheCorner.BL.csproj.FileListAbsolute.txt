@@ -69,3 +69,16 @@ C:\Users\Your Name\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL\obj\Deb
 C:\Users\Your Name\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL\obj\Debug\RoundTheCorner.BL.csproj.CoreCompileInputs.cache
 C:\Users\Your Name\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL\obj\Debug\RoundTheCorner.BL.dll
 C:\Users\Your Name\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL\obj\Debug\RoundTheCorner.BL.pdb
+C:\Users\Your Name\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL\bin\Debug\RoundTheCorner.BL.dll.config
+C:\Users\Your Name\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL\bin\Debug\RoundTheCorner.BL.dll
+C:\Users\Your Name\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL\bin\Debug\RoundTheCorner.BL.pdb
+C:\Users\Your Name\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL\bin\Debug\EntityFramework.dll
+C:\Users\Your Name\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Your Name\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL\bin\Debug\RoundTheCorner.BL.Models.dll
+C:\Users\Your Name\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL\bin\Debug\RoundTheCorner.PL.dll
+C:\Users\Your Name\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL\bin\Debug\RoundTheCorner.BL.Models.pdb
+C:\Users\Your Name\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL\bin\Debug\RoundTheCorner.PL.pdb
+C:\Users\Your Name\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL\bin\Debug\RoundTheCorner.PL.dll.config
+C:\Users\Your Name\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL\bin\Debug\EntityFramework.xml
+C:\Users\Your Name\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Your Name\Documents\GitHub\RoundTheCorner\API\RoundTheCorner.BL\obj\Debug\RoundTheCorner.BL.csproj.CopyComplete

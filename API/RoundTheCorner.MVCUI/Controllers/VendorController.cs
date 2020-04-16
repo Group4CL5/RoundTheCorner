@@ -15,7 +15,24 @@ namespace RoundTheCorner.Controllers
 
 
         // Diagrams for Project 8
-        public ActionResult VendorRegistration(VendorModel Vendor) => View();
+        public ActionResult VendorRegistration() => View();
+        [HttpPost]
+        public ActionResult VendorRegistration(VendorModel Vendor)
+        {
+            try
+            {
+                UserModel user = (UserModel)Session["User"];
+                Vendor.OwnerID = user.UserID;
+                VendorManager.Insert(Vendor);
+                ViewBag.Success = "Thank you for registering. Your form is being reviewed.";
+                return View();
+            }
+            catch (Exception ex)
+            {
+               ViewBag.Message = ex;
+               return View();
+            }
+        }
         public ActionResult AddEmployee(int userID, int vendorID) => View();
         public ActionResult PutEmployee(int userID, int vendorID) => View();
         public ActionResult GetEmployee(int userID, int vendorID) => View();
