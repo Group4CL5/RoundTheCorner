@@ -22,5 +22,6 @@ namespace RoundTheCorner.PL
         public System.DateTime InspectionDate { get; set; }
         public string Bio { get; set; }
         public string Website { get; set; }
+        public bool Confirmed { get; set; }
     }
 }

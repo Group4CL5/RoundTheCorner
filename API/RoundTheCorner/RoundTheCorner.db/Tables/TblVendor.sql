@@ -7,6 +7,8 @@
     [InspectionDate] DATE          NOT NULL,
     [Bio]            NTEXT         NULL,
     [Website]        NVARCHAR (50) NULL, 
+
+    [Confirmed] BIT NOT NULL DEFAULT 0, 
     CONSTRAINT [PK_TblVendors] PRIMARY KEY ([VendorID]),
 
     --CONSTRAINT [FK_Vendors_User] FOREIGN KEY ([OwnerID]) REFERENCES [dbo].[TblUser] ([userID])

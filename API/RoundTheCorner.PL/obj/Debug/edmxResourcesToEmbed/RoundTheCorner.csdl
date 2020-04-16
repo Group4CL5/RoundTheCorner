@@ -76,19 +76,6 @@
     <Property Name="Password" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Deactivated" Type="Boolean" Nullable="false" />
   </EntityType>
-  <EntityType Name="TblVendor">
-    <Key>
-      <PropertyRef Name="VendorID" />
-    </Key>
-    <Property Name="VendorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="OwnerID" Type="Int32" Nullable="false" />
-    <Property Name="CompanyName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="CompanyEmail" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
-    <Property Name="LicenseNumber" Type="Int32" Nullable="false" />
-    <Property Name="InspectionDate" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="Bio" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Website" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-  </EntityType>
   <EntityType Name="TblVendorEmployee">
     <Key>
       <PropertyRef Name="ID" />
@@ -116,10 +103,10 @@
     <EntitySet Name="TblOrderItems" EntityType="Self.TblOrderItem" />
     <EntitySet Name="TblReviews" EntityType="Self.TblReview" />
     <EntitySet Name="TblUsers" EntityType="Self.TblUser" />
-    <EntitySet Name="TblVendors" EntityType="Self.TblVendor" />
     <EntitySet Name="TblVendorEmployees" EntityType="Self.TblVendorEmployee" />
     <EntitySet Name="TblVendorLocations" EntityType="Self.TblVendorLocation" />
     <EntitySet Name="TblMenuSections" EntityType="RoundTheCornerModel.TblMenuSection" />
+    <EntitySet Name="TblVendors" EntityType="RoundTheCornerModel.TblVendor" />
   </EntityContainer>
   <EntityType Name="TblMenuSection">
     <Key>
@@ -129,5 +116,19 @@
     <Property Name="MenuID" Type="Int32" Nullable="false" />
     <Property Name="DisplayOrderNum" Type="Int32" Nullable="false" />
     <Property Name="MenuSectionName" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TblVendor">
+    <Key>
+      <PropertyRef Name="VendorID" />
+    </Key>
+    <Property Name="VendorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OwnerID" Type="Int32" Nullable="false" />
+    <Property Name="CompanyName" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyEmail" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="LicenseNumber" Type="Int32" Nullable="false" />
+    <Property Name="InspectionDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Bio" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Website" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Confirmed" Type="Boolean" Nullable="false" />
   </EntityType>
 </Schema>
