@@ -23,24 +23,54 @@ else
         <p>@ViewBag.Message</p>
     }
     <div class="card-body"></div>
-    <form>
-        <label>Company Name</label>
-        <input asp-for="CompanyName" class="form-control" style=" width: 70%; margin:0 auto; " />
+    <form method="post">
+        <div class="form-group">
+            @Html.LabelFor(model => model.CompanyName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CompanyName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CompanyName, "", new { @class = "text-danger" })
+            </div>
+        </div>
         <br />
-        <label>Company Email (Optional)</label>
-        <input asp-for="CompanyEmail" type="email" class="form-control" style="width:70%; margin:0 auto;" />
+        <div class="form-group">
+            @Html.LabelFor(model => model.CompanyEmail, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CompanyEmail, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CompanyEmail, "", new { @class = "text-danger" })
+            </div>
+        </div>
         <br />
-        <label>License Number</label>
-        <input asp-for="LicenseNumber" type="number" class="form-control" style="width:70%; margin:0 auto;" />
+        <div class="form-group">
+            @Html.LabelFor(model => model.Bio, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Bio, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Bio, "", new { @class = "text-danger" })
+            </div>
+        </div>
         <br />
-        <label>Inspection Date</label>
-        <input asp-for="InspectionDate" type="date" class="form-control" style="width:70%; margin:0 auto;" />
+        <div class="form-group">
+            @Html.LabelFor(model => model.InspectionDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.InspectionDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.InspectionDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
         <br />
-        <label>Bio (Optional)</label>
-        <textarea asp-for="Bio" class="form-control" style="width:70%; margin:0 auto;" ></textarea>
+        <div class="form-group">
+            @Html.LabelFor(model => model.LicenseNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LicenseNumber, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.LicenseNumber, "", new { @class = "text-danger" })
+            </div>
+        </div>
         <br />
-        <label>Website (Optional)</label>
-        <input asp-for="Website" type="url" class="form-control" style="width:70%; margin:0 auto;" />
+        <div class="form-group">
+            @Html.LabelFor(model => model.Website, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Website, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Website, "", new { @class = "text-danger" })
+            </div>
+        </div>
         <br />
         @*<label>Password</label>
         <input asp-for="CompanyPassword" type="password" class="form-control" style="width:70%; margin:0 auto;" />
@@ -48,9 +78,9 @@ else
         @*<label>Password Confirmation</label>
         <input type="password" class="form-control" style="width:70%; margin:0 auto;" />
         <br/>*@
-    <div class="form-group">
-        <button class="btn btn-primary">Register</button>
-    </div>
+        <div class="form-group">
+            <button class="btn btn-primary">Register</button>
+        </div>
     </form>
 </div>
 }

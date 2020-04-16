@@ -130,7 +130,7 @@ namespace RoundTheCorner.BL
             {
                 using (RoundTheCornerEntities rc = new RoundTheCornerEntities())
                 {
-                    var tblVendors = rc.TblVendors.ToList();
+                    var tblVendors = rc.TblVendors.Where(v=> v.Confirmed == true).ToList();
 
                     if (tblVendors != null)
                     {

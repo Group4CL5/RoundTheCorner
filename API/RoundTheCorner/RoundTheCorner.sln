@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoundTheCorner.BL", "..\RoundTheCorner.BL\RoundTheCorner.BL.csproj", "{811E4242-2649-4710-80F8-E1459BE01F62}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoundTheCorner.MVCUI", "..\RoundTheCorner.MVCUI\RoundTheCorner.MVCUI.csproj", "{C104C24C-DDC1-449E-A5E5-2C94EFEA89F8}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoundTheCorner.PL", "..\RoundTheCorner.PL\RoundTheCorner.PL.csproj", "{4CCD0CA7-8470-4993-A58F-956DE930371D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoundTheCorner.BL.Models", "..\RoundTheCorner.BL.Models\RoundTheCorner.BL.Models.csproj", "{505C96A2-E66E-4C69-BDFF-6B24A3A7F2FC}"
@@ -14,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoundTheCorner.BL.Tests", "..\RoundTheCorner.BL.Tests\RoundTheCorner.BL.Tests.csproj", "{EDDD8E52-FF46-4C83-8480-2CE886923E7C}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "RoundTheCorner.db", "RoundTheCorner.db\RoundTheCorner.db.sqlproj", "{4537A2B8-72BC-474A-B83F-DC77AD842AC0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoundTheCorner.MVCUI", "..\RoundTheCorner.MVCUI\RoundTheCorner.MVCUI.csproj", "{C104C24C-DDC1-449E-A5E5-2C94EFEA89F8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +25,6 @@ Global
 		{811E4242-2649-4710-80F8-E1459BE01F62}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{811E4242-2649-4710-80F8-E1459BE01F62}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{811E4242-2649-4710-80F8-E1459BE01F62}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C104C24C-DDC1-449E-A5E5-2C94EFEA89F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C104C24C-DDC1-449E-A5E5-2C94EFEA89F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C104C24C-DDC1-449E-A5E5-2C94EFEA89F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C104C24C-DDC1-449E-A5E5-2C94EFEA89F8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4CCD0CA7-8470-4993-A58F-956DE930371D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4CCD0CA7-8470-4993-A58F-956DE930371D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4CCD0CA7-8470-4993-A58F-956DE930371D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -47,6 +43,10 @@ Global
 		{4537A2B8-72BC-474A-B83F-DC77AD842AC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4537A2B8-72BC-474A-B83F-DC77AD842AC0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4537A2B8-72BC-474A-B83F-DC77AD842AC0}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{C104C24C-DDC1-449E-A5E5-2C94EFEA89F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C104C24C-DDC1-449E-A5E5-2C94EFEA89F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C104C24C-DDC1-449E-A5E5-2C94EFEA89F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C104C24C-DDC1-449E-A5E5-2C94EFEA89F8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

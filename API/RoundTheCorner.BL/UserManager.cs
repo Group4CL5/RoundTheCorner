@@ -34,6 +34,7 @@ namespace RoundTheCorner.BL
 
                             if (tblUser != null && tblUser.Deactivated == false)
                             {
+                                user.UserID = tblUser.UserID;
                                 user.FirstName = tblUser.FirstName;
                                 user.LastName = tblUser.LastName;
                                 user.Deactivated = tblUser.Deactivated;

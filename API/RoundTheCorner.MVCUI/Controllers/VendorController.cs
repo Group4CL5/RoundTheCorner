@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using RoundTheCorner.BL.Models;
 using RoundTheCorner.BL;
 using RoundTheCorner.MVCUI.Models.ViewModels;
+using RoundTheCorner.MVCUI.Models;
 
 namespace RoundTheCorner.Controllers
 {
@@ -15,7 +16,11 @@ namespace RoundTheCorner.Controllers
 
 
         // Diagrams for Project 8
-        public ActionResult VendorRegistration() => View();
+        public ActionResult VendorRegistration()
+        {
+            if (Authenticate.IsAuthenticated()) return View();
+            else return RedirectToAction("Login", "User");
+        }
         [HttpPost]
         public ActionResult VendorRegistration(VendorModel Vendor)
         {
