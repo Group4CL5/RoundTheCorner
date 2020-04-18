@@ -181,6 +181,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\MenuItemController.cs" />
@@ -345,6 +346,9 @@
     <Content Include="Views\_ViewImports.cshtml" />
     <Content Include="Views\User\LogIn.cshtml" />
     <Content Include="Views\User\UserRegistration.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Admin\Vendor.cshtml" />
+    <Content Include="Views\Admin\VendorManagement.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

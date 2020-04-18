@@ -1,8 +1,3 @@
-C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\bin\Debug\RoundTheCorner.db.dacpac
-C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\bin\Debug\RoundTheCorner.db.dll
-C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\bin\Debug\RoundTheCorner.db.pdb
-C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\obj\Debug\RoundTheCorner.db.dll
-C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\obj\Debug\RoundTheCorner.db.pdb
 C:\Users\Owner\Documents\Visual Studio 2019\Projects\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\bin\Debug\RoundTheCorner.db.dacpac
 C:\Users\Owner\Documents\Visual Studio 2019\Projects\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\bin\Debug\RoundTheCorner.db.dll
 C:\Users\Owner\Documents\Visual Studio 2019\Projects\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\bin\Debug\RoundTheCorner.db.pdb
@@ -15,7 +10,6 @@ C:\Users\Your Name\Documents\GitHub\RoundTheCorner\API\RoundTheCorner\RoundTheCo
 C:\Users\Your Name\Documents\GitHub\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\obj\Debug\RoundTheCorner.db.sqlprojAssemblyReference.cache
 C:\Users\Your Name\Documents\GitHub\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\obj\Debug\RoundTheCorner.db.dll
 C:\Users\Your Name\Documents\GitHub\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\obj\Debug\RoundTheCorner.db.pdb
-C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\obj\Debug\RoundTheCorner.db.sqlprojAssemblyReference.cache
 D:\(4) Studios\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\bin\Debug\RoundTheCorner.db.dacpac
 D:\(4) Studios\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\bin\Debug\RoundTheCorner.db.dll
 D:\(4) Studios\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\bin\Debug\RoundTheCorner.db.pdb
@@ -28,3 +22,12 @@ C:\Users\tyler\OneDrive\Documents\Visual Studio 2019\MSSAProjects\RoundTheCorner
 C:\Users\tyler\OneDrive\Documents\Visual Studio 2019\MSSAProjects\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\obj\Debug\RoundTheCorner.db.sqlprojAssemblyReference.cache
 C:\Users\tyler\OneDrive\Documents\Visual Studio 2019\MSSAProjects\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\obj\Debug\RoundTheCorner.db.dll
 C:\Users\tyler\OneDrive\Documents\Visual Studio 2019\MSSAProjects\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\obj\Debug\RoundTheCorner.db.pdb
+C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\bin\Debug\RoundTheCorner.db.dacpac
+C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\bin\Debug\RoundTheCorner.db.dll
+C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\bin\Debug\RoundTheCorner.db.pdb
+C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\obj\Debug\Model.xml
+C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\obj\Debug\refactor.xml
+C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\obj\Debug\postdeploy.sql
+C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\obj\Debug\predeploy.sql
+C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\obj\Debug\RoundTheCorner.db.dll
+C:\Users\fsant\Documents\GitHub\RoundTheCorner\API\RoundTheCorner\RoundTheCorner.db\obj\Debug\RoundTheCorner.db.pdb

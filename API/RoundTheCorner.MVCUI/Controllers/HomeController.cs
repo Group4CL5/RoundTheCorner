@@ -25,7 +25,7 @@ namespace RoundTheCorner.Controllers
         public ActionResult Index(string Cuisine)
         {
             List<VendorCuisineLocationRating> VCLR = new List<VendorCuisineLocationRating>();
-            List<VendorModel> Vendors = VendorManager.GetVendors();
+            List<VendorModel> Vendors = VendorManager.GetActiveVendors();
 
             if (!string.IsNullOrEmpty(Cuisine))
 

@@ -124,7 +124,7 @@ namespace RoundTheCorner.BL
             }
         }
 
-        public static List<VendorModel> GetVendors()
+        public static List<VendorModel> GetActiveVendors()
         {
             try
             {
@@ -137,6 +137,31 @@ namespace RoundTheCorner.BL
                         List<VendorModel> vendors = new List<VendorModel>();
 
                         tblVendors.ForEach(v => vendors.Add(new VendorModel { VendorID = v.VendorID, OwnerID = v.OwnerID, CompanyName = v.CompanyName, CompanyEmail = v.CompanyEmail, LicenseNumber = v.LicenseNumber, InspectionDate = v.InspectionDate, Bio = v.Bio, Website = v.Website }));
+
+                        return vendors;
+                    }
+
+                    throw new Exception("There currently are no vendors");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public static List<VendorModel> GetVendors()
+        {
+            try
+            {
+                using (RoundTheCornerEntities rc = new RoundTheCornerEntities())
+                {
+                    var tblVendors = rc.TblVendors.ToList();
+
+                    if (tblVendors != null)
+                    {
+                        List<VendorModel> vendors = new List<VendorModel>();
+
+                        tblVendors.ForEach(v => vendors.Add(new VendorModel { VendorID = v.VendorID, OwnerID = v.OwnerID, CompanyName = v.CompanyName, CompanyEmail = v.CompanyEmail, LicenseNumber = v.LicenseNumber, InspectionDate = v.InspectionDate, Bio = v.Bio, Website = v.Website, Confirmed = v.Confirmed }));
 
                         return vendors;
                     }
@@ -171,7 +196,7 @@ namespace RoundTheCorner.BL
                             tblVendor.InspectionDate = vendor.InspectionDate;
                             tblVendor.Bio = vendor.Bio;
                             tblVendor.Website = vendor.Website;
-
+                            tblVendor.Confirmed = vendor.Confirmed;
                             rc.SaveChanges();
                             return true;
                         }
