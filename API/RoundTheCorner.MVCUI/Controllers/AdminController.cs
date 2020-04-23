@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using RoundTheCorner.BL;
 using RoundTheCorner.BL.Models;
 using RoundTheCorner.MVCUI.Models.ViewModels;
+using RoundTheCorner.MVCUI.Models;
 
 namespace RoundTheCorner.MVCUI.Controllers
 {
@@ -21,6 +22,70 @@ namespace RoundTheCorner.MVCUI.Controllers
             
             List<VendorModel> Vendors = VendorManager.GetVendors();           
             return View(Vendors);
+
+        }
+
+        public ActionResult UserManagement()
+        {
+            List<UserModel> userModels = UserManager.GetUsers();
+            return View(userModels);
+        }
+        
+        [HttpGet]
+        public ActionResult UserEdit(int ID)
+        {
+            UserModel user = UserManager.GetUser(ID);
+            return View(user);
+        }
+
+        [HttpPost]
+        public ActionResult UserEdit(int ID, UserModel user)
+        {
+            try
+            {
+                UserManager.Update(user);
+                return RedirectToAction("UserManagement");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
+        }
+
+        public ActionResult UserDetails(int ID)
+        {
+            UserModel user = UserManager.GetUser(ID);
+            return View(user);
+        }
+
+        public ActionResult UserDelete(int ID)
+        {
+            try
+            {
+                UserModel user = UserManager.GetUser(ID);
+                return View(user);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+           
+        }
+
+        [HttpPost]
+        public ActionResult UserDelete(int ID, UserModel user)
+        {
+            try
+            {
+                UserManager.Delete(ID);
+                return RedirectToAction("UserManagement");
+            }
+            catch (Exception)
+            {
+                throw;
+            }
 
         }
 

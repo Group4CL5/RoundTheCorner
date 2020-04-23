@@ -60,6 +60,7 @@
     <Property Name="OrderItemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="MenuItemId" Type="int" Nullable="false" />
     <Property Name="Price" Type="money" Nullable="false" />
+    <Property Name="Quantity" Type="int" />
   </EntityType>
   <EntityType Name="TblReview">
     <Key>
@@ -84,6 +85,7 @@
     <Property Name="Phone" Type="nvarchar" MaxLength="15" />
     <Property Name="Password" Type="nvarchar" MaxLength="32" Nullable="false" />
     <Property Name="Deactivated" Type="bit" Nullable="false" />
+    <Property Name="Admin" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="TblVendor">
     <Key>

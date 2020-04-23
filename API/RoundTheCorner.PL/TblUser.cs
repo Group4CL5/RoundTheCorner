@@ -22,5 +22,6 @@ namespace RoundTheCorner.PL
         public string Phone { get; set; }
         public string Password { get; set; }
         public bool Deactivated { get; set; }
+        public bool Admin { get; set; }
     }
 }

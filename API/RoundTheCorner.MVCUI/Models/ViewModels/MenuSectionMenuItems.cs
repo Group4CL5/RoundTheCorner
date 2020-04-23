@@ -12,6 +12,7 @@ namespace RoundTheCorner.MVCUI.Models.ViewModels
         public MenuModel MenuModel { get; set; }
         public List<MenuSectionModel> MenuSections { get; set; }
         public List<MenuItemModel> MenuItems { get; set; }
+        public List<OrderItemModel> OrderItems { get; set; } = new List<OrderItemModel>();
 
     }
 }

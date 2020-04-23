@@ -3,9 +3,9 @@
     ViewData["Title"] = "Details";
 }
 
-@Html.ActionLink("Back To Map", "Index", "Home")
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-3 card card-body">
+            @Html.ActionLink("Back To Map", "Index", "Home")
             <h1>@Model.VendorModel.CompanyName Menu</h1>
             <p>
                 @Model.VendorModel.Bio
@@ -14,9 +14,13 @@
                 <a href="@Model.VendorModel.Website">@Model.VendorModel.Website</a>
             </p>
         </div>
-        <div class="col-md-9">
-            <form>
-                @{ foreach (RoundTheCorner.BL.Models.MenuSectionModel s in Model.MenuSections)
+        <div class="col-md-1"></div>
+        <div class="col-md-8 card card-body">
+            @using (Html.BeginForm())
+            {
+                @Html.Hidden("VendorModel.VendorID", @Model.VendorModel.VendorID)
+                
+                 foreach (RoundTheCorner.BL.Models.MenuSectionModel s in Model.MenuSections)
                     {
                         <h4>@s.MenuSectionName</h4>
                         <table class=" table table-sm table-striped table-bordered">
@@ -38,17 +42,21 @@
                                             <td>@item.Description</td>
                                             <td>@item.Price.ToString("c")</td>
 
-                                            <td><input type="number" class="form-control" /></td>
+                                            <td>
+                                                @*Present to the user first time around but are we pulling something before the user picks anything?*@
+                                                @Html.TextBox("OrderItems.Quantity", "", new { htmlAttributes = new { @class = "form-control" } })
+                                                @*@Html.EditorFor(model => model.OrderItems.FirstOrDefault(m => m.MenuItemID == item.ItemID).Quantity, new { htmlAttributes = new { @class = "form-control" } })*@
+                                            </td>
                                         </tr>
                                     }
                                 }
 
                             </tbody>
                         </table>
-                    }
-                }
+                 }
+            
 
-                <button class="btn btn-primary">Place Order</button>
-            </form>
+            <button type="submit" class="btn btn-primary">Place Order</button>
+             }
         </div>
     </div>

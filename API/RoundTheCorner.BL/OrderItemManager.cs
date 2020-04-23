@@ -31,7 +31,8 @@ namespace RoundTheCorner.BL
                     {
                         OrderItemID = rc.TblOrderItems.Any() ? rc.TblOrderItems.Max(u => u.OrderItemID) + 1 : 1,
                         MenuItemId = orderItem.MenuItemID,
-                        Price = orderItem.Price
+                        Price = orderItem.Price,
+                        Quantity = orderItem.Quantity
                         
                     };
                     rc.TblOrderItems.Add(newRow);
@@ -44,7 +45,7 @@ namespace RoundTheCorner.BL
                 throw ex;
             }
         }
-        public static bool Insert(int MenuItemID, decimal Price)
+        public static bool Insert(int MenuItemID, decimal Price, int Quantity)
         {
             try
             {
@@ -54,7 +55,8 @@ namespace RoundTheCorner.BL
                     {
                         OrderItemID = rc.TblOrderItems.Any() ? rc.TblOrderItems.Max(u => u.OrderItemID) + 1 : 1,
                         MenuItemId = MenuItemID,
-                        Price = Price
+                        Price = Price,
+                        Quantity = Quantity
                     };
                     rc.TblOrderItems.Add(newRow);
                     rc.SaveChanges();
@@ -82,7 +84,8 @@ namespace RoundTheCorner.BL
                             {
                                 OrderItemID = tblOrderItem.OrderItemID,
                                 Price = tblOrderItem.Price,
-                                MenuItemID = tblOrderItem.MenuItemId
+                                MenuItemID = tblOrderItem.MenuItemId,
+                                Quantity = tblOrderItem.Quantity
                             };
 
                             return orderItem;
@@ -116,6 +119,7 @@ namespace RoundTheCorner.BL
                             tblOrderItem.OrderItemID = orderItem.OrderItemID;
                             tblOrderItem.Price = orderItem.Price;
                             tblOrderItem.MenuItemId = orderItem.MenuItemID;
+                            tblOrderItem.Quantity = orderItem.Quantity;
                            
 
                             rc.SaveChanges();
@@ -182,7 +186,7 @@ namespace RoundTheCorner.BL
                     {
                         List<OrderItemModel> orderItems = new List<OrderItemModel>();
 
-                        tblOrderItems.ForEach(u => orderItems.Add(new OrderItemModel { OrderItemID = u.OrderItemID, MenuItemID = u.MenuItemId, Price = u.Price }));
+                        tblOrderItems.ForEach(u => orderItems.Add(new OrderItemModel { OrderItemID = u.OrderItemID, MenuItemID = u.MenuItemId, Price = u.Price, Quantity = u.Quantity }));
 
                         return orderItems;
                     }
@@ -207,7 +211,7 @@ namespace RoundTheCorner.BL
                     {
                         List<OrderItemModel> orderItems = new List<OrderItemModel>();
 
-                        tblOrderItems.ForEach(u => orderItems.Add(new OrderItemModel { OrderItemID = u.OrderItemID, MenuItemID = u.MenuItemId, Price = u.Price }));
+                        tblOrderItems.ForEach(u => orderItems.Add(new OrderItemModel { OrderItemID = u.OrderItemID, MenuItemID = u.MenuItemId, Price = u.Price, Quantity = u.Quantity }));
 
                         return orderItems;
                     }

@@ -6,5 +6,6 @@
     --CONSTRAINT [FK_OrderItems_MenuItem] FOREIGN KEY ([menuItemId]) REFERENCES [dbo].[TblMenuItem] ([itemID]),
     --CONSTRAINT [FK_OrderItems_Orders] FOREIGN KEY ([orderItemID]) REFERENCES [dbo].[TblOrders] ([orderID])
 , 
+    [Quantity] INT NOT NULL, 
     CONSTRAINT [PK_TblOrderItem] PRIMARY KEY ([OrderItemID]) 
 );

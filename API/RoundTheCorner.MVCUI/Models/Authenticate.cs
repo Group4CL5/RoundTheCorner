@@ -1,7 +1,9 @@
-﻿using System;
+﻿using RoundTheCorner.BL.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using RoundTheCorner.BL;
 
 namespace RoundTheCorner.MVCUI.Models
 {
@@ -16,6 +18,20 @@ namespace RoundTheCorner.MVCUI.Models
             else
             {
                 return HttpContext.Current.Session["User"] != null;
+            }
+        }
+
+        public static bool IsAdmin()
+        {
+            UserModel user = (UserModel)HttpContext.Current.Session["User"];
+
+            if (user == null)
+            {
+                return false;
+            }
+            else
+            {               
+                return UserManager.GetUser(user.UserID).Admin;
             }
         }
     }

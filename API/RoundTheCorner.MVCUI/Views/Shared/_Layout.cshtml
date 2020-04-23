@@ -54,7 +54,13 @@
         <footer class="border-top text-muted dark-footer">
             <div class="container">
                 &copy; 2020 - RoundTheCorner - <a href="/Home/Privacy" runat="server">Privacy</a>
-                - <a href="/Vendor/VendorRegistration" runat="server">Vendor Registration</a>
+                - <a href = "/Vendor/VendorRegistration" runat = "server" > Vendor Registration </a >
+                @{
+                    if (RoundTheCorner.MVCUI.Models.Authenticate.IsAdmin())
+                    {
+                       @: - <a href = "/Admin/Index" runat = "server" > Admin Panel </a >
+                    }
+                }
             </div>
         </footer>
     </div>
