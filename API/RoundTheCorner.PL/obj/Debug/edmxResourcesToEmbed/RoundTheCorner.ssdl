@@ -60,7 +60,8 @@
     <Property Name="OrderItemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="MenuItemId" Type="int" Nullable="false" />
     <Property Name="Price" Type="money" Nullable="false" />
-    <Property Name="Quantity" Type="int" />
+    <Property Name="OrderID" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="TblReview">
     <Key>

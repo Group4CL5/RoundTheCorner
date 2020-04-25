@@ -125,6 +125,7 @@
       <EntityTypeMapping TypeName="RoundTheCornerModel.TblOrderItem">
         <MappingFragment StoreEntitySet="TblOrderItem">
           <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
           <ScalarProperty Name="Price" ColumnName="Price" />
           <ScalarProperty Name="MenuItemId" ColumnName="MenuItemId" />
           <ScalarProperty Name="OrderItemID" ColumnName="OrderItemID" />

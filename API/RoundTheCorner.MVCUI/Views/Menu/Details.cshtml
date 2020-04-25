@@ -19,9 +19,9 @@
             @using (Html.BeginForm())
             {
                 @Html.Hidden("VendorModel.VendorID", @Model.VendorModel.VendorID)
-                
-                 foreach (RoundTheCorner.BL.Models.MenuSectionModel s in Model.MenuSections)
-                    {
+
+                foreach (RoundTheCorner.BL.Models.MenuSectionModel s in Model.MenuSections)
+                {
                         <h4>@s.MenuSectionName</h4>
                         <table class=" table table-sm table-striped table-bordered">
                             <thead>
@@ -44,8 +44,9 @@
 
                                             <td>
                                                 @*Present to the user first time around but are we pulling something before the user picks anything?*@
-                                                @Html.TextBox("OrderItems.Quantity", "", new { htmlAttributes = new { @class = "form-control" } })
+                                                @*@Html.TextBox("OrderItems.Quantity", "", new { htmlAttributes = new { @class = "form-control" } })*@
                                                 @*@Html.EditorFor(model => model.OrderItems.FirstOrDefault(m => m.MenuItemID == item.ItemID).Quantity, new { htmlAttributes = new { @class = "form-control" } })*@
+                                                @Html.ActionLink("Add To Cart", "AddToCart", "ShoppingCart", new { ID = item.ItemID, quantity = 1, returnurl = HttpContext.Current.Request.Url }, null)
                                             </td>
                                         </tr>
                                     }
@@ -53,10 +54,13 @@
 
                             </tbody>
                         </table>
-                 }
-            
+                }
+
 
             <button type="submit" class="btn btn-primary">Place Order</button>
-             }
+            }
+            @{ 
+                Html.RenderAction("CartDisplay", "ShoppingCart");
+            }
         </div>
     </div>

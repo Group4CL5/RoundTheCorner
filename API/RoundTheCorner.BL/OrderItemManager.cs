@@ -30,6 +30,7 @@ namespace RoundTheCorner.BL
                     PL.TblOrderItem newRow = new TblOrderItem()
                     {
                         OrderItemID = rc.TblOrderItems.Any() ? rc.TblOrderItems.Max(u => u.OrderItemID) + 1 : 1,
+                        OrderID = orderItem.OrderID,
                         MenuItemId = orderItem.MenuItemID,
                         Price = orderItem.Price,
                         Quantity = orderItem.Quantity
