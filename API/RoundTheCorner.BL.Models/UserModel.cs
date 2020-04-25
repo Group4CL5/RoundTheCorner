@@ -19,5 +19,7 @@ namespace RoundTheCorner.BL.Models
 
         // 0 for active and 1 for deactivated
         public bool Deactivated { get; set; }
+
+        public bool Admin { get; set; }
     }
 }

@@ -224,4 +224,39 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="LocationY" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="83ef9665-8523-493c-9c81-61836aa78616" ChangeDateTime="04/25/2020 16:11:24">
+    <Property Name="ElementName" Value="[dbo].[TblOrderItem].[orderItemID]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[TblOrderItem]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="OrderItemID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="80ba520a-b1fe-4618-9a25-50d79b336c97" ChangeDateTime="04/25/2020 16:11:30">
+    <Property Name="ElementName" Value="[dbo].[TblOrderItem].[menuItemId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[TblOrderItem]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="MenuItemId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="00f94039-9fd0-45bf-8860-178f42424c87" ChangeDateTime="04/25/2020 16:11:35">
+    <Property Name="ElementName" Value="[dbo].[TblOrderItem].[price]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[TblOrderItem]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Price" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="1f22701b-c217-4163-8462-70f32b9332d1" ChangeDateTime="04/25/2020 16:11:38">
+    <Property Name="ElementName" Value="[dbo].[TblOrderItem].[orderID]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[TblOrderItem]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="OrderID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="0e848f04-877d-46ca-a511-b4b14ae5d0e0" ChangeDateTime="04/25/2020 16:11:42">
+    <Property Name="ElementName" Value="[dbo].[TblOrderItem].[quantity]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[TblOrderItem]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Quantity" />
+  </Operation>
 </Operations>

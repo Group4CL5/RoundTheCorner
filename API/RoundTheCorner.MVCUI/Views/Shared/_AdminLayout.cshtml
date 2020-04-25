@@ -1,4 +1,10 @@
-﻿<!DOCTYPE html>
+﻿@{ 
+    if (!RoundTheCorner.MVCUI.Models.Authenticate.IsAdmin())
+    {
+        Response.Redirect("~/Home/Index");
+    }
+}
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -21,6 +27,7 @@
                         <!--Our layout in home-->
                         <li class="nav-item">
                             <a class="nav-link" runat="server" href="/Admin/Vendor">Vendor Information</a>
+                            <a class="nav-link" runat="server" href="/Admin/UserManagement">User Management</a>
                         </li>
                     </ul>
                 </div>

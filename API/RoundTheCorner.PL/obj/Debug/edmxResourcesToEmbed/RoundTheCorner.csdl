@@ -44,14 +44,6 @@
     <Property Name="VendorID" Type="Int32" Nullable="false" />
     <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="0" />
   </EntityType>
-  <EntityType Name="TblOrderItem">
-    <Key>
-      <PropertyRef Name="OrderItemID" />
-    </Key>
-    <Property Name="OrderItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="MenuItemId" Type="Int32" Nullable="false" />
-    <Property Name="Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-  </EntityType>
   <EntityType Name="TblReview">
     <Key>
       <PropertyRef Name="ReviewID" />
@@ -62,19 +54,6 @@
     <Property Name="Rating" Type="Int32" Nullable="false" />
     <Property Name="Subject" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-  </EntityType>
-  <EntityType Name="TblUser">
-    <Key>
-      <PropertyRef Name="UserID" />
-    </Key>
-    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="FirstName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="LastName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="DOB" Type="DateTime" Precision="0" />
-    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
-    <Property Name="Password" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Deactivated" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="TblVendorEmployee">
     <Key>
@@ -100,13 +79,13 @@
     <EntitySet Name="TblMenus" EntityType="Self.TblMenu" />
     <EntitySet Name="TblMenuItems" EntityType="Self.TblMenuItem" />
     <EntitySet Name="TblOrders" EntityType="Self.TblOrder" />
-    <EntitySet Name="TblOrderItems" EntityType="Self.TblOrderItem" />
     <EntitySet Name="TblReviews" EntityType="Self.TblReview" />
-    <EntitySet Name="TblUsers" EntityType="Self.TblUser" />
     <EntitySet Name="TblVendorEmployees" EntityType="Self.TblVendorEmployee" />
     <EntitySet Name="TblVendorLocations" EntityType="Self.TblVendorLocation" />
     <EntitySet Name="TblMenuSections" EntityType="RoundTheCornerModel.TblMenuSection" />
     <EntitySet Name="TblVendors" EntityType="RoundTheCornerModel.TblVendor" />
+    <EntitySet Name="TblUsers" EntityType="RoundTheCornerModel.TblUser" />
+    <EntitySet Name="TblOrderItems" EntityType="RoundTheCornerModel.TblOrderItem" />
   </EntityContainer>
   <EntityType Name="TblMenuSection">
     <Key>
@@ -130,5 +109,29 @@
     <Property Name="Bio" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Website" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Confirmed" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblUser">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="DOB" Type="DateTime" Precision="0" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="Deactivated" Type="Boolean" Nullable="false" />
+    <Property Name="Admin" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblOrderItem">
+    <Key>
+      <PropertyRef Name="OrderItemID" />
+    </Key>
+    <Property Name="OrderItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MenuItemId" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="OrderID" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
   </EntityType>
 </Schema>

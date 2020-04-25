@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cart.cs" />
     <Compile Include="CuisineModel.cs" />
     <Compile Include="ErrorViewModel.cs" />
     <Compile Include="MenuItemModel.cs" />

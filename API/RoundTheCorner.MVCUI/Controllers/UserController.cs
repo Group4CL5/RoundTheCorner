@@ -21,7 +21,7 @@ namespace RoundTheCorner.Controllers
                 UserModel userModel = new UserModel();
                 return View(userModel);
             }            
-            return RedirectToAction("FindFood", "Vendor");
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpPost]
@@ -31,7 +31,7 @@ namespace RoundTheCorner.Controllers
             try
             {
                 UserManager.Insert(user);
-                return RedirectToAction("FindFood", "Vendor");
+                return RedirectToAction("Login", "User");
             }
             catch (Exception)
             {
@@ -58,7 +58,7 @@ namespace RoundTheCorner.Controllers
 
                 return View();
             }
-            return RedirectToAction("FindFood", "Vendor");
+            return RedirectToAction("Index", "Home");
         }
 
         
@@ -71,7 +71,7 @@ namespace RoundTheCorner.Controllers
                 if (UserManager.Login(user))
                 {
                     Session["User"] = user;
-                    return RedirectToAction("FindFood", "Vendor");
+                    return RedirectToAction("Index", "Home");
                 }
 
                 ViewBag.LogInError = "Sorry no Soup for you.";

@@ -50,15 +50,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="TblOrderItems">
-      <EntityTypeMapping TypeName="RoundTheCornerModel.TblOrderItem">
-        <MappingFragment StoreEntitySet="TblOrderItem">
-          <ScalarProperty Name="OrderItemID" ColumnName="OrderItemID" />
-          <ScalarProperty Name="MenuItemId" ColumnName="MenuItemId" />
-          <ScalarProperty Name="Price" ColumnName="Price" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="TblReviews">
       <EntityTypeMapping TypeName="RoundTheCornerModel.TblReview">
         <MappingFragment StoreEntitySet="TblReview">
@@ -68,20 +59,6 @@
           <ScalarProperty Name="Rating" ColumnName="Rating" />
           <ScalarProperty Name="Subject" ColumnName="Subject" />
           <ScalarProperty Name="Body" ColumnName="Body" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="TblUsers">
-      <EntityTypeMapping TypeName="RoundTheCornerModel.TblUser">
-        <MappingFragment StoreEntitySet="TblUser">
-          <ScalarProperty Name="UserID" ColumnName="UserID" />
-          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-          <ScalarProperty Name="LastName" ColumnName="LastName" />
-          <ScalarProperty Name="DOB" ColumnName="DOB" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="Phone" ColumnName="Phone" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
-          <ScalarProperty Name="Deactivated" ColumnName="Deactivated" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -126,6 +103,32 @@
           <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
           <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
           <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblUsers">
+      <EntityTypeMapping TypeName="RoundTheCornerModel.TblUser">
+        <MappingFragment StoreEntitySet="TblUser">
+          <ScalarProperty Name="Admin" ColumnName="Admin" />
+          <ScalarProperty Name="Deactivated" ColumnName="Deactivated" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblOrderItems">
+      <EntityTypeMapping TypeName="RoundTheCornerModel.TblOrderItem">
+        <MappingFragment StoreEntitySet="TblOrderItem">
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="MenuItemId" ColumnName="MenuItemId" />
+          <ScalarProperty Name="OrderItemID" ColumnName="OrderItemID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

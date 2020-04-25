@@ -21,10 +21,10 @@ namespace RoundTheCorner.BL
 
             };
 
-            return Insert(order);
+            return true;
         }
 
-        public static bool Insert(OrderModel order)
+        public static OrderModel Insert(OrderModel order)
         {
             try
             {
@@ -35,11 +35,13 @@ namespace RoundTheCorner.BL
                         OrderID = rc.TblOrders.Any() ? rc.TblOrders.Max(u => u.OrderID) + 1 : 1,
                         VendorID = order.OrderID,
                         UserID= order.OrderID,                        
-                        OrderDate = order.OrderDate
+                        OrderDate = order.OrderDate                       
                     };
+
+                    order.OrderID = newRow.OrderID;
                     rc.TblOrders.Add(newRow);
                     rc.SaveChanges();
-                    return true;
+                    return order;
                 }
             }
             catch (Exception ex)

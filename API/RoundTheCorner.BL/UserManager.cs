@@ -39,6 +39,7 @@ namespace RoundTheCorner.BL
                                 user.LastName = tblUser.LastName;
                                 user.Deactivated = tblUser.Deactivated;
                                 user.DOB = (DateTime)tblUser.DOB;
+                                user.Admin = tblUser.Admin;
 
                                 return true;
                             }
@@ -69,10 +70,11 @@ namespace RoundTheCorner.BL
                 Email = "test@test.com",
                 FirstName = "test",
                 LastName = "testAccount",
-                Password = "123",
+                Password = "test",
                 DOB = new DateTime(1997, 09, 11),
                 Phone = "123-456-7890",
-                Deactivated = false
+                Deactivated = false,
+                Admin = false
             };
 
             return Insert(user);
@@ -93,7 +95,8 @@ namespace RoundTheCorner.BL
                         DOB = user.DOB,
                         Password = GetHash(user.Password).ToString(),
                         Phone = user.Phone,
-                        Deactivated = user.Deactivated
+                        Deactivated = user.Deactivated,
+                        Admin = user.Admin
                     };
                     rc.TblUsers.Add(newRow);
                     rc.SaveChanges();
@@ -150,7 +153,8 @@ namespace RoundTheCorner.BL
                                 LastName = tblUser.LastName,
                                 Email = tblUser.Email,
                                 DOB = (DateTime)tblUser.DOB,
-                                Deactivated = tblUser.Deactivated
+                                Deactivated = tblUser.Deactivated,
+                                Admin = tblUser.Admin
                             };
 
                             return user;
@@ -213,7 +217,7 @@ namespace RoundTheCorner.BL
                             tblUser.Email = user.Email;
                             tblUser.FirstName = user.FirstName;
                             tblUser.LastName = user.LastName;
-
+                            tblUser.Admin = user.Admin;
                             rc.SaveChanges();
                             return true;
                         }
@@ -247,6 +251,7 @@ namespace RoundTheCorner.BL
                         if (tblUser != null)
                         {
                             tblUser.Deactivated = true;
+                            tblUser.Admin = false;
                             rc.SaveChanges();
                             return true;
                         }
