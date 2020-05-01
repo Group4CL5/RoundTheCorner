@@ -41,26 +41,7 @@ namespace RoundTheCorner.Controllers
             if (Authenticate.IsAuthenticated())
             {
                 UserModel user = (UserModel)HttpContext.Session["User"];
-                OrderModel order = new OrderModel
-                {
-                    UserID = user.UserID,
-                    VendorID = msmi.VendorModel.VendorID,
-                    OrderDate = DateTime.Now
-                };
-                order = OrderManager.Insert(order);
-                foreach (var item in msmi.OrderItems )
-                {
-                    if (item.Quantity < 1)
-                    {
-                        msmi.OrderItems.Remove(item);
-                        continue;
-
-                    }
-                    item.OrderItemID = order.OrderID;
-                    item.Price = msmi.MenuItems.FirstOrDefault(m => m.ItemID == item.MenuItemID).Price * item.Quantity;
-                    OrderItemManager.Insert(item);
-
-                }
+                ShoppingCartManager.Checkout((Cart)HttpContext.Session["Cart"], user.UserID);
                 return RedirectToAction("Confirmed", "Menu");
             }
             return View();

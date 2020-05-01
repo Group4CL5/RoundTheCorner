@@ -18,10 +18,10 @@ namespace RoundTheCorner.BL
                 IsActive = true
             };
 
-            return Insert(menu);
+            return true;
         }
 
-        public static bool Insert(MenuModel menu)
+        public static MenuModel Insert(MenuModel menu)
         {
             try
             {
@@ -35,7 +35,10 @@ namespace RoundTheCorner.BL
                     };
                     rc.TblMenus.Add(newRow);
                     rc.SaveChanges();
-                    return true;
+                    MenuModel menuModel = new MenuModel();
+                    menuModel.MenuID = newRow.MenuID;
+                    return menuModel;
+                  
                 }
             }
             catch (Exception ex)
@@ -44,7 +47,7 @@ namespace RoundTheCorner.BL
             }
         }
 
-        public static bool Insert(int vendor)
+        public static MenuModel Insert(int vendor)
         {
             try
             {
@@ -58,7 +61,9 @@ namespace RoundTheCorner.BL
                     };
                     rc.TblMenus.Add(newRow);
                     rc.SaveChanges();
-                    return true;
+                    MenuModel menuModel = new MenuModel();
+                    menuModel.MenuID = newRow.MenuID;
+                    return menuModel;
                 }
             }
             catch (Exception ex)
@@ -138,31 +143,47 @@ namespace RoundTheCorner.BL
             }
         }
 
-        public static List<MenuModel> GetMenus()
+        public static List<MenuModel> GetVendorMenus(int id)
         {
             try
             {
-                using (RoundTheCornerEntities rc = new RoundTheCornerEntities())
+                if (id != 0)
                 {
-                    var tblMenu = rc.TblMenus.ToList();
-
-                    if (tblMenu != null)
+                    using (RoundTheCornerEntities rc = new RoundTheCornerEntities())
                     {
-                        List<MenuModel> menus = new List<MenuModel>();
+                        var tblMenu = rc.TblMenus.Where(u => u.VendorID == id).ToList();
 
-                        tblMenu.ForEach(u => menus.Add(new MenuModel { MenuID = u.MenuID, VendorID = u.VendorID, IsActive = u.IsActive }));
+                        if (tblMenu != null)
+                        {
+                            List<MenuModel> menuModel = new List<MenuModel>();
+                            foreach (var item in tblMenu)
+                            {
+                                MenuModel menu = new MenuModel
+                                {
+                                    MenuID = item.MenuID,
+                                    VendorID = item.VendorID,
+                                    IsActive = item.IsActive
+                                };
+                                menuModel.Add(menu);
+                            }
 
-                        return menus;
+
+                            return menuModel;
+                        }
+
+                        throw new Exception("Menu cannot be found");
                     }
-
-                    throw new Exception("There currently are no menus");
+                }
+                else
+                {
+                    throw new Exception("ID cannot be 0");
                 }
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-        }       
+        }
 
         public static bool Deactivate(int id)
         {

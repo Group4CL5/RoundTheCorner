@@ -45,6 +45,63 @@ namespace RoundTheCorner.Controllers
         public ActionResult PutVendor(VendorModel vendor) => View();
         public ActionResult DeactivateVendor(int vendorID) => View();
         public ActionResult VendorTracker(int vendorID) => View();
+        public ActionResult CreateMenu()
+        {
+            UserModel userModel = (UserModel)Session["User"];
+            MenuModel menuModel = new MenuModel()
+            {
+                VendorID = VendorManager.GetOwnerVendor(userModel.UserID).VendorID,
+                IsActive = false
+            };
+            menuModel = MenuManager.Insert(menuModel);
+            return RedirectToAction("EditMenu", "Vendor", new { menuID = menuModel.MenuID });
+        }
+        public ActionResult EditMenu(int ID)
+        {
+            MenuModel menuModel = MenuManager.GetMenu(ID);
+            MenuMenuItemViewModel mmivm = new MenuMenuItemViewModel()
+            {
+                Menu = menuModel,
+                MenuItems = MenuItemManager.GetMenuItems(menuModel.MenuID),
+                MenuSection = MenuSectionManager.GetMenuSections(menuModel.MenuID)
+            };
+                        
+            return View(mmivm);
+        }
+
+        public ActionResult CreateSection(int ID)
+        {
+            MenuSectionModel menuSectionModel = new MenuSectionModel();
+            menuSectionModel.MenuID = ID;
+            return View(menuSectionModel);
+        }
+
+        [HttpPost]
+        public ActionResult CreateSection(MenuSectionModel menuSectionModel, int id)
+        {
+            try
+            {
+                menuSectionModel.MenuID = id;
+                MenuSectionManager.Insert(menuSectionModel);
+                return RedirectToAction("EditMenu", "Vendor", new {ID = id});
+            }
+            catch (Exception)
+            {
+
+               return View(menuSectionModel);
+            }
+           
+        }
+        public ActionResult VendorMenus()
+        {
+            if (Authenticate.IsVendorOwner())
+            {
+                UserModel userModel = (UserModel)Session["User"];
+                List<MenuModel> menuModels = MenuManager.GetVendorMenus(VendorManager.GetOwnerVendor(userModel.UserID).VendorID);
+                return View(menuModels);
+            }
+            return RedirectToAction("Index", "Home");
+        }
 
     }
 }

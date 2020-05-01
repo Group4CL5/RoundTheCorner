@@ -124,6 +124,47 @@ namespace RoundTheCorner.BL
             }
         }
 
+        public static VendorModel GetOwnerVendor(int id)
+        {
+            try
+            {
+                if (id != 0)
+                {
+                    using (RoundTheCornerEntities rc = new RoundTheCornerEntities())
+                    {
+                        var tblVendor = rc.TblVendors.FirstOrDefault(v => v.OwnerID == id);
+
+                        if (tblVendor != null)
+                        {
+                            VendorModel vendor = new VendorModel
+                            {
+                                VendorID = tblVendor.VendorID,
+                                OwnerID = tblVendor.OwnerID,
+                                CompanyName = tblVendor.CompanyName,
+                                CompanyEmail = tblVendor.CompanyEmail,
+                                LicenseNumber = tblVendor.LicenseNumber,
+                                InspectionDate = tblVendor.InspectionDate,
+                                Bio = tblVendor.Bio,
+                                Website = tblVendor.Website
+                            };
+
+                            return vendor;
+                        }
+
+                        throw new Exception("Vendor cannot be found");
+                    }
+                }
+                else
+                {
+                    throw new Exception("ID cannot be 0");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public static List<VendorModel> GetActiveVendors()
         {
             try

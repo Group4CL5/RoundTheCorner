@@ -39,9 +39,9 @@ namespace RoundTheCorner.Controllers
                 VCLR.Add(new VendorCuisineLocationRating
                 {
                     Vendor = item,
-                    VendorLocation = VendorLocationManager.GetVendorLocation(item.VendorID),
+                    VendorLocation = VendorLocationManager.GetVendorLocations().Any(v => v.VendorID== item.VendorID) == false ? new VendorLocationModel(): VendorLocationManager.GetVendorLocation(item.VendorID),
                     Reviews = ReviewManager.GetReviews(item.VendorID),
-                    Cuisine = CuisineManager.GetCuisine(item.VendorID)
+                    Cuisine = CuisineManager.GetCuisines().Any(v => v.VendorID == item.VendorID) == false ? new CuisineModel() : CuisineManager.GetCuisine(item.VendorID)
 
                 });
             }

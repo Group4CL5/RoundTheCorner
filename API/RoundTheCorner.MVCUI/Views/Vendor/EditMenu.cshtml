@@ -1,0 +1,72 @@
+﻿@model RoundTheCorner.MVCUI.Models.ViewModels.MenuMenuItemViewModel
+@{
+    ViewBag.Title = "EditMenu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+    <div class="card card-body">
+        <h2>EditMenu</h2>
+        @Html.ActionLink("Create New Menu Section", "CreateSection", "Vendor", new { ID = Model.Menu.MenuID }, null)
+        <table class=" table table-sm table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Section Name</th>
+                    <th>Display Number</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (RoundTheCorner.BL.Models.MenuSectionModel s in Model.MenuSection)
+                {
+                    <tr>
+                        <td>
+                            @s.MenuSectionName
+
+                        </td>
+                        <td>
+                            @s.DisplayOrderNum
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit Section", "EditSection", "Vendor", new { ID = s.MenuSectionID }, null)
+                            @Html.ActionLink("Delete", "DeleteSection", "Vendor", new { ID = s.MenuSectionID }, null)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        @Html.ActionLink("Create New Item", "CreateItem", "Vendor", new { ID = Model.Menu.MenuID }, null)
+        <table class=" table table-sm table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Item Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>MenuSection</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (RoundTheCorner.BL.Models.MenuItemModel s in Model.MenuItems)
+                {
+                    <tr>
+                        <td>
+                            @s.ItemName
+
+                        </td>
+                        <td>
+                            @s.Description
+                        </td>
+                        <td>
+                            @s.Price
+                        </td>
+                        <td>
+                            @s.MenuSectionID
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit Item", "EditItem", "Vendor", new { ID = s.ItemName }, null)
+                            @Html.ActionLink("Delete", "DeleteItem", "Vendor", new { ID = s.ItemName }, null)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>

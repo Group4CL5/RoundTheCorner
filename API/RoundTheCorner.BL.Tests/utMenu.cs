@@ -19,8 +19,8 @@ namespace RoundTheCorner.BL.Tests
         [TestMethod]
         public void GetMenus()
         {
-            List<MenuModel> menus = MenuManager.GetMenus();
-            int expected = 2;
+            List<MenuModel> menus = MenuManager.GetVendorMenus(1);
+            int expected = 1;
 
             Assert.AreEqual(menus.Count, expected);
         }

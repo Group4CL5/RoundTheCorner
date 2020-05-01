@@ -1,0 +1,43 @@
+﻿@model IEnumerable<RoundTheCorner.BL.Models.MenuModel>
+@{
+    ViewBag.Title = "VendorMenus";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <div class="card card-body">
+        <h2>VendorMenus</h2>
+        @Html.ActionLink("Create New Menu", "CreateMenu", "Vendor")
+        <table class=" table table-sm table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Menu ID</th>
+                    <th>Active</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (RoundTheCorner.BL.Models.MenuModel s in Model)
+                {
+                    <tr>
+                        <td>
+                            @s.MenuID
+
+                        </td>
+                        <td>
+                            @s.IsActive
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "EditMenu", "Vendor", new { ID = s.MenuID }, null)
+                            @Html.ActionLink("Preview", "MenuDetails", "Menu", new { ID = s.VendorID }, null)
+                            @if (s.IsActive)
+                            {
+                                Html.ActionLink("Deactivate", "Deactivate", "Vendor", new { id = s.MenuID }, null);
+                            }
+                            else
+                            {
+                                Html.ActionLink("Activate", "Activate", "Vendor", new { id = s.MenuID }, null);
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>

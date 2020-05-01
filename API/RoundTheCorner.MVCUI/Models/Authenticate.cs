@@ -34,5 +34,27 @@ namespace RoundTheCorner.MVCUI.Models
                 return UserManager.GetUser(user.UserID).Admin;
             }
         }
+
+        public static bool IsVendorOwner()
+        {
+            UserModel user = (UserModel)HttpContext.Current.Session["User"];
+            
+            if (user == null)
+            {
+                return false;
+            }
+            else
+            {
+                VendorModel vendor = VendorManager.GetVendors().FirstOrDefault(v => v.OwnerID == user.UserID);
+                if (vendor == null)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+        }
     }
 }

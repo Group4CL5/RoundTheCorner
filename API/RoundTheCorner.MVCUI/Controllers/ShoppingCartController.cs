@@ -50,7 +50,8 @@ namespace RoundTheCorner.MVCUI.Controllers
         public ActionResult CheckOut()
         {
             GetShoppingCart();
-            ShoppingCartManager.Checkout(cart);
+            UserModel userModel = (UserModel)Session["User"];
+            ShoppingCartManager.Checkout(cart, userModel.UserID);
             return View();
         }
     }

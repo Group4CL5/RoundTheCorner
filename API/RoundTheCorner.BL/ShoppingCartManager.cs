@@ -4,16 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using RoundTheCorner.BL.Models;
+using System.Web;
 
 
 namespace RoundTheCorner.BL
 {
     public class ShoppingCartManager
     {
-        public static void Checkout(Cart cart)
+        public static void Checkout(Cart cart, int userID)
         {
             OrderModel order = new OrderModel();
-            order.UserID= 1;
+            
+            order.UserID= userID;
             order.OrderDate = DateTime.Now;
             order.VendorID = cart.VendorID;
             order = OrderManager.Insert(order);
