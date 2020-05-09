@@ -282,6 +282,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Authenticate.cs" />
+    <Compile Include="Models\ViewModels\ItemSectionViewModel.cs" />
     <Compile Include="Models\ViewModels\MenuMenuItemViewModel.cs" />
     <Compile Include="Models\ViewModels\MenuSectionMenuItems.cs" />
     <Compile Include="Models\ViewModels\VendorCuisineLocationRating.cs" />
@@ -449,6 +450,9 @@
     <Content Include="Views\Vendor\VendorMenus.cshtml" />
     <Content Include="Views\Vendor\EditMenu.cshtml" />
     <Content Include="Views\Vendor\CreateSection.cshtml" />
+    <Content Include="Views\Vendor\EditSection.cshtml" />
+    <Content Include="Views\Vendor\EditItem.cshtml" />
+    <Content Include="Views\Vendor\CreateItem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -16,6 +16,9 @@ namespace RoundTheCorner.Controllers
 
 
         // Diagrams for Project 8
+
+        #region vendor
+
         public ActionResult VendorRegistration()
         {
             if (Authenticate.IsAuthenticated()) return View();
@@ -38,13 +41,24 @@ namespace RoundTheCorner.Controllers
                return View();
             }
         }
+        public ActionResult PutVendor(VendorModel vendor) => View();
+        public ActionResult DeactivateVendor(int vendorID) => View();
+        public ActionResult VendorTracker(int vendorID) => View();
+
+        #endregion
+
+        #region Employee
+
         public ActionResult AddEmployee(int userID, int vendorID) => View();
         public ActionResult PutEmployee(int userID, int vendorID) => View();
         public ActionResult GetEmployee(int userID, int vendorID) => View();
         public ActionResult GetEmployees(int vendorID) => View();
-        public ActionResult PutVendor(VendorModel vendor) => View();
-        public ActionResult DeactivateVendor(int vendorID) => View();
-        public ActionResult VendorTracker(int vendorID) => View();
+
+        #endregion
+
+
+        #region menu
+
         public ActionResult CreateMenu()
         {
             UserModel userModel = (UserModel)Session["User"];
@@ -54,7 +68,7 @@ namespace RoundTheCorner.Controllers
                 IsActive = false
             };
             menuModel = MenuManager.Insert(menuModel);
-            return RedirectToAction("EditMenu", "Vendor", new { menuID = menuModel.MenuID });
+            return RedirectToAction("EditMenu", "Vendor", new { id = menuModel.MenuID });
         }
         public ActionResult EditMenu(int ID)
         {
@@ -92,6 +106,28 @@ namespace RoundTheCorner.Controllers
             }
            
         }
+
+        public ActionResult EditSection(int ID)
+        {
+            MenuSectionModel menuSectionModel = MenuSectionManager.GetMenuSection(ID);
+            return View(menuSectionModel);
+        }
+
+        [HttpPost]
+        public ActionResult EditSection(MenuSectionModel menuSectionModel, int id)
+        {
+            try
+            {
+                MenuSectionManager.Update(menuSectionModel);
+                return RedirectToAction("EditMenu", "Vendor", new { ID = menuSectionModel.MenuID });
+            }
+            catch (Exception)
+            {
+
+                return View(menuSectionModel);
+            }
+
+        }
         public ActionResult VendorMenus()
         {
             if (Authenticate.IsVendorOwner())
@@ -103,5 +139,50 @@ namespace RoundTheCorner.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        public ActionResult CreateItem(int id)
+        {
+            MenuItemModel menuItemModel = new MenuItemModel
+            {
+                MenuItem = id
+            };
+            return View(menuItemModel);
+        }
+
+        [HttpPost]
+        public ActionResult CreateItem(int ID, MenuItemModel item)
+        {
+            if (ModelState.IsValid)
+            {
+                MenuItemManager.Insert(item);
+                return RedirectToAction("EditMenu", "Vendor", new { id = item.MenuItem });
+            }
+            else
+            {
+                return View(item);
+            }
+        }
+
+        public ActionResult EditItem(int ID)
+        {
+            MenuItemModel item = MenuItemManager.GetMenuItem(ID);
+
+            return View(item);
+        }
+
+        [HttpPost]
+        public ActionResult EditItem(int ID, MenuItemModel item)
+        {
+            if (ModelState.IsValid)
+            {
+                MenuItemManager.Update(item);
+                return RedirectToAction("EditMenu", "Vendor", new { id = item.MenuItem });
+            }
+            else
+            {
+                return View(item);
+            }
+        }
+
+        #endregion
     }
 }

@@ -23,10 +23,10 @@ namespace RoundTheCorner.BL
 
             };
 
-            return Insert(menuItem);
+            return true;
         }
 
-        public static bool Insert(MenuItemModel menuItem)/*,int menuItem, string itemName,
+        public static MenuItemModel Insert(MenuItemModel menuItem)/*,int menuItem, string itemName,
             int price,string picture,string description,int menuSectionID)*/
         {
             try
@@ -45,7 +45,8 @@ namespace RoundTheCorner.BL
                     };
                     rc.TblMenuItems.Add(newRow);
                     rc.SaveChanges();
-                    return true;
+                    menuItem.ItemID = newRow.ItemID;
+                    return menuItem;
                 }
             }
             catch (Exception ex)

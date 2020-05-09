@@ -35,7 +35,7 @@
                             <tbody>
                                 @foreach (RoundTheCorner.BL.Models.MenuItemModel item in Model.MenuItems)
                                 {
-                                    if (item.MenuSectionID == s.MenuSectionID)
+                                    if (item.MenuSectionID == s.DisplayOrderNum)
                                     {
                                         <tr>
                                             <td>@item.ItemName</td>
