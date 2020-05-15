@@ -29,9 +29,6 @@
                             <li class="nav-item">
                                 <a class="nav-link" runat="server" href="/Home/AboutUs">About Us</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" runat="server" href="/">Find Food</a>
-                            </li>
                             @{ 
                                 if (!RoundTheCorner.MVCUI.Models.Authenticate.IsAuthenticated())
                                 {
@@ -63,7 +60,7 @@
                 @{
                     if (RoundTheCorner.MVCUI.Models.Authenticate.IsVendorOwner())
                     {
-                       @: - <a href = "/Vendor/VendorMenus" runat = "server" > Vendor Panel </a>
+                       @: - <a href = "/Vendor/Index" runat = "server" > Vendor Panel </a>
                     }
 					else
 					{

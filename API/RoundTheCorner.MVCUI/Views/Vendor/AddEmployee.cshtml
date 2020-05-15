@@ -1,0 +1,40 @@
+﻿@model RoundTheCorner.BL.Models.VendorEmployeeModel
+
+
+@{
+    ViewBag.Title = "AddEmployee";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card card-body">
+	<h2>AddEmployee</h2>
+
+	@using (Html.BeginForm())
+	{
+		@Html.AntiForgeryToken()
+
+		<div class="form-horizontal">
+			<h4>VendorEmployeeModel</h4>
+			<input type="hidden" name="UserID" value="@ViewBag.Vendor" />
+			<hr />
+			@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+			<div class="form-group">
+				Employee Name
+				<div class="col-md-10">
+					@Html.DropDownList("UserList")
+					@Html.ValidationMessageFor(model => model.UserID, "", new { @class = "text-danger" })
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-md-offset-2 col-md-10">
+					<input type="submit" value="Create" class="btn btn-default btn-primary" />
+				</div>
+			</div>
+		</div>
+	}
+
+	<div>
+		@Html.ActionLink("Back to List", "Index")
+	</div>
+</div>

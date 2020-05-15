@@ -44,7 +44,7 @@ namespace RoundTheCorner.Controllers
                 ShoppingCartManager.Checkout((Cart)HttpContext.Session["Cart"], user.UserID);
                 return RedirectToAction("Confirmed", "Menu");
             }
-            return View();
+            return RedirectToAction("Login", "User", new { returnurl = HttpContext.Request.Url.AbsolutePath });
         }
 
         public ActionResult Confirmed()

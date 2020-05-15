@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Vendor Panel - Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card card-body">
+	<h2>Vendor Panel - Index</h2>
+
+	<div class="row">
+		<div class="col-md-6 mb-4">
+			<div class="card">
+				<div class="card-header">
+					Employees
+				</div>
+
+				<div class="card-body">
+					<h5 class="card-title">Manage Your Employees</h5>
+					<p>Hire, Fire, or Edit your employees!</p>
+					@Html.ActionLink("Go There", "GetEmployees", "Vendor", new { @class = "btn btn-primary" })
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6 mb-4">
+			<div class="card ">
+				<div class="card-header">
+					Menus
+				</div>
+
+				<div class="card-body">
+					<h5 class="card-title">Manage Your Menus</h5>
+					<p>Add, edit, or deactivate your menus!</p>
+					@Html.ActionLink("Go There", "VendorMenus", "Vendor", new { @class = "btn btn-primary" })
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

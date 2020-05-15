@@ -1,0 +1,39 @@
+﻿@model IEnumerable<RoundTheCorner.MVCUI.Models.ViewModels.EmployeeVendorViewModel>
+
+@{
+    ViewBag.Title = "GetEmployees";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+	<div class="card card-body">
+
+		<h2>GetEmployees</h2>
+
+		<p>
+			@Html.ActionLink("Hire Employee", "AddEmployee")
+		</p>
+		<table class="table">
+			<tr>
+				<th>
+					Employee Name
+				</th>
+				<th></th>
+			</tr>
+
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>
+						@item.User.FirstName @item.User.LastName
+					</td>
+					<td>
+						@Html.ActionLink("Details", "GetEmployee", new { id = item.Employee.ID }) |
+						@Html.ActionLink("Fire", "FireEmployee", new { id = item.Employee.ID })
+					</td>
+				</tr>
+			}
+
+		</table>
+
+		@Html.ActionLink("Go Back", "Index", "Vendor", new { @class = "btn btn-primary" })
+	</div>
