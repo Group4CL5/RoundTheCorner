@@ -51,27 +51,34 @@ namespace RoundTheCorner.Controllers
 
         
 
-        public ActionResult LogIn()
+        public ActionResult LogIn(string returnurl)
         {
             if (!Authenticate.IsAuthenticated())
             {
 
                 return View();
             }
-            return RedirectToAction("Index", "Home");
+
+            if (string.IsNullOrEmpty(returnurl))
+                return RedirectToAction("Index", "Home");
+            else
+                return Redirect(returnurl);
         }
 
         
         [HttpPost]
         
-        public ActionResult LogIn(UserModel user)
+        public ActionResult LogIn(UserModel user, string returnurl)
         {
             try
             {
                 if (UserManager.Login(user))
                 {
                     Session["User"] = user;
-                    return RedirectToAction("Index", "Home");
+                    if (string.IsNullOrEmpty(returnurl))
+                        return RedirectToAction("Index", "Home");
+                    else
+                        return Redirect(returnurl);
                 }
 
                 ViewBag.LogInError = "Sorry no Soup for you.";

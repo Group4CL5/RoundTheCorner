@@ -107,13 +107,13 @@ namespace RoundTheCorner.BL
             }
         }
 
-        public static List<VendorEmployeeModel> GetVendorEmployee()
+        public static List<VendorEmployeeModel> GetVendorEmployees(int vendorId)
         {
             try
             {
                 using (RoundTheCornerEntities rc = new RoundTheCornerEntities())
                 {
-                    var tblVendorEmployee = rc.TblVendorEmployees.ToList();
+                    var tblVendorEmployee = rc.TblVendorEmployees.Where(v => v.VendorID == vendorId).ToList();
 
                     if (tblVendorEmployee != null)
                     {

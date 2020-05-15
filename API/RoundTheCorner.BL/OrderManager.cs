@@ -33,8 +33,8 @@ namespace RoundTheCorner.BL
                     PL.TblOrder newRow = new TblOrder()
                     {
                         OrderID = rc.TblOrders.Any() ? rc.TblOrders.Max(u => u.OrderID) + 1 : 1,
-                        VendorID = order.OrderID,
-                        UserID= order.OrderID,                        
+                        VendorID = order.VendorID,
+                        UserID= order.UserID,                        
                         OrderDate = order.OrderDate                       
                     };
 

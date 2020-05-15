@@ -1,34 +1,37 @@
 ﻿@model IEnumerable<RoundTheCorner.BL.Models.VendorModel>
 @{
-    ViewBag.Title = "Vendor";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+	ViewBag.Title = "Vendor";
+	Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <h2>Vendor</h2>
 
 <table class=" table table-sm table-striped table-bordered">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>License No.</th>
-            <th>Inspection Date</th>
-            <th>Confirmed</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @{
-            foreach (RoundTheCorner.BL.Models.VendorModel item in Model)
-            {
-                    <tr>
-                        <td>@item.CompanyName</td>
-                        <td>@item.LicenseNumber</td>
-                        <td>@item.InspectionDate</td>
-                        <td>@item.Confirmed</td>
-                        <td><a class="btn btn-secondary" href="/Admin/VendorManagement/@item.VendorID">Edit</a></td>
-                    </tr>                
-            }
-        }
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>License No.</th>
+			<th>Inspection Date</th>
+			<th>Confirmed</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		@{
+			foreach (RoundTheCorner.BL.Models.VendorModel item in Model)
+			{
+				<tr>
+					<td>@item.CompanyName</td>
+					<td>@item.LicenseNumber</td>
+					<td>@item.InspectionDate</td>
+					<td>@item.Confirmed</td>
+					<td><a class="btn btn-secondary" href="/Admin/VendorManagement/@item.VendorID">Edit</a></td>
+				</tr>
 
-    </tbody>
+			}
+		}
+
+	</tbody>
 </table>
+
+@Html.ActionLink("Go Back", "Index", "Admin", new { @class = "btn btn-primary" })

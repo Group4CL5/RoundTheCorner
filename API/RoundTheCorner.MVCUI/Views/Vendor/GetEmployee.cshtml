@@ -1,0 +1,29 @@
+﻿@model RoundTheCorner.MVCUI.Models.ViewModels.EmployeeVendorViewModel
+
+@{
+    ViewBag.Title = "GetEmployee";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card card-body">
+	<h2>GetEmployee</h2>
+
+	<div>
+		<h4>VendorEmployeeModel</h4>
+		<hr />
+		<dl class="dl-horizontal">
+			<dt>
+				Employee Name
+			</dt>
+
+			<dd>
+				@Model.User.FirstName @Model.User.LastName
+			</dd>
+
+		</dl>
+	</div>
+	<p>
+		@Html.ActionLink("Fire", "FireEmployee", new { id = Model.Employee.ID }) |
+		@Html.ActionLink("Back to List", "GetEmployees")
+	</p>
+</div>

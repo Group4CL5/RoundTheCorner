@@ -42,6 +42,7 @@ namespace RoundTheCorner.MVCUI.Controllers
         {
             GetShoppingCart();
             BL.Models.MenuItemModel menuItemModel = MenuItemManager.GetMenuItem(ID);
+            cart.VendorID = (MenuManager.GetMenu(menuItemModel.MenuItem)).VendorID;
             ShoppingCartManager.Add(cart, menuItemModel, quantity);
             Session["Cart"] = cart;
             return Redirect(returnURL);           
