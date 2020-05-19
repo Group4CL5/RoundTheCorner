@@ -16,14 +16,14 @@ namespace RoundTheCorner.BL.Tests
             Assert.IsTrue(result);
         }
 
-        [TestMethod]
-        public void GetVendorEmployees()
-        {
-            List<VendorEmployeeModel> vendorEmployees = VendorEmployeeManager.GetVendorEmployee();
-            int expected = 2;
+        //[TestMethod]
+        //public void GetVendorEmployees()
+        //{
+        //    List<VendorEmployeeModel> vendorEmployees = VendorEmployeeManager.GetVendorEmployee();
+        //    int expected = 2;
 
-            Assert.AreEqual(vendorEmployees.Count, expected);
-        }
+        //    Assert.AreEqual(vendorEmployees.Count, expected);
+        //}
 
         [TestMethod]
         public void Update()

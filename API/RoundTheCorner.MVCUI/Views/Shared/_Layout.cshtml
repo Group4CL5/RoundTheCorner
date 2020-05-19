@@ -24,28 +24,43 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                        <ul class="navbar-nav flex-grow-1">
-                            <!--Our layout in home-->
-                            <li class="nav-item">
-                                <a class="nav-link" runat="server" href="/Home/AboutUs">About Us</a>
-                            </li>
-                            @{ 
-                                if (!RoundTheCorner.MVCUI.Models.Authenticate.IsAuthenticated())
-                                {
-                                <li class="nav-item">
-                                   <a class="nav-link" runat="server" href="/User/Login">Login</a>
-                                 </li>
-                              }
-                                }
-                        </ul>
+						<ul class="navbar-nav flex-grow-1">
+							<!--Our layout in home-->
+							<li class="nav-item">
+								<a class="nav-link" runat="server" href="/Home/AboutUs">About Us</a>
+							</li>
+							@{
+								if (!RoundTheCorner.MVCUI.Models.Authenticate.IsAuthenticated())
+								{
+									<li class="nav-item">
+										<a class="nav-link" runat="server" href="/User/Login">Login</a>
+									</li>
+								}
+								else
+								{
+									<li class="nav-item">
+										<a class="nav-link" runat="server" href="/User/Logout">Logout</a>
+									</li>
+								}
+							}
+						</ul>
                     </div>
                 </div>
             </nav>
         </header>
-        <div class="container">
-            <main role="main" class="pb-3">
-                @RenderBody()
-            </main>
+        <div class="container" style="margin-top: 10px;">
+			<main role="main" class="pb-3">
+				@if (TempData["Message"] != null)
+				{
+					<div class="alert alert-success"> @TempData["Message"]</div>
+				}
+				@if (TempData["Error"] != null)
+				{
+					<div class="alert alert-danger"> @TempData["Error"]</div>
+				}
+
+				@RenderBody()
+			</main>
         </div>
 
         <footer class="border-top text-muted dark-footer">

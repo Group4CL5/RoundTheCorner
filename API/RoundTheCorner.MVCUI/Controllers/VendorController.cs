@@ -13,13 +13,20 @@ namespace RoundTheCorner.Controllers
 {
     public class VendorController : Controller
     {
-        public ActionResult Index() => View();
+        public ActionResult Index()
+        {
+            UserModel userModel = (UserModel)Session["User"];
+            if (VendorManager.GetOwnerVendor(userModel.UserID).Confirmed == false)
+                TempData["Error"] = "Your truck has yet to be confirmed by an administrator!";
+
+            return View();
+        }
 
         #region vendor
 
         public ActionResult VendorRegistration()
         {
-            if (Authenticate.IsAuthenticated()) return View();
+            if (Authenticate.IsAuthenticated() && !Authenticate.IsVendorOwner()) return View();
             else return RedirectToAction("Login", "User");
         }
         [HttpPost]
@@ -30,8 +37,8 @@ namespace RoundTheCorner.Controllers
                 UserModel user = (UserModel)Session["User"];
                 Vendor.OwnerID = user.UserID;
                 VendorManager.Insert(Vendor);
-                ViewBag.Success = "Thank you for registering. Your form is being reviewed.";
-                return View();
+                TempData["Message"] = "Thank you for registering. Your form is being reviewed.";
+                return RedirectToAction("Index", "Home");
             }
             catch (Exception ex)
             {
@@ -42,6 +49,51 @@ namespace RoundTheCorner.Controllers
         public ActionResult PutVendor(VendorModel vendor) => View();
         public ActionResult DeactivateVendor(int vendorID) => View();
         public ActionResult VendorTracker(int vendorID) => View();
+
+        public ActionResult Cuisine()
+        {
+            UserModel user = (UserModel)Session["User"];
+            CuisineModel cuisine = CuisineManager.GetVendorCuisine(VendorManager.GetOwnerVendor(user.UserID).VendorID);
+
+            if (cuisine != null)
+            {
+                return View(cuisine);
+            }
+            else
+            {
+                return View(new CuisineModel());
+            }
+        }
+
+        [HttpPost]
+        public ActionResult Cuisine(CuisineModel cuisine)
+        {
+            if (ModelState.IsValid)
+            {
+                UserModel user = (UserModel)Session["User"];
+                CuisineModel dbCuisine = CuisineManager.GetVendorCuisine(VendorManager.GetOwnerVendor(user.UserID).VendorID);
+
+                if (!string.IsNullOrEmpty(dbCuisine.CuisineName))
+                {
+                    cuisine.CuisineID = dbCuisine.CuisineID;
+                    cuisine.MenuID = dbCuisine.MenuID;
+                    cuisine.VendorID = dbCuisine.VendorID;
+                    CuisineManager.Update(cuisine);
+                    TempData["Message"] = "Cuisine was updated";
+                }
+                else
+                {
+                    cuisine.MenuID = 1;
+                    cuisine.VendorID = VendorManager.GetOwnerVendor(user.UserID).VendorID;
+                    CuisineManager.Insert(cuisine);
+                    TempData["Message"] = "Cuisine was added";
+                }
+
+                return RedirectToAction("VendorMenus", "Vendor");
+            }
+
+            return View(cuisine);
+        }
 
         #endregion
 
@@ -88,6 +140,7 @@ namespace RoundTheCorner.Controllers
         public ActionResult FireEmployee(int id, EmployeeVendorViewModel vm)
         {
             VendorEmployeeManager.Delete(id);
+            TempData["Message"] = "Employee has been fired";
             return RedirectToAction("GetEmployees", "Vendor");
         }
 
@@ -207,8 +260,13 @@ namespace RoundTheCorner.Controllers
             if (Authenticate.IsVendorOwner())
             {
                 UserModel userModel = (UserModel)Session["User"];
-                List<MenuModel> menuModels = MenuManager.GetVendorMenus(VendorManager.GetOwnerVendor(userModel.UserID).VendorID);
-                return View(menuModels);
+
+                MenusCuisineViewModel mcvm = new MenusCuisineViewModel()
+                {
+                    Menus = MenuManager.GetVendorMenus(VendorManager.GetOwnerVendor(userModel.UserID).VendorID),
+                    Cuisine = CuisineManager.GetVendorCuisine(VendorManager.GetOwnerVendor(userModel.UserID).VendorID)
+                };
+                return View(mcvm);
             }
             return RedirectToAction("Index", "Home");
         }

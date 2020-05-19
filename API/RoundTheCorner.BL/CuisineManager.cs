@@ -106,6 +106,44 @@ namespace RoundTheCorner.BL
                 throw ex;
             }
         }
+
+        public static CuisineModel GetVendorCuisine(int id)
+        {
+            try
+            {
+                if (id != 0)
+                {
+                    using (RoundTheCornerEntities rc = new RoundTheCornerEntities())
+                    {
+                        var tblCuisine = rc.TblCuisines.FirstOrDefault(u => u.VendorID == id);
+
+                        if (tblCuisine != null)
+                        {
+                            CuisineModel cuisine = new CuisineModel
+                            {
+                                CuisineID = tblCuisine.CuisineID,
+                                VendorID = tblCuisine.VendorID,
+                                MenuID = tblCuisine.MenuID,
+                                CuisineName = tblCuisine.CuisineName
+                            };
+
+                            return cuisine;
+                        }
+
+                        return new CuisineModel();
+                    }
+                }
+                else
+                {
+                    throw new Exception("ID cannot be 0");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public static bool Update(CuisineModel cuisine)
         {
             try

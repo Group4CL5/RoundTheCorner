@@ -31,7 +31,7 @@
             @{
                 foreach (RoundTheCorner.MVCUI.Models.ViewModels.VendorCuisineLocationRating item in Model)
                 {
-                    if (ViewBag.Cuisine == null || ViewBag.Cuisine == item.Cuisine.CuisineName)
+                    if (ViewBag.Cuisine == null || item.Cuisine.CuisineName.ToLower().Contains(ViewBag.Cuisine))
                     {
                     
                         <tr>

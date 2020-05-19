@@ -285,6 +285,7 @@
     <Compile Include="Models\ViewModels\EmployeeVendorViewModel.cs" />
     <Compile Include="Models\ViewModels\ItemSectionViewModel.cs" />
     <Compile Include="Models\ViewModels\MenuMenuItemViewModel.cs" />
+    <Compile Include="Models\ViewModels\MenusCuisineViewModel.cs" />
     <Compile Include="Models\ViewModels\MenuSectionMenuItems.cs" />
     <Compile Include="Models\ViewModels\VendorCuisineLocationRating.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -460,6 +461,8 @@
     <Content Include="Views\Vendor\GetEmployee.cshtml" />
     <Content Include="Views\Vendor\AddEmployee.cshtml" />
     <Content Include="Views\Vendor\FireEmployee.cshtml" />
+    <Content Include="Views\User\Logout.cshtml" />
+    <Content Include="Views\Vendor\Cuisine.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

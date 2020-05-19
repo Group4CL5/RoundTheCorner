@@ -4,7 +4,7 @@
     [CompanyName]    NVARCHAR (25) NOT NULL,
     [CompanyEmail]   NVARCHAR (25) NULL,
     [LicenseNumber]  INT           NOT NULL,
-    [InspectionDate] DATE          NOT NULL,
+    [InspectionDate] DATETIME          NOT NULL,
     [Bio]            NTEXT         NULL,
     [Website]        NVARCHAR (50) NULL, 
 

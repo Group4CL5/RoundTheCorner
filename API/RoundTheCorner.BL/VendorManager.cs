@@ -43,7 +43,8 @@ namespace RoundTheCorner.BL
                         LicenseNumber = vendor.LicenseNumber,
                         InspectionDate = vendor.InspectionDate,
                         Bio = vendor.Bio,
-                        Website = vendor.Website
+                        Website = vendor.Website,
+                        Confirmed = false
                     };
                     rc.TblVendors.Add(newRow);
                     rc.SaveChanges();
@@ -68,9 +69,10 @@ namespace RoundTheCorner.BL
                         OwnerID = OwnerID,
                         CompanyName = CompanyName,
                         CompanyEmail = CompanyEmail,
-                        InspectionDate = InspectionDate, 
-                        Bio = Bio, 
-                        Website = Website
+                        InspectionDate = InspectionDate,
+                        Bio = Bio,
+                        Website = Website,
+                        Confirmed = false
                     };
                     rc.TblVendors.Add(newRow);
                     rc.SaveChanges();
@@ -104,7 +106,8 @@ namespace RoundTheCorner.BL
                                 LicenseNumber = tblVendor.LicenseNumber,
                                 InspectionDate = tblVendor.InspectionDate,
                                 Bio = tblVendor.Bio,
-                                Website = tblVendor.Website
+                                Website = tblVendor.Website,
+                                Confirmed = tblVendor.Confirmed
                             };
 
                             return vendor;
@@ -145,7 +148,8 @@ namespace RoundTheCorner.BL
                                 LicenseNumber = tblVendor.LicenseNumber,
                                 InspectionDate = tblVendor.InspectionDate,
                                 Bio = tblVendor.Bio,
-                                Website = tblVendor.Website
+                                Website = tblVendor.Website,
+                                Confirmed = tblVendor.Confirmed
                             };
 
                             return vendor;

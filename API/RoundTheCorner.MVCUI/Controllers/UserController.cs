@@ -35,8 +35,8 @@ namespace RoundTheCorner.Controllers
             }
             catch (Exception)
             {
-
-                return View();
+                TempData["Error"] = "Registration failed";
+                return View(user);
             }
             
         }
@@ -81,14 +81,35 @@ namespace RoundTheCorner.Controllers
                         return Redirect(returnurl);
                 }
 
-                ViewBag.LogInError = "Sorry no Soup for you.";
+                TempData["Error"] = "Sorry no Soup for you.";
                 return View(user);
             }
             catch (Exception ex)
             {
-                ViewBag.LogInError = ex.Message;
+                TempData["Error"] = ex.Message;
                 return View(user);
             }               
+        }
+
+        public ActionResult Logout() 
+        {
+            if (Authenticate.IsAuthenticated())
+            {
+                UserModel user = (UserModel)Session["User"];
+                return View(user);
+            }
+            else
+            {
+                return RedirectToAction("Login", "User");
+            }
+        }
+
+        [HttpPost]
+        public ActionResult Logout(UserModel um)
+        {
+            Session["User"] = null;
+            TempData["Message"] = "You have been succesfully logged out!";
+            return RedirectToAction("Index", "Home");
         }
     }
 }

@@ -92,11 +92,11 @@ namespace RoundTheCorner.MVCUI.Controllers
         public ActionResult VendorManagement(int id, bool? Confirm)
         {
            VendorModel vendor = VendorManager.GetVendor(id);             
-            if (Confirm != null && Confirm == true)
+            if (Confirm != null && (Confirm == true || Confirm == false))
             {
                 try
                 {
-                    vendor.Confirmed = true;
+                    vendor.Confirmed = (bool)Confirm;
                     VendorManager.Update(vendor);
                     return RedirectToAction("Vendor");
                 }

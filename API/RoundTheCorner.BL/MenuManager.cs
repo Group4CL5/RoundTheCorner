@@ -129,7 +129,7 @@ namespace RoundTheCorner.BL
                             return menu;
                         }
 
-                        throw new Exception("Menu cannot be found");
+                        return new MenuModel();
                     }
                 }
                 else

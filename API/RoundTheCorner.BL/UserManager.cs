@@ -44,7 +44,7 @@ namespace RoundTheCorner.BL
                                 return true;
                             }
 
-                            return false;
+                            throw new Exception("Email/Password combination doesn't match any users");
                         }
                     }
                     else

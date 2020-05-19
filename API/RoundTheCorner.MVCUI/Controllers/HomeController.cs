@@ -28,10 +28,8 @@ namespace RoundTheCorner.Controllers
             List<VendorModel> Vendors = VendorManager.GetActiveVendors();
 
             if (!string.IsNullOrEmpty(Cuisine))
-
             {
-
-                ViewBag.Cuisine = Cuisine;
+                ViewBag.Cuisine = Cuisine.ToLower();
             }
 
             foreach (VendorModel item in Vendors)
@@ -41,7 +39,7 @@ namespace RoundTheCorner.Controllers
                     Vendor = item,
                     VendorLocation = VendorLocationManager.GetVendorLocations().Any(v => v.VendorID== item.VendorID) == false ? new VendorLocationModel(): VendorLocationManager.GetVendorLocation(item.VendorID),
                     Reviews = ReviewManager.GetReviews(item.VendorID),
-                    Cuisine = CuisineManager.GetCuisines().Any(v => v.VendorID == item.VendorID) == false ? new CuisineModel() : CuisineManager.GetCuisine(item.VendorID)
+                    Cuisine = CuisineManager.GetCuisines().Any(v => v.VendorID == item.VendorID) == false ? new CuisineModel() : CuisineManager.GetVendorCuisine(item.VendorID)
 
                 });
             }
